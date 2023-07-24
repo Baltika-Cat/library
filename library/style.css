@@ -232,9 +232,9 @@ nav {
 .seasons {
     display: flex;
     width: 700px;
-    gap: 90px;
-    margin-top: 40px;
-    margin-left: 20px;
+    gap: 81px;
+    margin-top: 30px;
+    margin-left: 15px;
     justify-content: space-between;
     align-items: center;
 }    
@@ -248,30 +248,36 @@ nav {
     display: inline-flex;
     cursor: pointer;
     position: relative;
-    padding-left: 37px;
+    padding-left: 42px;
     margin-right: 0;
+    padding-right: 5px;
+    padding-top: 5px;
     font-family: Inter;
     color: black;
     font-size: 20px;
     user-select: none;
+    height: 34px;
+    align-items: center;
 }
 
-.seasons label:before {
+
+.seasons span:before {
     content: "";
     display: inline-block;
     width: 17px;
     height: 17px;
     position: absolute;
-    left: 0;
-    bottom: 2px;
+    left: 5px;
+    bottom: 7px;
     background: url(images/radio.svg) 0 0 no-repeat;
 }
 
-.seasons input[type=radio]:checked + label {
+.seasons input[type=radio]:checked + span {
     font-weight: 700;
 }
 
-.seasons input[type=radio]:checked + label:before {
+.seasons input[type=radio]:checked + span:before {
+    content: "";
     background: url(images/radioActive.svg) 0 0 no-repeat;
 }
 
@@ -284,7 +290,7 @@ nav {
     justify-content: space-between;
     align-items: stretch;
     align-content: stretch;
-    margin-top: 40px;
+    margin-top: 35px;
 }
 
 .firstBook, .secondBook, .thirdBook, .fourthBook {
@@ -359,11 +365,37 @@ nav {
     margin-top: 20px;
 }
 
+span.bookButton {
+    display: flex;
+    position: relative;
+    margin: auto auto 15px 20px;
+}
+
 .bookBorder button {
-    overflow: visible;
     width: 75px;
     height: 30px;
-    position: absolute;
-    bottom: 15;
-    left: 20;
-}    
+    font-family: Inter;
+    text-align: center;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    background-color: transparent;
+    cursor: pointer;
+}   
+
+button.buy {
+    color: #0C0C0E;
+    border: 1px solid #0C0C0E;
+    border-radius: 2px;
+}
+
+button.buy:hover {
+    background-color: #ccc;
+    transition: 1.5s;
+}
+
+button.own {
+    color: #BB945F;
+    border: 1px solid #BB945F;
+    border-radius: 2px;
+}
