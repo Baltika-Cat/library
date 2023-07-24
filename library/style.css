@@ -7,8 +7,11 @@ font-family: "Forum";
     src: url(fonts/Forum-Regular.ttf);
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    width: 1440px;
     margin: 0 auto;
 }
 
@@ -19,6 +22,9 @@ header {
     display: flex;
     text-align: center;
     align-items: center;
+    width: 100%;
+    position: relative;
+    left: 0;
 }
 
 h1 {
@@ -66,9 +72,7 @@ nav {
 }
 
 #navigation a:hover {
-    background: white;
-    color: #0C0C0E;
-    transition: 0.9s;
+    text-decoration: underline;
 }
 
 #logotype {
@@ -77,25 +81,47 @@ nav {
     height: 28px;
 }
 
+div.centerHeader {
+    display: flex;
+    width: 1440px;
+    margin: 0 auto;
+    text-align: center;
+    align-items: center;
+}
+
+div.centerWelcome {
+    display: flex;
+    width: 1440px;
+    margin: 0 auto;
+}
+
+section.about, section.favorites, section.coffeeShop, section.contacts, section.libraryCards {
+    width: 1440px;
+    margin: 0 auto;
+}
+
 .welcome {
     display: flex;
+    width: initial;
     background-image: url(images/Welcome.svg);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
     height: 600px;
     margin-top: auto;
+    position: relative;
+    width: 100%;
 }
 
 .welcome:before {
     content: "";
     position: absolute;
-    top: 90px;
+    top: 0;
     right: auto;
     bottom: 0;
     left: auto;
     background: linear-gradient(to bottom, #0C0C0E 0%, #0C0C0E 0.01%, rgba(18,18, 21, 0.1) 100%);
-    width: 1440px;
+    width: 100%;
     height: 300px;
 }
 
@@ -117,7 +143,7 @@ nav {
     justify-items: center;;
     text-align: center;
     align-items: center;
-    border: 35px 40px 35px 40px solid #0C0C0E;
+    /*border: 35px 40px 35px 40px solid #0C0C0E;*/
 }
 
 .about {
@@ -125,8 +151,7 @@ nav {
     height: 837px;
 }
 
-#about {
-    margin-top: 20px;
+h2 {
     font-family: Forum;
     font-size: 40px;
     font-style: normal;
@@ -138,13 +163,17 @@ nav {
     text-transform: capitalize;
 }
 
-#about:after {
+h2:after {
     content: "";
     display: block;
     width: 50px;
     height: 1px;
     background: #0C0C0E;
     margin: 20px auto auto auto;
+}
+
+#about {
+    margin-top: 20px;
 }
 
 #aboutText {
@@ -211,13 +240,8 @@ nav {
     text-transform: capitalize;
 }
 
-#favorites:after {
-    content: "";
-    display: block;
-    width: 50px;
-    height: 1px;
-    background: #0C0C0E;
-    margin: 20px auto auto auto;
+#favorites {
+    margin-top: 0;
 }
 
 #favoritesText {
@@ -231,11 +255,10 @@ nav {
 
 .seasons {
     display: flex;
-    width: 700px;
-    gap: 81px;
+    justify-content: flex-start;
+    gap: 78px;
     margin-top: 30px;
-    margin-left: 15px;
-    justify-content: space-between;
+    margin-left: 12px;
     align-items: center;
 }    
 
@@ -248,7 +271,7 @@ nav {
     display: inline-flex;
     cursor: pointer;
     position: relative;
-    padding-left: 42px;
+    padding-left: 45px;
     margin-right: 0;
     padding-right: 5px;
     padding-top: 5px;
@@ -260,6 +283,10 @@ nav {
     align-items: center;
 }
 
+.seasons span {
+    position: relative;
+}
+
 
 .seasons span:before {
     content: "";
@@ -267,8 +294,8 @@ nav {
     width: 17px;
     height: 17px;
     position: absolute;
-    left: 5px;
-    bottom: 7px;
+    left: -38px;
+    bottom: 2px;
     background: url(images/radio.svg) 0 0 no-repeat;
 }
 
@@ -288,9 +315,9 @@ nav {
     margin-left: 20px;
     flex-wrap: wrap;
     justify-content: space-between;
-    align-items: stretch;
-    align-content: stretch;
+    align-content: space-between;
     margin-top: 35px;
+    padding-bottom: 0;
 }
 
 .firstBook, .secondBook, .thirdBook, .fourthBook {
@@ -305,7 +332,7 @@ nav {
 .bookBorder {
     display: flex;
     flex-direction: column;
-    width: 550px;
+    width: 549px;
     height: 555px;
     border: 1px solid black;
     margin: 0;
@@ -319,8 +346,8 @@ nav {
     line-height: 40px;
     letter-spacing: 2px;
     text-transform: capitalize;
-    margin-left: 20px;
-    margin-top: 15px;
+    margin-left: 19px;
+    margin-top: 14px;
     margin-bottom: 0;
 }
 
@@ -339,8 +366,8 @@ nav {
     font-weight: 700;
     line-height: 40px;
     letter-spacing: 2px;
-    margin-left: 20px;
-    margin-top: 20px;
+    margin-left: 19px;
+    margin-top: 21px;
     margin-bottom: 0;
 }
 
@@ -361,14 +388,14 @@ nav {
     line-height: 40px;
     letter-spacing: 2px;
     text-transform: capitalize;
-    margin-left: 20px;
+    margin-left: 19px;
     margin-top: 20px;
 }
 
 span.bookButton {
     display: flex;
     position: relative;
-    margin: auto auto 15px 20px;
+    margin: auto auto 15px 19px;
 }
 
 .bookBorder button {
@@ -380,22 +407,36 @@ span.bookButton {
     font-weight: 700;
     letter-spacing: 1px;
     background-color: transparent;
-    cursor: pointer;
 }   
+
+.bookBorder p {
+    text-transform: capitalize;
+}
 
 button.buy {
     color: #0C0C0E;
     border: 1px solid #0C0C0E;
     border-radius: 2px;
+    cursor: pointer;
+    transition: 1s ease;
 }
 
 button.buy:hover {
-    background-color: #ccc;
-    transition: 1.5s;
+    background-color: #BB945F;
+    border: 1px solid #BB945F;
+    transition: 1s ease;
 }
 
 button.own {
     color: #BB945F;
     border: 1px solid #BB945F;
     border-radius: 2px;
+}
+
+.noneBooks {
+    display: none;
+}
+
+#coffeeShop {
+    margin-top: 0;
 }
