@@ -437,6 +437,229 @@ button.own {
     display: none;
 }
 
+section.coffeeShop {
+    display: flex;
+    flex-direction: column;
+    width: 1440px;
+    padding: 0 20px 40px 20px;
+}
+
 #coffeeShop {
     margin-top: 0;
+    margin-bottom: 0;
+}
+
+#coffeeShopText {
+    width: 1400px;
+    color: black;
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 40px;
+    letter-spacing: 2px;
+    text-align: center;
+    margin-top: 40px;
+    margin-left: 20px;
+}
+
+table {
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+.menu {
+    display: flex;
+    width: 1400px;
+    height: 520px;
+    justify-content: space-between;
+    margin: 20px auto auto 20px;
+}
+
+caption {
+    color: #BB945F;
+    font-family: Forum;
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 40px;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+}
+
+#coffeeTitle {
+    text-align:left;
+}
+
+#dessertsTitle {
+    text-align: right;
+}
+
+td {
+    padding: 40px 0px 0px 0px;
+}
+
+td.item {
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 40px;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+}
+
+td.price {
+    color: black;
+    font-family: Forum;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 40px;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+}
+
+.line hr {
+    width: 100px;
+    height: 1px;
+    background: #BB945F;
+    border: none;
+    margin-left: 58px;
+    margin-right: 58px;
+}
+
+table.coffee {
+    text-align: left;
+}
+
+table.desserts {
+    text-align: right;
+}
+
+td.price {
+    text-align: center;
+}
+
+section.contacts {
+    display: flex;
+    flex-direction: column;
+    width: 1440px;
+    height: 575px;
+    padding: 0px 20px 0px 20px;
+}
+
+#contacts {
+    margin-top: 20px;
+    margin-bottom: 0px;
+}
+
+.contactsColumns {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+.phones {
+    margin-left: 20px;
+}
+
+.phones p {
+    font-family: Inter;
+    font-size: 20px;
+    color: black;
+    line-height: 40px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+}
+
+.phones a {
+    text-decoration: none;
+    color: black;
+}
+
+#contactPhonesTitle {
+    font-weight: 700;
+    margin-top: 0px;
+    margin-bottom: 40px;
+}
+
+.staff {
+    margin-top: 40px;
+    margin-left: 20px;
+}
+
+.staff p {
+    font-family: Inter;
+    font-size: 20px;
+    color: black;
+    line-height: 40px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+}
+
+#seniorStaff {
+    font-weight: 700;
+}
+
+.seniorStaff a {
+    text-decoration: none;
+    font-weight: 700;
+    color: black;
+}
+
+.contactsMap {
+    margin-right: 20px;
+}
+
+section.libraryCards {
+    display: flex;
+    flex-direction: column;
+    width: 1440px;
+    height: 614px;
+    margin: 0px auto 0px auto;
+    position: relative;
+}
+
+#libraryCards {
+    margin-top: 20px;
+}
+
+.findCard {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    height: 453px;
+    position: absolute;
+    top: 121px;
+    left: 20px;
+}
+
+.getCard {
+    display: flex;
+    flex-direction: column;
+    width: 456px;
+    height: 253px;
+    margin-right: 0px;
+    position: absolute;
+    top: 121px;
+    right: 20px;
+}
+
+.libraryCards h3 {
+    font-size: 30px;
+    color: black;
+    font-weight: 400;
+    letter-spacing: 0.6px;
+}
+
+#findCard {
+    font-family: Inter;
+    margin-top: 0px;
+    text-align: center;
+}
+
+#getCardTitle {
+    font-family: Forum;
+    margin-top: 0px;
+    margin-right: 0px;
+    text-align: right;
 }
