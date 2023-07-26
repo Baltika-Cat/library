@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/favicon.png">
     <title>Library</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -117,7 +118,7 @@
                             Auerbach's Engaging Book Places The 'Comedy' Within The Tradition Of Epic,
                             Tragedy, And Philosophy In General, Arguing For Dante's Uniqueness As One
                             Who Raised The Individual And His Drama Of Soul Into Something Of Divine 
-                            Significance - An Inspired Introduction To Dante's Main Themes.
+                            Significance&mdash;An Inspired Introduction To Dante's Main Themes.
                         </p>
                         <span class="bookButton">
                             <button name="dante" class="buy">Buy</button>
@@ -445,9 +446,9 @@
                 <div class="findCardForm">
                     <form action="index.html" method="get" id="findCardForm">
                         <div class="goldBackground">
-                            <p class="findCardForm">Brooklyn Public Library</p>
-                            <input type="text" name="name" placeholder="Reader's name">
-                            <input type="number" name="number" placeholder="Card number">
+                            <p id="findCardFormTitle">Brooklyn Public Library</p>
+                            <input type="text" name="name" placeholder="Reader's name" id="nameInput">
+                            <input type="number" name="number" placeholder="Card number" id="passwordInput">
                         </div>
                         <button name="checkCard" class="checkCard">Check the card</button>
                     </form>    
@@ -466,27 +467,29 @@
          </section>
     </main>
     <footer class="footer">
-        <div class="footerTop">
-            <div class="footerTopLeft">
-                <p id="footerAddress">
-                    <a href="https://www.google.com/maps/dir//286+Cadman+Plaza+W,+Brooklyn,+NY+11201,+США/@40.695792,-73.9919481,19z/data=!4m8!4m7!1m0!1m5!1m1!1s0x89c25a49b649b8c3:0x6342a2291cea2e!2m2!1d-73.9912976!2d40.6956458?entry=ttu">286 Cadman Plaza, New York,<br>NY 11238, United States</a>
-                </p>
-                <ul id=socialNetwork>
-                    <li><a href="https://twitter.com/brklib"><img src="images/twitter.svg" alt="Twitter"></a></li>
-                    <li><a href="https://www.instagram.com/brklib/"><img src="images/instagram.svg" alt="Instagram"></a></li>
-                    <li><a href="https://www.facebook.com/brklib/"><img src="images/facebook.svg" alt="Facebook"></a></li>
-                </ul>
+        <div class="footerCenter">
+            <div class="footerTop">
+                <div class="footerTopTop">
+                    <p id="footerAddress">
+                        <a href="https://www.google.com/maps/dir//286+Cadman+Plaza+W,+Brooklyn,+NY+11201,+США/@40.695792,-73.9919481,19z/data=!4m8!4m7!1m0!1m5!1m1!1s0x89c25a49b649b8c3:0x6342a2291cea2e!2m2!1d-73.9912976!2d40.6956458?entry=ttu">286 Cadman Plaza, New York,<br>NY 11238, United States</a>
+                    </p>
+                    <p class="week">Mon - Fri<br>08:00 am - 07:00 pm</p>
+                </div>
+                <div class="footerTopBottom">
+                    <ul id=socialNetwork>
+                        <li><a href="https://twitter.com/brklib"><img src="images/twitter.svg" alt="Twitter"></a></li>
+                        <li><a href="https://www.instagram.com/brklib/"><img src="images/instagram.svg" alt="Instagram"></a></li>
+                        <li><a href="https://www.facebook.com/brklib/"><img src="images/facebook.svg" alt="Facebook"></a></li>
+                    </ul>
+                    <p class="week">Sat - Sun<br>10:00 am - 06:00 pm</p>
+                </div>
             </div>
-            <div class="footerTopRight">
-                <p id="week">Mon-Fri<br>08:00 am - 07:00 pm</p>
-                <p id="weekend">Sat-Sun<br>10:00 am - 06:00 pm</p>
+            <hr id="footerLine">
+            <div class="footerBottom">
+                <p id="year">2023</p>
+                <p id="school"><a href="https://rs.school/js-stage0/">The Rolling Scopes School</a></p>
+                <p id="github"><a href="https://github.com/Baltika-Cat">Brashkin Dmitry</a></p>
             </div>
-        </div>
-        <hr id="footerLine">
-        <div class="footerBottom">
-            <p id="year">2023</p>
-            <p id="school"><a href="https://rs.school/js-stage0/">The Rolling Scopes School</a></p>
-            <p id="github"><a href="https://github.com/Baltika-Cat">Brashkin Dmitry</a></p>
         </div>
     </footer>
 </body>
