@@ -889,7 +889,7 @@ div.footerTopBottom {
     width: 1400px;
     height: 1px;
     background: white;
-    margin: 30px 20px 0px 20px;
+    margin: 28px 20px 0px 20px;
 }
 
 div.footerBottom {
@@ -911,6 +911,7 @@ div.footerBottom {
     position: absolute;
     left: 0px;
     color: white;
+    top: -3px;
 }
 
 .footerBottom a {
