@@ -12,6 +12,9 @@ html {
 }
 
 body {
+    display: flex;
+    flex-direction: column;
+    width: 1440px;
     margin: 0 auto;
 }
 
@@ -443,7 +446,7 @@ section.coffeeShop {
     display: flex;
     flex-direction: column;
     width: 1440px;
-    padding: 0 20px 40px 20px;
+    padding: 0 20px 40px 0px;
 }
 
 #coffeeShop {
@@ -544,7 +547,7 @@ section.contacts {
     flex-direction: column;
     width: 1440px;
     height: 575px;
-    padding: 0px 20px 0px 20px;
+    padding: 0px 20px 0px 0px;
 }
 
 #contacts {
