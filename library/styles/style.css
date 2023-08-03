@@ -1,10 +1,10 @@
 @font-face {
     font-family: "Inter";
-    src: url(fonts/Inter-V.ttf);
+    src: url(../fonts/Inter-V.ttf);
 }
 @font-face {
 font-family: "Forum";
-    src: url(fonts/Forum-Regular.ttf);
+    src: url(../fonts/Forum-Regular.ttf);
 }
 
 html {
@@ -14,7 +14,9 @@ html {
 body {
     display: flex;
     flex-direction: column;
-    width: 1440px;
+    min-width: 985px;
+    max-width: 1440px;
+    width: 100%;
     margin: 0 auto;
 }
 
@@ -87,7 +89,7 @@ nav {
 
 div.centerHeader {
     display: flex;
-    width: 1440px;
+    width: 100%;
     margin: 0 auto;
     text-align: center;
     align-items: center;
@@ -95,19 +97,19 @@ div.centerHeader {
 
 div.centerWelcome {
     display: flex;
-    width: 1440px;
+    width: 100%;
     margin: 0 auto;
 }
 
 section.about, section.favorites, section.coffeeShop, section.contacts, section.libraryCards {
-    width: 1440px;
+    width: 100%;
     margin: 0 auto;
 }
 
 .welcome {
     display: flex;
     width: initial;
-    background-image: url(images/Welcome.png);
+    background-image: url(../images/Welcome.png);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -150,9 +152,8 @@ section.about, section.favorites, section.coffeeShop, section.contacts, section.
     /*border: 35px 40px 35px 40px solid #0C0C0E;*/
 }
 
-.about {
-    width: 1440px;
-    height: 837px;
+section.about {
+    width: 100%;
 }
 
 h2 {
@@ -192,11 +193,11 @@ h2:after {
 
 .images {
     display: flex;
-    height: 560px;
     justify-content: space-between;
     margin-left: 20px;
     margin-right: 20px;
     margin-bottom: 0px;
+    flex-wrap: wrap;
 }
 
 .carousel {
@@ -226,9 +227,9 @@ h2:after {
     background: #BB945F;
 }
 
-.favorites {
-    width: 1440px;
-    height: 1439px;
+section.favorites {
+    width: 100%;
+    margin-top: 55px;
 }
 
 #favorites {
@@ -300,7 +301,7 @@ h2:after {
     position: absolute;
     left: -38px;
     bottom: 2px;
-    background: url(images/radio.svg) 0 0 no-repeat;
+    background: url(../images/radio.svg) 0 0 no-repeat;
 }
 
 .seasons input[type=radio]:checked + span {
@@ -309,18 +310,16 @@ h2:after {
 
 .seasons input[type=radio]:checked + span:before {
     content: "";
-    background: url(images/radioActive.svg) 0 0 no-repeat;
+    background: url(../images/radioActive.svg) 0 0 no-repeat;
 }
 
 .books {
     display: flex;
-    width: 1400px;
-    height: 1150px;
     margin-left: 20px;
     flex-wrap: wrap;
     justify-content: space-between;
     align-content: space-between;
-    margin-top: 35px;
+    margin: 35px 20px auto 20px;
     padding-bottom: 0;
 }
 
@@ -331,6 +330,7 @@ h2:after {
     height: 555px;
     flex-shrink: 0;
     position: relative;
+    margin-bottom: 40px;
 }
 
 .bookBorder {
@@ -376,7 +376,6 @@ h2:after {
 }
 
 .books img {
-    overflow: visible;
     width: 200px;
     height: 300px;
     position: absolute;
@@ -445,8 +444,9 @@ button.own {
 section.coffeeShop {
     display: flex;
     flex-direction: column;
-    width: 1440px;
-    padding: 0 20px 40px 0px;
+    width: 100%;
+    padding: 0 0px 40px 0px;
+    margin-top: 20px;
 }
 
 #coffeeShop {
@@ -455,7 +455,6 @@ section.coffeeShop {
 }
 
 #coffeeShopText {
-    width: 1400px;
     color: black;
     font-family: Inter;
     font-size: 20px;
@@ -474,10 +473,8 @@ table {
 
 .menu {
     display: flex;
-    width: 1400px;
-    height: 520px;
     justify-content: space-between;
-    margin: 20px auto auto 20px;
+    margin: 20px 20px auto 20px;
 }
 
 caption {
@@ -545,9 +542,8 @@ td.price {
 section.contacts {
     display: flex;
     flex-direction: column;
-    width: 1440px;
-    height: 575px;
-    padding: 0px 20px 0px 0px;
+    width: 100%;
+    padding: 0;
 }
 
 #contacts {
@@ -626,14 +622,18 @@ section.contacts {
 section.libraryCards {
     display: flex;
     flex-direction: column;
-    width: 1440px;
-    height: 614px;
+    width: 100%;
     margin: 0px auto 0px auto;
-    position: relative;
+    margin-top: 35px;
 }
 
 #libraryCards {
     margin-top: 20px;
+}
+
+div.libraryCardsContent {
+    display: flex;
+    justify-content: space-between;
 }
 
 .findCard {
@@ -641,9 +641,7 @@ section.libraryCards {
     flex-direction: column;
     width: 600px;
     height: 453px;
-    position: absolute;
-    top: 121px;
-    left: 20px;
+    margin: 8px auto auto 20px;
 }
 
 .getCard {
@@ -651,10 +649,7 @@ section.libraryCards {
     flex-direction: column;
     width: 456px;
     height: 253px;
-    margin-right: 0px;
-    position: absolute;
-    top: 121px;
-    right: 20px;
+    margin: 8px 20px auto auto;
 }
 
 .libraryCards h3 {
@@ -813,15 +808,18 @@ button[name=signUp] {
 }
 
 footer {
+    max-width: 1440px;
+    min-width: 985px;
     width: 100%;
     height: 250px;
     background: #0C0C0E;
+    margin-top: 40px;
 }
 
 div.footerCenter {
     display: flex;
     flex-direction: column;
-    width: 1440px;
+    width: 100%;
     height: 250px;
     margin: auto;
 }
@@ -889,32 +887,34 @@ div.footerTopBottom {
 }
 
 #footerLine {
-    width: 1400px;
     height: 1px;
     background: white;
     margin: 28px 20px 0px 20px;
 }
 
 div.footerBottom {
-    display: flex;
-    position: relative;
-    margin-top: 28px;
-    width: 1400px;
+    display: inline-flex;
+    margin-top: auto;
+    width: 100%;
     height: 22px;
-    margin-left: auto;
-    margin-right: auto;
+    margin-bottom: 44px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 #year {
+    display: flex;
+    width: 30%;
     font-family: Inter;
     font-size: 20px;
     font-weight: 400;
     line-height: 20px;
     letter-spacing: 2px;
-    position: absolute;
-    left: 0px;
     color: white;
-    top: -3px;
+    margin: auto;
+    margin-left: 20px;
+    margin-right: 0px;
 }
 
 .footerBottom a {
@@ -932,12 +932,18 @@ div.footerBottom {
 }
 
 #school {
-    position: absolute;
-    left: 550px;
+    display: flex;
+    width: 40%;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #github {
-    position: absolute;
-    right: 0px;
-    left: auto;
+    display: flex;
+    width: 30%;
+    justify-content: end;
+    margin: auto;
+    margin-right: 20px;
+    margin-left: 0px;
 }
