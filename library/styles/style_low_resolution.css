@@ -103,7 +103,6 @@ div.centerWelcome {
 }
 
 section.about, section.favorites, section.coffeeShop, section.contacts, section.libraryCards {
-    width: 100%;
     margin: 0 auto;
 }
 
@@ -458,11 +457,11 @@ section.coffeeShop {
     flex-direction: column;
     width: 100%;
     padding: 0 0px 40px 0px;
-    margin-top: 19px;
+    margin-top: 20px;
 }
 
 #coffeeShop {
-    margin-top: 2px;
+    margin-top: 0px;
     margin-bottom: 0;
 }
 
@@ -572,8 +571,8 @@ td.price {
 section.contacts {
     display: flex;
     flex-direction: column;
-    width: 100%;
     padding: 0;
+    margin-left: 1px;
 }
 
 #contacts {
@@ -589,6 +588,7 @@ section.contacts {
 
 .phones {
     margin-left: 20px;
+    margin-bottom: 0px;
 }
 
 .phones p {
@@ -617,8 +617,7 @@ section.contacts {
 }
 
 .staff {
-    margin-top: 40px;
-    margin-left: 20px;
+    margin: 40px auto 0px 20px;
 }
 
 .staff p {
@@ -629,6 +628,7 @@ section.contacts {
     font-weight: 400;
     letter-spacing: 2px;
     text-transform: capitalize;
+    margin-bottom: 0px;
 }
 
 #seniorStaff {
@@ -666,9 +666,7 @@ section.contacts {
 section.libraryCards {
     display: flex;
     flex-direction: column;
-    width: 100%;
-    margin: 0px auto 0px auto;
-    margin-top: 35px;
+    margin: 40px auto 0px 2px;
 }
 
 #libraryCards {
@@ -688,6 +686,8 @@ div.libraryCardsContent {
     width: 600px;
     height: 453px;
     margin: auto;
+    margin-top: 5px;
+    padding-left: 0px;
 }
 
 .getCard {
@@ -695,7 +695,7 @@ div.libraryCardsContent {
     flex-direction: column;
     width: 600px;
     margin: auto;
-    margin-top: 20px;
+    margin-top: 22px;
 }
 
 .libraryCards h3 {
@@ -707,8 +707,9 @@ div.libraryCardsContent {
 
 #findCard {
     font-family: Inter;
-    margin-top: 0px;
+    margin-top: 1px;
     margin-bottom: 0px;
+    margin-left: 1px;
     text-align: center;
 }
 
@@ -730,7 +731,7 @@ div.findCardForm form {
 
 .findCardForm form {
     width: 595px;
-    height: 380px;
+    height: 381px;
 }
 
 div.goldBackground {
@@ -822,14 +823,14 @@ div.goldBackground {
     font-weight: 400;
     line-height: 40px;
     letter-spacing: 0.4px;
-    margin-top: 5px;
+    margin-top: 10px;
     width: 600px;
 }
 
 #getCardButtons {
     display: flex;
     justify-content: center;
-    margin-top: 15px;
+    margin-top: 20px;
 }
 
 #getCardButtons button {
@@ -843,6 +844,15 @@ div.goldBackground {
     border-radius: 2px;
     border: 1px solid #0C0C0E;
     transition: 1.5s;
+    font-family: Inter;
+    color: #0C0C0E;
+    background: white;
+    font-weight: 700;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+#signUp {
     margin-right: 20px;
 }
 
@@ -875,7 +885,7 @@ div.footerCenter {
 .footerTop {
     display: flex;
     flex-direction: column;
-    margin: 20px 20px 0px 20px;
+    margin: 20px 19px 0px 19px;
     height: 90px;
 }
 
@@ -953,7 +963,7 @@ div.footerBottom {
 
 #year {
     display: flex;
-    width: 30%;
+    width: 22%;
     font-family: Inter;
     font-size: 20px;
     font-weight: 400;
@@ -981,7 +991,7 @@ div.footerBottom {
 
 #school {
     display: flex;
-    width: 40%;
+    width: 49%;
     justify-content: center;
     margin-left: auto;
     margin-right: auto;
@@ -989,7 +999,7 @@ div.footerBottom {
 
 #github {
     display: flex;
-    width: 30%;
+    width: 29%;
     justify-content: end;
     margin: auto;
     margin-right: 20px;
