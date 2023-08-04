@@ -14,8 +14,8 @@ html {
 body {
     display: flex;
     flex-direction: column;
-    min-width: 985px;
-    max-width: 1440px;
+    min-width: 600px;
+    max-width: 768px;
     width: 100%;
     margin: 0 auto;
 }
@@ -30,6 +30,7 @@ header {
     width: 100%;
     position: relative;
     left: 0;
+    display: none;
 }
 
 h1 {
@@ -189,21 +190,29 @@ h2:after {
     text-align: center;
     margin-top: 40px;
     line-height: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 .images {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     margin-left: 20px;
     margin-right: 20px;
     margin-bottom: 0px;
     flex-wrap: wrap;
 }
 
+#busts, #shelves {
+    display: none;
+}
+
 .carousel {
     display: flex;
     justify-content: center;
-    margin-top: 35px;
+    margin-top: 20px;
 }
 
 .carousel a {
@@ -260,10 +269,12 @@ section.favorites {
 
 .seasons {
     display: flex;
-    justify-content: flex-start;
-    gap: 78px;
+    max-width: 727px;
+    justify-content: space-between;
+    margin: auto;
     margin-top: 30px;
-    margin-left: 12px;
+    margin-left: -2px;
+    margin-right: 10px;
     align-items: center;
 }    
 
@@ -276,7 +287,7 @@ section.favorites {
     display: inline-flex;
     cursor: pointer;
     position: relative;
-    padding-left: 45px;
+    padding-left: 60px;
     margin-right: 0;
     padding-right: 5px;
     padding-top: 5px;
@@ -315,10 +326,11 @@ section.favorites {
 
 .books {
     display: flex;
-    margin-left: 20px;
+    flex-direction: column;
+    margin-left: auto;
     flex-wrap: wrap;
-    justify-content: space-between;
-    align-content: space-between;
+    justify-content: center;
+    align-content: center;
     margin: 35px 20px auto 20px;
     padding-bottom: 0;
 }
@@ -446,11 +458,11 @@ section.coffeeShop {
     flex-direction: column;
     width: 100%;
     padding: 0 0px 40px 0px;
-    margin-top: 20px;
+    margin-top: 19px;
 }
 
 #coffeeShop {
-    margin-top: 0;
+    margin-top: 2px;
     margin-bottom: 0;
 }
 
@@ -463,7 +475,8 @@ section.coffeeShop {
     letter-spacing: 2px;
     text-align: center;
     margin-top: 40px;
-    margin-left: 20px;
+    margin-left: 16px;
+    margin-right: 20px;
 }
 
 table {
@@ -473,7 +486,7 @@ table {
 
 .menu {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     margin: 20px 20px auto 20px;
 }
 
@@ -488,7 +501,7 @@ caption {
 }
 
 #coffeeTitle {
-    text-align:left;
+    text-align: left;
 }
 
 #dessertsTitle {
@@ -527,12 +540,29 @@ td.price {
     margin-right: 58px;
 }
 
-table.coffee {
+table.coffeeList {
     text-align: left;
+    width: 438px;
+}
+
+table.coffeeList .price {
+    width: 21px;
+}
+
+td.line {
+    width: 218px;
+}
+
+table.desserts .price {
+    width: 31px;
 }
 
 table.desserts {
     text-align: right;
+    width: 482px;
+    margin-right: 0px;
+    margin-left: auto;
+    margin-top: 40px;
 }
 
 td.price {
@@ -553,7 +583,7 @@ section.contacts {
 
 .contactsColumns {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     margin-top: 40px;
 }
 
@@ -616,7 +646,21 @@ section.contacts {
 }
 
 .contactsMap {
-    margin-right: 20px;
+    display: flex;
+    margin-top: 100px;
+    margin-right: auto;
+    margin-left: auto;
+    justify-content: center;
+
+}
+
+#map {
+    max-width: 696px;
+    min-width: 600px;
+    width: 100%;
+    max-height: 414px;
+    min-height: 357px;
+    height: 100%;
 }
 
 section.libraryCards {
@@ -633,7 +677,9 @@ section.libraryCards {
 
 div.libraryCardsContent {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .findCard {
@@ -641,15 +687,15 @@ div.libraryCardsContent {
     flex-direction: column;
     width: 600px;
     height: 453px;
-    margin: 8px auto auto 20px;
+    margin: auto;
 }
 
 .getCard {
     display: flex;
     flex-direction: column;
-    width: 456px;
-    height: 253px;
-    margin: 8px 20px auto auto;
+    width: 600px;
+    margin: auto;
+    margin-top: 20px;
 }
 
 .libraryCards h3 {
@@ -670,7 +716,7 @@ div.libraryCardsContent {
     font-family: Forum;
     margin-top: 0px;
     margin-right: 0px;
-    text-align: right;
+    text-align: center;
 }
 
 div.findCardForm form {
@@ -770,18 +816,19 @@ div.goldBackground {
 
 #getCardText {
     color: black;
-    text-align: right;
+    text-align: center;
     font-family: Inter;
     font-size: 20px;
     font-weight: 400;
     line-height: 40px;
     letter-spacing: 0.4px;
     margin-top: 5px;
+    width: 600px;
 }
 
 #getCardButtons {
-    display: inline-flex;
-    justify-content: flex-end;
+    display: flex;
+    justify-content: center;
     margin-top: 15px;
 }
 
@@ -789,13 +836,14 @@ div.goldBackground {
     display: flex;
     width: 75px;
     height: 30px;
-    padding:auto;
+    padding: auto;
     justify-content: center;
     align-items: center;
     flex-shrink: 0;
     border-radius: 2px;
     border: 1px solid #0C0C0E;
     transition: 1.5s;
+    margin-right: 20px;
 }
 
 #getCardButtons button:hover {
@@ -804,12 +852,12 @@ div.goldBackground {
 }
 
 button[name=signUp] {
-    margin-right: 20px;
+    margin-right: auto;
 }
 
 footer {
-    max-width: 1440px;
-    min-width: 985px;
+    max-width: 768px;
+    min-width: 600px;
     width: 100%;
     height: 250px;
     background: #0C0C0E;
