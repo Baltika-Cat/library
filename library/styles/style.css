@@ -228,6 +228,10 @@ h2:after {
     padding-right: 25px;
 }
 
+#arrowLeft, #arrowRight {
+    display: none;
+}
+
 .carousel {
     display: flex;
     justify-content: center;
