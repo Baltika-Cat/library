@@ -8,7 +8,7 @@ font-family: "Forum";
 }
 
 html {
-    scroll-behavior: smooth;
+    scroll-behavior: smooth !important;
 }
 
 body {
@@ -92,8 +92,14 @@ nav {
     margin-right: 20px;
     width: 28px;
     height: 28px;
-    position: absolute;
-    z-index: 200;
+}
+
+.popup {
+    display: none;
+}
+
+#hamburgerIcon {
+    display: none;
 }
 
 div.centerHeader {
