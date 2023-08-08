@@ -38,6 +38,7 @@ function closeOnClick() {
         popup.classList.toggle("open");
     }
 }*/
+const body = document.body;
 const navigation = document.querySelector("#navigation").cloneNode(1);
 const logotype = document.querySelector("#logotype");
 const btnMenu = document.querySelector("#hamburgerIcon");
@@ -46,6 +47,7 @@ const toggleMenu = function () {
     menu.classList.toggle("open");
     btnMenu.classList.toggle("active");
     logotype.classList.toggle("positionFinal");
+    body.classList.toggle("noscroll");
     renderPopup();
 }
 
