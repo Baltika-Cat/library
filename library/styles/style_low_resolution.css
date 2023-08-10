@@ -252,7 +252,7 @@ section.about, section.favorites, section.coffeeShop, section.contacts, section.
 .welcome {
     display: flex;
     width: initial;
-    background-image: url(../images/Welcome.png);
+    background-image: url(../images/welcome_low.png);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
