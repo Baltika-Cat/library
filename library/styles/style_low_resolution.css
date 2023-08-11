@@ -163,27 +163,28 @@ nav {
     position: absolute;
     top: 26px;
     right: 0px;
+    transform: translateX(-5px);
     transition: 1s ease;
 }
 
 #logotype.positionFinal img {
-    transform: translateX(13px) translateY(0px);
+    transform: translateX(0px) translateY(0px);
     transition: 1s ease;
 }
 
 #hamburgerIcon.active .hamburgerLine:nth-child(2) {
     opacity: 0;
     transition: 0.5s;
-    transform: translateX(-4.5px) translateY(-10.5px);
+    transform: translateX(-5px) translateY(-8px);
 }
 
 #hamburgerIcon.active .hamburgerLine:nth-child(1) {
-    transform: translateX(-4.5px) translateY(-5px) rotate(45deg);
+    transform: translateX(-5px) translateY(-5px) rotate(45deg);
     transition: 1s;
 }
 
 #hamburgerIcon.active .hamburgerLine:nth-child(3) {
-    transform: translateX(-4.5px) translateY(-16px) rotate(-45deg);
+    transform: translateX(-5px) translateY(-16px) rotate(-45deg);
     transition: 1s;
 }
 
@@ -196,7 +197,7 @@ nav {
     right: -100%;
     top: 0px;
     z-index: 100;
-    background: black;
+    background: #0C0C0E;
     opacity: 0.3;
     transition: 1.5s ease;
 }
@@ -965,6 +966,7 @@ div.goldBackground {
 
 #findCardForm button:hover {
     background: #BB945F;
+    border: 1px solid #BB945F;
     transition: 1.5s;
 }
 
@@ -1011,6 +1013,7 @@ div.goldBackground {
 
 #getCardButtons button:hover {
     background: #BB945F;
+    border: 1px solid #BB945F;
     transition: 1.5s;
 }
 
@@ -1160,5 +1163,5 @@ div.footerBottom {
 }
 
 body.noscroll {
-    overflow: hidden;
+    overflow-x: hidden;
 }
