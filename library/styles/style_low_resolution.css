@@ -1,0 +1,1167 @@
+@font-face {
+    font-family: "Inter";
+    src: url(../fonts/Inter-V.ttf);
+}
+@font-face {
+font-family: "Forum";
+    src: url(../fonts/Forum-Regular.ttf);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-width: 600px;
+    max-width: 768px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+header {
+    color: white;
+    background: #0C0C0E;
+    height: 90px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    left: 0;
+}
+
+h1 {
+    display: inline-flex;
+    width: 100%;
+    font-family: Forum;
+    font-size: 30px;
+    line-height: 50px;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 0.6px;
+    text-align: left;
+    margin-left: 20px;
+}
+
+nav {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    justify-items: flex-end;
+    align-items: center;
+    text-align: center;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+#navigation {
+    list-style: none;
+    display: flex;
+    width: 332px;
+    justify-content: flex-end;
+    justify-items: flex-end;
+    align-items: center;
+    text-align: center;
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 50px;
+    gap: 30px;
+    margin-right: 0px;
+    display: none;
+}
+
+#navigation li:last-child {
+    padding-right: 40px;
+}
+
+#navigation a {
+    text-decoration-line: none;
+    color: white;
+}
+
+#navigation a:hover {
+    text-decoration: underline;
+}
+
+#logotype {
+    width: 28px;
+    height: 28px;
+    position: relative;
+}
+
+#logotype img {
+    position: absolute;
+    z-index: 200;
+    right: 105px;
+    top: 0px;
+    transition: 1s ease;
+}
+
+.navbar {
+    display: flex;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 332px;
+    height: 570px;
+    display: none;
+}
+
+.navbarWrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#hamburgerIcon {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0px;
+    width: 45px;
+    height: 22px;
+    margin-right: 15px;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 1s ease;
+    position: absolute;
+    z-index: 200;
+    top: 28px;
+}
+
+#hamburgerIcon:hover {
+    background: white;
+    transition: 1s ease;
+}
+
+.hamburgerLine hr {
+    width: 45px;
+    height: 2px;
+    margin: 0px;
+    border: none;
+    background: white;
+}
+
+#hamburgerIcon:hover .hamburgerLine hr {
+    background: black;
+    transition: 1s ease;
+}
+
+#hamburgerIcon .hamburgerLine:nth-child(1), .hamburgerLine:nth-child(2), .hamburgerLine:nth-child(3) {
+    transition: 1s ease;
+}
+
+#hamburgerIcon.active {
+    width: 31.82px;
+    padding: 20px 5px 0px 5px;
+    border-radius: 5px;
+    position: absolute;
+    top: 26px;
+    right: 0px;
+    transform: translateX(-5px);
+    transition: 1s ease;
+}
+
+#logotype.positionFinal img {
+    transform: translateX(0px) translateY(0px);
+    transition: 1s ease;
+}
+
+#hamburgerIcon.active .hamburgerLine:nth-child(2) {
+    opacity: 0;
+    transition: 0.5s;
+    transform: translateX(-5px) translateY(-8px);
+}
+
+#hamburgerIcon.active .hamburgerLine:nth-child(1) {
+    transform: translateX(-5px) translateY(-5px) rotate(45deg);
+    transition: 1s;
+}
+
+#hamburgerIcon.active .hamburgerLine:nth-child(3) {
+    transform: translateX(-5px) translateY(-16px) rotate(-45deg);
+    transition: 1s;
+}
+
+.popup {
+    display: flex;
+    flex-direction: column;
+    width: 332px;
+    height:570px;
+    position: fixed;
+    right: -100%;
+    top: 0px;
+    z-index: 100;
+    background: #0C0C0E;
+    opacity: 0.3;
+    transition: 1.5s ease;
+}
+
+.popup.open {
+    position: absolute;
+    right: 0px;
+    display: flex;
+    opacity: 1;
+    transition: 1.5s ease;
+}
+
+.popup #navigation {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin-top: 100px;
+    margin-right: -13px;
+    padding: 0px;
+}
+
+.popup #navigation li:last-child {
+    padding-right: 0;
+}
+
+.popup #logotype {
+    display: flex;
+    margin-top: 20px;
+    justify-content: flex-end;
+}
+
+div.centerHeader {
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    align-items: center;
+}
+
+div.centerWelcome {
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+}
+
+section.about, section.favorites, section.coffeeShop, section.contacts, section.libraryCards {
+    margin: 0 auto;
+}
+
+.welcome {
+    display: flex;
+    width: initial;
+    background-image: url(../images/welcome_low.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    height: 600px;
+    margin-top: auto;
+    position: relative;
+    width: 100%;
+}
+
+.welcome:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: auto;
+    bottom: 0;
+    left: auto;
+    background: linear-gradient(to bottom, #0C0C0E 0%, #0C0C0E 0.01%, rgba(18,18, 21, 0.1) 100%);
+    width: 100%;
+    height: 300px;
+}
+
+#welcome {
+    display: flex;
+    background: #0C0C0E;
+    height: 220px;
+    width: 600px;
+    margin-left: 0px;
+    margin-top: 220px;
+    color: white;
+    font-family: "Forum";
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 50px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    justify-content: center;
+    justify-items: center;;
+    text-align: center;
+    align-items: center;
+    /*border: 35px 40px 35px 40px solid #0C0C0E;*/
+}
+
+section.about {
+    width: 100%;
+}
+
+h2 {
+    font-family: Forum;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 2px;
+    line-height: 40px;
+    text-align: center;
+    color: #0C0C0E;
+    text-transform: capitalize;
+}
+
+h2:after {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 1px;
+    background: #0C0C0E;
+    margin: 20px auto auto auto;
+}
+
+#about {
+    margin-top: 20px;
+}
+
+#aboutText {
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    text-align: center;
+    margin-top: 40px;
+    line-height: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.images {
+    display: flex;
+    justify-content: center;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0px;
+    flex-wrap: wrap;
+}
+
+#busts, #shelves {
+    display: none;
+}
+
+#arrowLeft {
+    margin-right: 58px;
+    margin-top: 40px;
+}
+
+#arrowRight {
+    margin-left: 58px;
+    margin-top: 40px;
+}
+.carousel {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.carousel a {
+    display: flex;
+    border-radius: 50%;
+    background: transparent;
+    width: 26px;
+    height: 26px;
+}
+
+.carousel span {
+    display: flex;
+    background: #0C0C0E;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    margin: 5px;
+}
+
+#slideFirstCenter {
+    background: #BB945F;
+}
+
+section.favorites {
+    width: 100%;
+    margin-top: 55px;
+}
+
+#favorites {
+    margin-top: 0px;
+    font-family: Forum;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 2px;
+    line-height: 40px;
+    text-align: center;
+    color: #0C0C0E;
+    text-transform: capitalize;
+}
+
+#favorites {
+    margin-top: 0;
+}
+
+#favoritesText {
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: normal;
+    margin-top: 40px;
+    margin-left: 20px;
+}
+
+.seasons {
+    display: flex;
+    max-width: 727px;
+    justify-content: space-between;
+    margin: auto;
+    margin-top: 30px;
+    margin-left: -2px;
+    margin-right: 10px;
+    align-items: center;
+}    
+
+.seasons input[type=radio] {
+    margin-top: 5px;
+    display: none;
+}
+
+.seasons label {
+    display: inline-flex;
+    cursor: pointer;
+    position: relative;
+    padding-left: 60px;
+    margin-right: 0;
+    padding-right: 5px;
+    padding-top: 5px;
+    font-family: Inter;
+    color: black;
+    font-size: 20px;
+    user-select: none;
+    height: 34px;
+    align-items: center;
+}
+
+.seasons span {
+    position: relative;
+}
+
+
+.seasons span:before {
+    content: "";
+    display: inline-block;
+    width: 17px;
+    height: 17px;
+    position: absolute;
+    left: -38px;
+    bottom: 2px;
+    background: url(../images/radio.svg) 0 0 no-repeat;
+}
+
+.seasons input[type=radio]:checked + span {
+    font-weight: 700;
+}
+
+.seasons input[type=radio]:checked + span:before {
+    content: "";
+    background: url(../images/radioActive.svg) 0 0 no-repeat;
+}
+
+.books {
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    margin: 35px 20px auto 20px;
+    padding-bottom: 0;
+}
+
+.firstBook, .secondBook, .thirdBook, .fourthBook {
+    display: flex;
+    flex-direction: column;
+    width: 590px;
+    height: 555px;
+    flex-shrink: 0;
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.bookBorder {
+    display: flex;
+    flex-direction: column;
+    width: 549px;
+    height: 555px;
+    border: 1px solid black;
+    margin: 0;
+    position: relative;
+}
+
+.books h3 {
+    font-family: Forum;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 40px;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+    margin-left: 19px;
+    margin-top: 14px;
+    margin-bottom: 0;
+}
+
+.books h3:after {
+    display: block;
+    content: "";
+    width: 60px;
+    height: 1px;
+    margin: -2px 0 0 0;
+    background: #BB945F;
+}
+
+.books h4 {
+    font-family: Inter;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 40px;
+    letter-spacing: 2px;
+    margin-left: 19px;
+    margin-top: 21px;
+    margin-bottom: 0;
+}
+
+.books img {
+    width: 200px;
+    height: 300px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.books p {
+    width: 357px;
+    font-family: Inter;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 40px;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+    margin-left: 19px;
+    margin-top: 20px;
+    padding-right: 0px;
+}
+
+span.bookButton {
+    display: flex;
+    position: relative;
+    margin: auto auto 15px 19px;
+}
+
+.bookBorder button {
+    width: 75px;
+    height: 30px;
+    font-family: Inter;
+    text-align: center;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    background-color: transparent;
+}   
+
+.bookBorder p {
+    text-transform: capitalize;
+}
+
+button.buy {
+    color: #0C0C0E;
+    border: 1px solid #0C0C0E;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: 1s ease;
+}
+
+button.buy:hover {
+    background-color: #BB945F;
+    border: 1px solid #BB945F;
+    transition: 1s ease;
+}
+
+button.own {
+    color: #BB945F;
+    border: 1px solid #BB945F;
+    border-radius: 2px;
+}
+
+.noneBooks {
+    display: none;
+}
+
+section.coffeeShop {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0 0px 40px 0px;
+    margin-top: 20px;
+}
+
+#coffeeShop {
+    margin-top: 0px;
+    margin-bottom: 0;
+}
+
+#coffeeShopText {
+    color: black;
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 40px;
+    letter-spacing: 2px;
+    text-align: center;
+    margin-top: 40px;
+    margin-left: 16px;
+    margin-right: 20px;
+}
+
+table {
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 20px auto 20px;
+}
+
+caption {
+    color: #BB945F;
+    font-family: Forum;
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 40px;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+}
+
+#coffeeTitle {
+    text-align: left;
+}
+
+#dessertsTitle {
+    text-align: right;
+}
+
+td {
+    padding: 40px 0px 0px 0px;
+}
+
+td.item {
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 40px;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+}
+
+td.price {
+    color: black;
+    font-family: Forum;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 40px;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+}
+
+.line hr {
+    width: 100px;
+    height: 1px;
+    background: #BB945F;
+    border: none;
+    margin-left: 58px;
+    margin-right: 58px;
+}
+
+table.coffeeList {
+    text-align: left;
+    width: 438px;
+}
+
+table.coffeeList .price {
+    width: 21px;
+}
+
+td.line {
+    width: 218px;
+}
+
+table.desserts .price {
+    width: 31px;
+}
+
+table.desserts {
+    text-align: right;
+    width: 482px;
+    margin-right: 0px;
+    margin-left: auto;
+    margin-top: 40px;
+}
+
+td.price {
+    text-align: center;
+}
+
+section.contacts {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin-left: 1px;
+}
+
+#contacts {
+    margin-top: 20px;
+    margin-bottom: 0px;
+}
+
+.contactsColumns {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+}
+
+.phones {
+    margin-left: 20px;
+    margin-bottom: 0px;
+}
+
+.phones p {
+    font-family: Inter;
+    font-size: 20px;
+    color: black;
+    line-height: 40px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+}
+
+.phones a {
+    text-decoration: none;
+    color: black;
+}
+
+.phones a:hover {
+    text-decoration: underline;
+}
+
+#contactPhonesTitle {
+    font-weight: 700;
+    margin-top: 0px;
+    margin-bottom: 40px;
+}
+
+.staff {
+    margin: 40px auto 0px 20px;
+}
+
+.staff p {
+    font-family: Inter;
+    font-size: 20px;
+    color: black;
+    line-height: 40px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+    margin-bottom: 0px;
+}
+
+#seniorStaff {
+    font-weight: 700;
+}
+
+.seniorStaff a {
+    text-decoration: none;
+    font-weight: 700;
+    color: black;
+}
+
+.seniorStaff a:hover {
+    text-decoration: underline;
+}
+
+.contactsMap {
+    display: flex;
+    margin-top: 100px;
+    margin-right: auto;
+    margin-left: auto;
+    justify-content: center;
+
+}
+
+#map {
+    max-width: 696px;
+    min-width: 600px;
+    width: 100%;
+    max-height: 414px;
+    min-height: 357px;
+    height: 100%;
+}
+
+section.libraryCards {
+    display: flex;
+    flex-direction: column;
+    margin: 40px auto 0px 2px;
+}
+
+#libraryCards {
+    margin-top: 20px;
+}
+
+div.libraryCardsContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.findCard {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    height: 453px;
+    margin: auto;
+    margin-top: 5px;
+    padding-left: 0px;
+}
+
+.getCard {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    margin: auto;
+    margin-top: 22px;
+}
+
+.libraryCards h3 {
+    font-size: 30px;
+    color: black;
+    font-weight: 400;
+    letter-spacing: 0.6px;
+}
+
+#findCard {
+    font-family: Inter;
+    margin-top: 1px;
+    margin-bottom: 0px;
+    margin-left: 1px;
+    text-align: center;
+}
+
+#getCardTitle {
+    font-family: Forum;
+    margin-top: 0px;
+    margin-right: 0px;
+    text-align: center;
+}
+
+div.findCardForm form {
+    display: inline-flex;
+    flex-direction: column;
+    margin-left: 0px;
+    margin-top: 30px;
+    border: 3px solid #BB945F;
+    box-shadow: 2px 2px 0px 0px #ccc;
+}
+
+.findCardForm form {
+    width: 595px;
+    height: 381px;
+}
+
+div.goldBackground {
+    display: flex;
+    flex-direction: column;
+    width: 560px;
+    height: 272px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 17.333px;
+    background: #BB945F;
+}
+
+#findCardFormTitle {
+    font-family: Forum;
+    color: black;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 50px;
+    letter-spacing: 0.6px;
+    padding-top: 20px;
+    margin-top: 0px;
+    margin-left: 20px;
+    margin-bottom: 0px;
+}
+
+.goldBackground input {
+    width: 500px;
+    height: 66px;
+    margin-left: 20px;
+    margin-bottom: 25px;
+    border-width: 0px;
+    border-radius: 10px;
+    font-family: Forum;
+    font-size: 30px;
+    font-weight: 400;
+    color: #BB945F;
+    padding-left: 20px;
+}
+
+#nameInput {
+    margin-top: 20px;
+}
+
+#passwordInput {
+    margin-top: 0px;
+}
+
+.goldBackground input::placeholder {
+    font-family: Forum;
+    font-size: 30px;
+    font-weight: 400;
+    color: #8E8E8E;
+    letter-spacing: 0.6px;
+}
+
+#findCardForm button {
+    padding: 10px auto;
+    background: white;
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #0C0C0E;
+    border: 1px solid #0C0C0E;
+    border-radius: 2px;
+    transition: 1.5s;
+    margin-bottom: 27px;
+    margin-top: auto;
+    justify-content: center;
+    width: 242px;
+    height: 44px;
+    margin-left: auto;
+    margin-right: auto;
+    flex-wrap: nowrap;
+    line-height: normal;
+}
+
+#findCardForm button:hover {
+    background: #BB945F;
+    border: 1px solid #BB945F;
+    transition: 1.5s;
+}
+
+#getCardText {
+    color: black;
+    text-align: center;
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 40px;
+    letter-spacing: 0.4px;
+    margin-top: 10px;
+    width: 600px;
+}
+
+#getCardButtons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#getCardButtons button {
+    display: flex;
+    width: 75px;
+    height: 30px;
+    padding: auto;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 2px;
+    border: 1px solid #0C0C0E;
+    transition: 1.5s;
+    font-family: Inter;
+    color: #0C0C0E;
+    background: white;
+    font-weight: 700;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+#signUp {
+    margin-right: 20px;
+}
+
+#getCardButtons button:hover {
+    background: #BB945F;
+    border: 1px solid #BB945F;
+    transition: 1.5s;
+}
+
+button[name=signUp] {
+    margin-right: auto;
+}
+
+footer {
+    max-width: 768px;
+    min-width: 600px;
+    width: 100%;
+    height: 250px;
+    background: #0C0C0E;
+    margin-top: 40px;
+}
+
+div.footerCenter {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 250px;
+    margin: auto;
+}
+
+.footerTop {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 19px 0px 19px;
+    height: 90px;
+}
+
+.footerTopTop {
+    display: flex;
+    justify-content: space-between;
+    height: 40px;
+    margin-bottom: 0px;
+}
+
+#footerAddress {
+    width: 229px;
+    margin-top: 0px;
+}
+
+#footerAddress a {
+    text-decoration: none;
+    color: white;
+    font-family: Inter;
+    font-size: 15px;
+    font-weight: 400;
+    line-height:  20px;
+}
+
+#footerAddress a:hover {
+    text-decoration: underline;
+}
+
+p.week {
+    width: 149px;
+    text-align: right;
+    font-family: Inter;
+    font-size: 15px;
+    font-weight: 400;
+    color: white;
+    margin-top: 0px;
+    line-height: 20px;
+}
+
+div.footerTopBottom {
+    display: flex;
+    justify-content: space-between;
+    height: 40px;
+    margin-bottom: 0px;
+    margin-top: 10px;
+}
+
+#socialNetwork {
+    display: flex;
+    list-style: none;
+    width: 102px;
+    height: 24px;
+    justify-content: space-between;
+    padding-left: 0px;
+    margin-top: 10px;
+    align-items: center;
+}
+
+#footerLine {
+    height: 1px;
+    background: white;
+    margin: 28px 20px 0px 20px;
+}
+
+div.footerBottom {
+    display: inline-flex;
+    margin-top: auto;
+    width: 100%;
+    height: 22px;
+    margin-bottom: 44px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#year {
+    display: flex;
+    width: 22%;
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 2px;
+    color: white;
+    margin: auto;
+    margin-left: 20px;
+    margin-right: 0px;
+}
+
+.footerBottom a {
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 2px;
+    color: white;
+    text-decoration: none;
+}
+
+.footerBottom a:hover {
+    text-decoration: underline;
+}
+
+#school {
+    display: flex;
+    width: 49%;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#github {
+    display: flex;
+    width: 29%;
+    justify-content: end;
+    margin: auto;
+    margin-right: 20px;
+    margin-left: 0px;
+}
+
+body.noscroll {
+    overflow-x: hidden;
+}

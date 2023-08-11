@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="images/favicon.png">
     <title>Library</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" media="screen and (min-width: 1024.02px)" href="styles/style.css">
+    <link rel="stylesheet" media="screen and (min-width: 640px) and (max-width: 1024px)" href="styles/style_low_resolution.css">
     <script src="index.js"></script>
 </head>
 <body>
@@ -13,6 +14,11 @@
         <div class="centerHeader">
             <h1 id="brooklyn-public-library">Brooklyn Public Library</h1>
             <nav>
+                <div id="hamburgerIcon">
+                    <span class="hamburgerLine"><hr></span>
+                    <span class="hamburgerLine"><hr></span>
+                    <span class="hamburgerLine"><hr></span>
+                </div>
                 <ul id="navigation">
                     <li><a href="#about">About</a></li>
                     <li><a href="#favorites">Favorites</a></li>
@@ -21,8 +27,11 @@
                     <li><a href="#libraryCards">Library Card</a></li>
                 </ul>
             </nav>
+            <div class="popup" id="popup">
+                
+            </div>
             <div id="logotype">
-                <img src="images/logo.svg" alt="logotype">
+                <img src="images/logo.svg" alt="logotype" id="logoIcon">
             </div>
         </div>
     </header>
@@ -32,13 +41,15 @@
                 <h3 id="welcome">WELCOME<br>TO THE BROOKLYN<br>LIBRARY</h3>
             </div>
         </section>
-         <section class="about">
+        <section class="about">
             <h2 id="about">About</h2>
             <p id="aboutText">The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside</p>
             <div class="images">
+                <img id="arrowLeft" src="images/arrow_left.svg" alt="Left arrow">
                 <img id="woman" src="images/image1.png" alt="Woman and book shelves">
                 <img id="busts" src="images/image2.png" alt="Architecture and busts">
                 <img id="shelves" src="images/image3.png" alt="Half-ellipse-shaped book shelves">
+                <img id="arrowRight" src="images/arrow_right.svg" alt="Right arrow">
             </div>
             <div class="carousel">
                 <div id="slideFirst">
@@ -56,9 +67,19 @@
                         <span id="slideThirdCenter"></span>
                     </a>
                 </div>
+                <div id="slideFourth">
+                    <a href="#">
+                        <span></span>
+                    </a>
+                </div>
+                <div id="slideFifth">
+                    <a href="#">
+                        <span></span>
+                    </a>
+                </div>
             </div>
-         </section>
-         <section class="favorites">
+        </section>
+        <section class="favorites">
             <h2 id="favorites">Favorites</h2>
             <p id="favoritesText">Pick favorites of season</p>
             <div class="seasons">
@@ -338,14 +359,14 @@
                     </div>
                 </div>
             </div>
-         </section>
-         <section class="coffeeShop">
+        </section>
+        <section class="coffeeShop">
             <h2 id="coffeeShop">Coffee Shop</h2>
             <p id="coffeeShopText">
-                In our library, we have of cozy coffee shop, welcoming in customers with frothy 
-                cappuccinos and friendly conversation. You can get a favorite book and read in 
+                <span>In our library, we have of cozy coffee shop, welcoming in customers with frothy 
+                cappuccinos and friendly conversation. </span><span> You can get a favorite book and read in 
                 coffee shop, our barista to cook you best coffee, and also you can try desserts 
-                from bakery.
+                from bakery.</span>
             </p>
             <div class="menu">
                 <table class="coffeeList">
@@ -419,8 +440,8 @@
                     </tr>
                 </table>
             </div>
-         </section>
-         <section class="contacts">
+        </section>
+        <section class="contacts">
             <h2 id="contacts">Our Contacts</h2>
             <div class="contactsColumns">
                 <div class="contactsText">
@@ -436,36 +457,38 @@
                     </div>
                 </div>
                 <div class="contactsMap">
-                    <img src="images/Map.svg" alt="Map">
+                    <img id="map" src="images/Map.svg" alt="Map">
                 </div>
             </div>
-         </section>
-         <section class="libraryCards">
+        </section>
+        <section class="libraryCards">
             <h2 id="libraryCards">Digital Library Cards</h2>
-            <div class="findCard">
-                <h3 id="findCard">Find your Library card</h3>
-                <div class="findCardForm">
-                    <form action="index.html" method="get" id="findCardForm">
-                        <div class="goldBackground">
-                            <p id="findCardFormTitle">Brooklyn Public Library</p>
-                            <input type="text" name="name" placeholder="Reader's name" id="nameInput">
-                            <input type="number" name="number" placeholder="Card number" id="passwordInput">
-                        </div>
-                        <button name="checkCard" class="checkCard">Check the card</button>
-                    </form>    
+            <div class="libraryCardsContent">
+                <div class="findCard">
+                    <h3 id="findCard">Find your Library card</h3>
+                    <div class="findCardForm">
+                        <form action="index.html" method="get" id="findCardForm">
+                            <div class="goldBackground">
+                                <p id="findCardFormTitle">Brooklyn Public Library</p>
+                                <input type="text" name="name" placeholder="Reader's name" id="nameInput">
+                                <input type="number" name="number" placeholder="Card number" id="passwordInput">
+                            </div>
+                            <button name="checkCard" class="checkCard">Check the card</button>
+                        </form>    
+                    </div>
+                </div>
+                <div class="getCard">
+                    <h3 id="getCardTitle">Get a reader card</h3>
+                    <p id="getCardText">
+                        You will be able to see a reader card after logging into account or you can register a new account
+                    </p>
+                    <div id="getCardButtons">
+                        <button name="signUp" id="signUp">Sign Up</button>
+                        <button name="logIn" id="LogIn">Log In</button>
+                    </div>
                 </div>
             </div>
-            <div class="getCard">
-                <h3 id="getCardTitle">Get a reader card</h3>
-                <p id="getCardText">
-                    You will be able to see a reader card after logging into account or you can register a new account
-                </p>
-                <div id="getCardButtons">
-                    <button name="signUp" id="signUp">Sign Up</button>
-                    <button name="logIn" id="LogIn">Log In</button>
-                </div>
-            </div>
-         </section>
+        </section>
     </main>
     <footer class="footer">
         <div class="footerCenter">
@@ -493,5 +516,6 @@
             </div>
         </div>
     </footer>
+    <script src="hamburger.js"></script>
 </body>
 </html>
