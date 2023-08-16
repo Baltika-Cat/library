@@ -215,12 +215,16 @@ h2:after {
     flex-wrap: nowrap;
 }
 
-.images img {
+div.imagesAbout {
+    display: flex;
+}
+
+.imagesAbout img {
     max-width: 450px;
-    min-width: 310px;
+    min-width: 290px;
     width: 100%;
     max-height: 560px;
-    min-height: 386px;
+    min-height: 350px;
     height: 100%;
 }
 
@@ -228,7 +232,12 @@ h2:after {
     padding-right: 25px;
 }
 
+#colonnade, #stairway {
+    display: none;
+}
+
 #arrowLeft, #arrowRight {
+    cursor: pointer;
     display: none;
 }
 
@@ -255,8 +264,13 @@ h2:after {
     margin: 5px;
 }
 
-#slideFirstCenter {
+.carousel span:hover {
     background: #BB945F;
+}
+
+.carousel span.active {
+    background: #BB945F;
+    cursor: default;
 }
 
 #slideFourth, #slideFifth {
