@@ -349,18 +349,31 @@ h2:after {
     flex-wrap: wrap;
 }
 
-#busts, #shelves {
-    display: none;
+div.imagesAbout {
+    display: flex;
+    overflow-x: hidden;
+    scroll-snap-type: x mandatory;
+    width: 450px;
+}
+
+.imagesAbout img {
+    scroll-snap-align: center;
+}
+
+.imagesAbout img:first-child {
+    display: block;
 }
 
 #arrowLeft {
     margin-right: 58px;
     margin-top: 40px;
+    cursor: pointer;
 }
 
 #arrowRight {
     margin-left: 58px;
     margin-top: 40px;
+    cursor: pointer;
 }
 .carousel {
     display: flex;
