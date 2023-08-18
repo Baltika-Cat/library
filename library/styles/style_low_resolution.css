@@ -339,6 +339,17 @@ h2:after {
     margin-right: 0;
 }
 
+.arrowDisabled {
+    pointer-events: none;
+    cursor: default;
+}
+
+.slider {
+    display: flex;
+    overflow-x: hidden;
+    width: 450px;
+}
+
 .images {
     display: flex;
     justify-content: center;
@@ -351,9 +362,9 @@ h2:after {
 
 div.imagesAbout {
     display: flex;
-    overflow-x: hidden;
     scroll-snap-type: x mandatory;
-    width: 450px;
+    max-width: 450px;
+    transition: 1s;
 }
 
 .imagesAbout img {
@@ -389,17 +400,30 @@ div.imagesAbout {
     height: 26px;
 }
 
-.carousel span {
+.slide {
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+    background: transparent;
+}
+
+.slide span {
     display: flex;
     background: #0C0C0E;
     width: 16px;
     height: 16px;
     border-radius: 50%;
-    margin: 5px;
+    margin: 5px 5px 5px 5px;
+    cursor: pointer;
 }
 
-#slideFirstCenter {
+.slide span.activePag {
     background: #BB945F;
+    cursor: default;
+}
+
+.activePag {
+    cursor: default;
 }
 
 section.favorites {
