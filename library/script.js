@@ -4,72 +4,81 @@ const imagesAbout = document.querySelectorAll(".imagesAbout img");
 const slider = document.querySelector(".imagesAbout");
 const pagination = document.querySelectorAll(".slide");
 const paginationCenter = document.querySelectorAll(".slide span");
+const winterButton = document.querySelector("#winter");
+const springButton = document.querySelector("#spring");
+const summerButton = document.querySelector("#summer");
+const autumnButton = document.querySelector("#autumn");
+const winterBooks = document.querySelector(".winterBooks");
+const springBooks = document.querySelector(".springBooks");
+const summerBooks = document.querySelector(".summerBooks");
+const autumnBooks = document.querySelector(".autumnBooks");
 
 let sliderCount = 0;
 let sliderWidth;
 let itemWidth = document.querySelector(".imagesAbout img").offsetWidth;
 
-/*const slideNext = function () {
-    imagesAbout[i].style.display = "none";
-    i++;
-    if(i > imagesAbout.length - 1) {
-        i = 0;
-    }
-    imagesAbout[i].style.display = "block";
-}
-
-const slidePrev = function () {
-    imagesAbout[i].style.display = "none";
-    i--;
-    if(i < 0) {
-        i = imagesAbout.length - 1;
-    }
-    imagesAbout[i].style.display = "block";
-}
-
-leftArrow.addEventListener("click", slidePrev);
-rightArrow.addEventListener("click", slideNext);*/
-
-/*leftArrow.onclick = function (){
-    imagesAbout[i].style.display = "none";
-    i--;
-    if(i < 0) {
-        i = imagesAbout.length - 1;
-    }
-    imagesAbout[i].style.display = "block";
-}
-
-rightArrow.onclick = function (){
-    imagesAbout[i].style.display = "none";
-    i++;
-    if(i > imagesAbout.length - 1) {
-        i = 0;
-    }
-    imagesAbout[i].style.display = "block";
-}*/
-
-/*leftArrow.addEventListener("click", scrollToPrevItem);
-rightArrow.addEventListener("click", scrollToNextItem);
-pagination[i].addEventListener("click", scrollToItem);
-
-function scrollToPrevItem() {
-    slider.scrollBy({left: -itemWidth, top: 0, behavior: "smooth"});
-}
-
-function scrollToNextItem() {
-    slider.scrollBy({left: itemWidth, top: 0, behavior: "smooth"});
-}
-
-function scrollToItem() {
-    imagesAbout[i].scrollIntoView({behavior: "smooth"});
-    pagination[i].classList.toggle("active");
-}*/
-//Найти индекс массива передаваемого элемета пагинации и вписать его сюда как i
-//Убрать ссылки из пагинации в html
 window.addEventListener("resize", showSlide);
 
 leftArrow.addEventListener("click", prevSlide);
 rightArrow.addEventListener("click", nextSlide);
+
+let winterTimeOut;
+
+let springTimeOut;
+
+let summerTimeOut;
+
+let autumnTimeOut;
+
+winterButton.addEventListener("click", function() {
+    springBooks.classList.remove("activeSeason");
+    summerBooks.classList.remove("activeSeason");
+    autumnBooks.classList.remove("activeSeason");
+    clearTimeout(springTimeOut);
+    clearTimeout(summerTimeOut);
+    clearTimeout(autumnTimeOut);
+    winterTimeOut = setTimeout(() => {
+        winterBooks.classList.add("activeSeason")
+    }, 1300);
+})
+
+springButton.addEventListener("click", function() {
+    summerBooks.classList.remove("activeSeason");
+    autumnBooks.classList.remove("activeSeason");
+    winterBooks.classList.remove("activeSeason");
+    clearTimeout(summerTimeOut);
+    clearTimeout(autumnTimeOut);
+    clearTimeout(winterTimeOut);
+    springTimeOut = setTimeout(() => {
+        springBooks.classList.add("activeSeason")
+    }, 1300);
+})
+
+summerButton.addEventListener("click", function() {
+    autumnBooks.classList.remove("activeSeason");
+    winterBooks.classList.remove("activeSeason");
+    springBooks.classList.remove("activeSeason");
+    clearTimeout(winterTimeOut);
+    clearTimeout(springTimeOut);
+    clearTimeout(autumnTimeOut);
+    summerTimeOut = setTimeout(() => {
+        summerBooks.classList.add("activeSeason")
+    }, 1300);
+})
+
+autumnButton.addEventListener("click", function() {
+    winterBooks.classList.remove("activeSeason");
+    springBooks.classList.remove("activeSeason");
+    summerBooks.classList.remove("activeSeason");
+    clearTimeout(winterTimeOut);
+    clearTimeout(springTimeOut);
+    clearTimeout(summerTimeOut);
+    autumnTimeOut = setTimeout(() => {
+        autumnBooks.classList.add("activeSeason")
+    }, 1300);
+})
+
+
 
 function nextSlide() {
     sliderCount++;
@@ -148,3 +157,66 @@ pagination.forEach((point, index) => {
         }
     })
 })
+
+//Автоперелистывание
+/*setInterval(() => {
+    nextSlide()
+}, 3000);*/
+
+/*const slideNext = function () {
+    imagesAbout[i].style.display = "none";
+    i++;
+    if(i > imagesAbout.length - 1) {
+        i = 0;
+    }
+    imagesAbout[i].style.display = "block";
+}
+
+const slidePrev = function () {
+    imagesAbout[i].style.display = "none";
+    i--;
+    if(i < 0) {
+        i = imagesAbout.length - 1;
+    }
+    imagesAbout[i].style.display = "block";
+}
+
+leftArrow.addEventListener("click", slidePrev);
+rightArrow.addEventListener("click", slideNext);*/
+
+/*leftArrow.onclick = function (){
+    imagesAbout[i].style.display = "none";
+    i--;
+    if(i < 0) {
+        i = imagesAbout.length - 1;
+    }
+    imagesAbout[i].style.display = "block";
+}
+
+rightArrow.onclick = function (){
+    imagesAbout[i].style.display = "none";
+    i++;
+    if(i > imagesAbout.length - 1) {
+        i = 0;
+    }
+    imagesAbout[i].style.display = "block";
+}*/
+
+/*leftArrow.addEventListener("click", scrollToPrevItem);
+rightArrow.addEventListener("click", scrollToNextItem);
+pagination[i].addEventListener("click", scrollToItem);
+
+function scrollToPrevItem() {
+    slider.scrollBy({left: -itemWidth, top: 0, behavior: "smooth"});
+}
+
+function scrollToNextItem() {
+    slider.scrollBy({left: itemWidth, top: 0, behavior: "smooth"});
+}
+
+function scrollToItem() {
+    imagesAbout[i].scrollIntoView({behavior: "smooth"});
+    pagination[i].classList.toggle("active");
+}*/
+//Найти индекс массива передаваемого элемета пагинации и вписать его сюда как i
+//Убрать ссылки из пагинации в html
