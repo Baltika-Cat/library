@@ -466,6 +466,10 @@ section.favorites {
     margin-left: -2px;
     margin-right: 10px;
     align-items: center;
+    background-color: white;
+    position: sticky;
+    top: 0px;
+    z-index: 100;
 }    
 
 .seasons input[type=radio] {
@@ -514,15 +518,46 @@ section.favorites {
     background: url(../images/radioActive.svg) 0 0 no-repeat;
 }
 
+.booksContainer {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 640px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.winterBooks, .springBooks, .summerBooks, .autumnBooks {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin: 35px 0px auto 0px;
+    padding-bottom: 0;
+    width: 100%;
+    opacity: 0;
+    transition: 2s;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+
+.winterBooks {
+    position: static;
+}
+
+.activeSeason {
+    opacity: 1;
+    transition: 2s;
+}
+
 .books {
     display: flex;
     flex-direction: column;
-    margin-left: auto;
     flex-wrap: wrap;
     justify-content: center;
     align-content: center;
-    margin: 35px 20px auto 20px;
-    padding-bottom: 0;
 }
 
 .firstBook, .secondBook, .thirdBook, .fourthBook {
@@ -1056,6 +1091,163 @@ div.goldBackground {
 
 button[name=signUp] {
     margin-right: auto;
+}
+
+div.background {
+    display: flex;
+    background-color: black;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 199;
+    opacity: 0.6;
+}
+
+div.logInWindow {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    z-index: 200;
+    width: 250px;
+    height: 262px;
+    margin-top: -131px;
+    margin-left: -125px;
+    opacity: 1;
+}
+
+.logInAndRegisterTitle {
+    font-family: Forum;
+    font-size: 20px;
+    color: black;
+    letter-spacing: 0.4px;
+    font-weight: 400;
+    line-height: 20px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.cross img {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+}
+
+.cross img:hover {
+    cursor: pointer;
+}
+
+.logInAndRegisterText {
+    font-family: Inter;
+    color: black;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0.3px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 25px;
+}
+
+.logInAndRegisterInput {
+    width: 200px;
+    height: 20px;
+    border: 1px solid #BB945F;
+    margin-left: 25px;
+}
+
+#logInWindowLogIn {
+    width: 75px;
+    height: 30px;
+    border: 1px solid #0C0C0E;
+    border-radius: 2px;
+    margin-top: 20px;
+    margin-left: 25px;
+    background-color: white;
+    font-family: Inter;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-align: center;
+    transition: 1s;
+}
+
+#logInWindowLogIn:hover {
+    background-color: #BB945F;
+    cursor: pointer;
+    border: 1px solid #BB945F;
+    transition: 1s;
+}
+
+.logInAndRegisterBottom {
+    font-family: Inter;
+    font-size: 10px;
+    color: black;
+    font-weight: 400;
+    margin-left: 25px;
+}
+
+#registerLink {
+    font-weight: 700;
+    text-decoration: underline;
+    padding-left: 10px;
+}
+
+#registerLink:hover {
+    cursor: pointer;
+}
+
+.registerWindow {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    z-index: 200;
+    width: 250px;
+    height: 382px;
+    margin-top: -191px;
+    margin-left: -125px;
+    opacity: 1;
+}
+
+#logInLink {
+    font-weight: 700;
+    text-decoration: underline;
+    padding-left: 10px;
+}
+
+#logInLink:hover {
+    cursor: pointer;
+}
+
+#registerWindowSignUp {
+    width: 75px;
+    height: 30px;
+    border: 1px solid #0C0C0E;
+    border-radius: 2px;
+    margin-top: 20px;
+    margin-left: 25px;
+    background-color: white;
+    font-family: Inter;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-align: center;
+    transition: 1s;
+}
+
+#registerWindowSignUp:hover {
+    background-color: #BB945F;
+    cursor: pointer;
+    border: 1px solid #BB945F;
+    transition: 1s;
 }
 
 footer {
