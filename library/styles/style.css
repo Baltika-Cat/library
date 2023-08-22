@@ -30,6 +30,7 @@ header {
     width: 100%;
     position: relative;
     left: 0;
+    z-index: 10;
 }
 
 h1 {
@@ -92,6 +93,41 @@ nav {
     margin-right: 20px;
     width: 28px;
     height: 28px;
+}
+
+#logotype p {
+    padding: 0;
+    margin: 0;
+}
+
+#logotype:hover {
+    cursor: pointer;
+    transform: scale(1.15);
+}
+
+#logotype.authorized img {
+    transform: rotateY(-90deg);
+    transition: 1.5s;
+    display: none;
+}
+
+#logotype.authorized {
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    width: 43px;
+    height: 28px;
+    align-items: center;
+    justify-content: center;
+}
+
+#logotype.authorized p {
+    padding: 0px;
+    margin: 0px;
+    font-family: Inter;
+    font-size: 15px;
+    font-weight: 400;
+    color: #BB945F;
 }
 
 .popup {
@@ -165,6 +201,59 @@ section.about, section.favorites, section.coffeeShop, section.contacts, section.
     text-align: center;
     align-items: center;
     /*border: 35px 40px 35px 40px solid #0C0C0E;*/
+}
+
+.profileWindowLogIn, .profileWindowNotLogIn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80px;
+    height: 115px;
+    background: white;
+    position: absolute;
+    z-index: 5;
+    right: 0px;
+    top: -200px;
+    transition: 1.5s ease;
+}
+
+.profileOpen {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    display: flex;
+    opacity: 1;
+    transition: 1.5s ease;
+}
+
+.profileTitle {
+    font-family: Inter;
+    font-size: 15px;
+    font-weight: 700;
+    color: black;
+    margin-top: 5px;
+    margin-bottom: 0px;
+}
+
+.profileLine {
+    height: 1px;
+    width: 40px;
+    background-color: #BB945F;
+    margin-bottom: 5px;
+    border: none;
+}
+
+.profileText {
+    font-family: Inter;
+    font-weight: 400;
+    color: black;
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+
+.profileText:hover {
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 section.about {
@@ -908,10 +997,16 @@ div.background {
     background-color: black;
     position: fixed;
     top: 0px;
+    left: 0;
     width: 100%;
     height: 100%;
     z-index: 199;
     opacity: 0.6;
+    display: none;
+}
+
+div.background.open {
+    display: flex;
 }
 
 div.logInWindow {
@@ -927,6 +1022,11 @@ div.logInWindow {
     margin-top: -131px;
     margin-left: -125px;
     opacity: 1;
+    display: none;
+}
+
+div.logInWindow.open {
+    display: flex;
 }
 
 .logInAndRegisterTitle {
@@ -1025,6 +1125,11 @@ div.logInWindow {
     margin-top: -191px;
     margin-left: -125px;
     opacity: 1;
+    display: none;
+}
+
+.registerWindow.open {
+    display: flex;
 }
 
 #logInLink {
@@ -1199,4 +1304,16 @@ div.footerBottom {
     margin: auto;
     margin-right: 20px;
     margin-left: 0px;
+}
+
+body.noscroll {
+    overflow-x: hidden;
+}
+
+body.scrollBlock {
+    overflow-x: hidden;
+}
+
+#user {
+    display: none;
 }
