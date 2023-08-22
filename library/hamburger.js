@@ -44,16 +44,23 @@ const logotype = document.querySelector("#logotype");
 const btnMenu = document.querySelector("#hamburgerIcon");
 const menu = document.querySelector("#popup");
 const toggleMenu = function () {
+    body.classList.toggle("noscroll");
     menu.classList.toggle("open");
     btnMenu.classList.toggle("active");
     logotype.classList.toggle("positionFinal");
-    body.classList.toggle("noscroll");
     renderPopup();
 }
 
 btnMenu.addEventListener("click", function (e) {
     e.stopPropagation();
     toggleMenu();
+});
+
+logotype.addEventListener("click", function() {
+    menu.classList.remove("open");
+    btnMenu.classList.remove("active");
+    logotype.classList.remove("positionFinal");
+    body.classList.remove("noscroll");
 });
 
 document.addEventListener("click", function (e) {
