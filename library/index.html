@@ -27,11 +27,16 @@
                     <li><a href="#libraryCards">Library Card</a></li>
                 </ul>
             </nav>
+            <div id="user">
+
+            </div>
             <div class="popup" id="popup">
                 
             </div>
             <div id="logotype">
-                <img src="images/logo.svg" alt="logotype" id="logoIcon">
+                <p id="logoText">
+                    <img src="images/logo.svg" alt="logotype" id="logoIcon">
+                </p>
             </div>
         </div>
     </header>
@@ -39,6 +44,18 @@
         <section class="welcome">
             <div class="centerWelcome">
                 <h3 id="welcome">WELCOME<br>TO THE BROOKLYN<br>LIBRARY</h3>
+            </div>
+            <div class="profileWindowNotLogIn">
+                <p class="profileTitle">Profile</p>
+                <hr class="profileLine">
+                <p class="profileText" id="profileLogIn">Log in</p>
+                <p class="profileText" id="profileRegister">Register</p>
+            </div>
+            <div class="profileWindowLogIn">
+                <p class="profileTitle">Profile</p>  
+                <hr class="profileLine">
+                <p class="profileText" id="profileMyProfile">My profile</p>
+                <p class="profileText" id="profileLogOut">Log out</p>
             </div>
         </section>
         <section class="about">
@@ -482,7 +499,7 @@
                     </p>
                     <div id="getCardButtons">
                         <button name="signUp" id="signUp">Sign Up</button>
-                        <button name="logIn" id="LogIn">Log In</button>
+                        <button name="logIn" id="logIn">Log In</button>
                     </div>
                 </div>
             </div>
