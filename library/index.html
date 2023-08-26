@@ -511,15 +511,17 @@
                 <div class="cross">
                     <img src="images/cross.svg" alt="Close button">
                 </div>
-                <form action="index.html" method="get">
-                    <p class="logInAndRegisterText">E-mail or readers card</p>
-                    <input type="text" name="logIn" class="logInAndRegisterInput">
+                <form action="" method="">
+                    <div>
+                        <p class="logInAndRegisterText">E-mail or readers card</p>
+                        <input type="text" name="logIn" class="logInAndRegisterInput" id="logInLogInInput">
+                    </div>
+                    <div>
+                        <p class="logInAndRegisterText">Password</p>
+                        <input type="text" name="logInPassword" class="logInAndRegisterInput" id="logInPasswordInput">
+                    </div>
+                    <button name="logInWindowLogIn" id="logInWindowLogIn">Log in</button>
                 </form>
-                <form action="index.html" method="get">
-                    <p class="logInAndRegisterText">Password</p>
-                    <input type="text" name="logInPassword" class="logInAndRegisterInput">
-                </form>
-                <button name="logInWindowLogIn" id="logInWindowLogIn">Log in</button>
                 <p class="logInAndRegisterBottom">Don't have an account?<span id="registerLink">Register</span></p>
             </div>
             <div class="registerWindow">
@@ -528,22 +530,24 @@
                     <img src="images/cross.svg" alt="Close button">
                 </div>
                 <form action="index.html" method="get">
-                    <p class="logInAndRegisterText">First name</p>
-                    <input type="text" name="firstName" class="logInAndRegisterInput">
+                    <div>
+                        <p class="logInAndRegisterText">First name</p>
+                        <input type="text" name="firstName" class="logInAndRegisterInput" id="registerFirstNameInput">
+                    </div>
+                    <div>
+                        <p class="logInAndRegisterText">Last name</p>
+                        <input type="text" name="lastName" class="logInAndRegisterInput" id="registerLastNameInput">
+                    </div>
+                    <div>
+                        <p class="logInAndRegisterText">E-mail</p>
+                        <input type="text" name="email" class="logInAndRegisterInput" id="registerEmailInput">
+                    </div>
+                    <div>
+                        <p class="logInAndRegisterText">Password</p>
+                        <input type="text" name="password" class="logInAndRegisterInput" id="registerPasswordInput">
+                    </div>
+                    <button name="registerWindowSignUp" id="registerWindowSignUp">Sign up</button>
                 </form>
-                <form action="index.html" method="get">
-                    <p class="logInAndRegisterText">Last name</p>
-                    <input type="text" name="lastName" class="logInAndRegisterInput">
-                </form>
-                <form action="index.html">
-                    <p class="logInAndRegisterText">E-mail</p>
-                    <input type="text" name="email" class="logInAndRegisterInput">
-                </form>
-                <form action="index.html" method="get">
-                    <p class="logInAndRegisterText">Password</p>
-                    <input type="text" name="password" class="logInAndRegisterInput">
-                </form>
-                <button name="registerWindowSignUp" id="registerWindowSignUp">Sign up</button>
                 <p class="logInAndRegisterBottom">Already have an account?<span id="logInLink">Login</span></p>
             </div>
         </section>
