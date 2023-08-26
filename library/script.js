@@ -29,6 +29,34 @@ const hamburgerIcon = document.querySelector("#hamburgerIcon");
 const registerLink = document.querySelector("#registerLink");
 const logInLink = document.querySelector("#logInLink");
 const logoText = document.querySelector("#logoText");
+const logInLogInInput = document.querySelector("#logInLogInInput");
+const logInPasswordInput = document.querySelector("#logInPasswordInput");
+const registerFirstNameInput = document.querySelector("#registerFirstNameInput");
+const registerLastNameInput = document.querySelector("#registerLastNameInput");
+const registerEmailInput = document.querySelector("#registerEmailInput");
+const registerPasswordInput = document.querySelector("#registerPasswordInput");
+const registerWindowSignUp = document.querySelector("#registerWindowSignUp");
+const logInWindowLogIn = document.querySelector("#logInWindowLogIn");
+
+function register() {
+    localStorage.setItem(registerEmailInput.value, registerPasswordInput.value);
+}
+
+registerWindowSignUp.addEventListener("click", register);
+
+function logIn() {
+    if(localStorage.getItem(logInLogInInput.value) === null) {
+        console.log("E-mail is not register!");
+    } else {
+        if(localStorage.getItem(logInLogInInput.value) === logInPasswordInput.value) {
+            console.log("Log in!");
+        } else {
+            console.log("Password is wrong!");
+        }
+    }
+}
+
+logInWindowLogIn.addEventListener("click", logIn);
 
 /*const text = function() {
     logoText.textContent = "JD";
