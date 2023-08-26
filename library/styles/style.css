@@ -93,6 +93,7 @@ nav {
     margin-right: 20px;
     width: 28px;
     height: 28px;
+    transition: .6s;
 }
 
 #logotype p {
@@ -103,6 +104,7 @@ nav {
 #logotype:hover {
     cursor: pointer;
     transform: scale(1.15);
+    transition: .6s;
 }
 
 #logotype.authorized img {
@@ -1046,10 +1048,13 @@ div.logInWindow.open {
     position: absolute;
     right: 15px;
     top: 15px;
+    transition: .6s;
 }
 
 .cross img:hover {
     cursor: pointer;
+    transform: scale(1.15);
+    transition: .6s;
 }
 
 .logInAndRegisterText {
