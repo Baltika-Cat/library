@@ -379,6 +379,11 @@ section.about, section.favorites, section.coffeeShop, section.contacts, section.
     margin-bottom: 0px;
 }
 
+#profileCardNumber {
+    font-size: 12px;
+}
+
+
 .profileLine {
     height: 1px;
     width: 40px;

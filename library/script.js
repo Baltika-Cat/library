@@ -54,7 +54,7 @@ function register() {
         cardNumber += (Math.floor(Math.random() * 16)).toString(16);
     }
     values[3] = cardNumber;
-    localStorage.setItem(registerEmailInput.value, JSON.stringify(values));
+    localStorage.setItem(registerEmailInput.value, JSON.stringify(values));//ПРОПИСАТЬ SETITEM, ГДЕ В КАЧЕСТВЕ КЛЮЧА БУДЕТ НОМЕР КАРТЫ, А В КАЧЕСТВЕ ЗНАЧЕНИЙ - ТАКОЙ ЖЕ МАССИВ VALUES
     localStorage.values = JSON.stringify(values);
 }
 
@@ -65,18 +65,19 @@ function logIn() {
     if(values[0] === null) {
         console.log("E-mail is not register!");
     } else {
-        if(values[0] === logInPasswordInput.value || localStorage.getItem(values[3]) === logInPasswordInput.value) {
+        if(values[0] === logInPasswordInput.value || (values[3] === logInPasswordInput.value)) {
             localStorage.setItem("user", "authorized");
             let text = (values[1])[0] + (values[2])[0];
+            let cardNumber = values[3].toUpperCase();
             localStorage.setItem("logo", text);
+            localStorage.setItem("card", cardNumber);
             profileCardNumber.textContent = values[3].toUpperCase();
         } else {
             console.log("Password is wrong!");
         }
     }
 }
-//ИДЕЯ: ОБЪЯВИТЬ ПЕРЕМЕННУЮ , КОТОРАЯ БУДЕТ УВЕЛИЧИВАТЬСЯ С КАЖДОЙ РЕГИСТРАЦИЕЙ, ЗАТЕМ ПРИСВАИВАТЬ ИМЯ КЛЮЧУ В LOCALsTORAGE в стиле 
-//"key" + i  И ЗНАЧЕНИЕ CARDNUMBER
+
 logInWindowLogIn.addEventListener("click", logIn);
 profileLogOutButton.addEventListener("click", function() {
     localStorage.removeItem("user");
@@ -90,8 +91,8 @@ window.addEventListener("load", function() {
         profileWindowNotLogIn.classList.add("profileNonActive");
         console.log("authorized");
         logoText.textContent = (localStorage.getItem("logo")).toUpperCase();
-        console.log(values[3]);
-        profileCardNumber.textContent = values[3].toUpperCase();
+        profileCardNumber.textContent = localStorage.getItem("card");
+        console.log(localStorage.getItem("card"));
     } else {
         console.log("non-authorized");
         console.log(localStorage.getItem("qwerty@mail.ru"));
