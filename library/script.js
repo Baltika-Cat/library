@@ -37,19 +37,29 @@ const registerEmailInput = document.querySelector("#registerEmailInput");
 const registerPasswordInput = document.querySelector("#registerPasswordInput");
 const registerWindowSignUp = document.querySelector("#registerWindowSignUp");
 const logInWindowLogIn = document.querySelector("#logInWindowLogIn");
+const user = document.querySelector("#user");
+const firstName = document.querySelector("#registerFirstNameInput");
+const lastName = document.querySelector("#registerLastNameInput");
 
 function register() {
-    localStorage.setItem(registerEmailInput.value, registerPasswordInput.value);
+    let values = [];
+    values[0] = registerPasswordInput.value;
+    values[1] = firstName.value;
+    values[2] = lastName.value;
+    localStorage.setItem(registerEmailInput.value, JSON.stringify(values));
 }
 
 registerWindowSignUp.addEventListener("click", register);
 
 function logIn() {
-    if(localStorage.getItem(logInLogInInput.value) === null) {
+    let values = JSON.parse(localStorage.getItem(logInLogInInput.value));
+    if(values[0] === null) {
         console.log("E-mail is not register!");
     } else {
-        if(localStorage.getItem(logInLogInInput.value) === logInPasswordInput.value) {
-            console.log("Log in!");
+        if(values[0] === logInPasswordInput.value) {
+            localStorage.setItem("user", "authorized");
+            let text = (values[1])[0] + (values[2])[0];
+            localStorage.setItem("logo", text);
         } else {
             console.log("Password is wrong!");
         }
@@ -57,7 +67,25 @@ function logIn() {
 }
 
 logInWindowLogIn.addEventListener("click", logIn);
+profileLogOutButton.addEventListener("click", function() {
+    localStorage.removeItem("user");
+    location.reload();
+})
 
+window.addEventListener("load", function() {
+    if(localStorage.getItem("user") === "authorized") {
+        user.classList.add("authorized");
+        logotypeIcon.classList.add("authorized");
+        profileWindowNotLogIn.classList.add("profileNonActive");
+        console.log("authorized");
+        console.log(localStorage.getItem("1"));
+        console.log(localStorage.getItem("2"));
+        logoText.textContent = (localStorage.getItem("logo")).toUpperCase();
+    } else {
+        console.log("non-authorized");
+        console.log(localStorage.getItem("qwerty@mail.ru"));
+    }
+})
 /*const text = function() {
     logoText.textContent = "JD";
 }
@@ -67,6 +95,7 @@ logoText.addEventListener("mouseover", text);*/
 const closeWindowNotLogIn = function() {
     body.classList.remove("scrollBlock");
     profileWindowNotLogIn.classList.remove("profileOpen");
+    profileWindowLogIn.classList.remove("profileOpen");
 }
 
 const closeWindowLogIn = function() {
@@ -86,7 +115,11 @@ hamburgerIcon.addEventListener("click", closeWindowNotLogIn);
 logotypeIcon.addEventListener("click", function (e) {
     e.stopPropagation();
     body.classList.toggle("scrollBlock");
-    profileWindowNotLogIn.classList.toggle("profileOpen");
+    if(localStorage.getItem("user") === "authorized") {
+        profileWindowLogIn.classList.toggle("profileOpen");
+    } else {
+        profileWindowNotLogIn.classList.toggle("profileOpen");
+    }
 });
 
 profileRegisterButton.addEventListener("click", function() {
@@ -123,11 +156,12 @@ document.addEventListener("click", function (e) {
     const target = e.target;
     const its_profileWindow = target == profileWindowNotLogIn || profileWindowNotLogIn.contains(target);
     const its_logotypeIcon = target == logotypeIcon;
-    const profileWindow_is_active = profileWindowNotLogIn.classList.contains("profileOpen");
+    const profileWindow_is_active = profileWindowNotLogIn.classList.contains("profileOpen") || profileWindowLogIn.classList.contains("profileOpen");
 
     if (!its_profileWindow && !its_logotypeIcon && profileWindow_is_active) {
         body.classList.remove("scrollBlock");
         profileWindowNotLogIn.classList.remove("profileOpen");
+        profileWindowLogIn.classList.remove("profileOpen");
     }
 });
 
