@@ -92,7 +92,6 @@ nav {
     width: 28px;
     height: 28px;
     position: relative;
-    transition: .6s;
 }
 
 #logotype p {
@@ -115,10 +114,19 @@ nav {
     background: white;
     border-radius: 50%;
     display: flex;
-    width: 43px;
+    width: 28px;
     height: 28px;
     align-items: center;
     justify-content: center;
+    position: absolute;
+    right: 105px;
+    z-index: 200;
+    transition: .6s;
+}
+
+#logotype.authorized:hover {
+    transform: scale(1.15);
+    transition: .6s;
 }
 
 #logotype.authorized p {
@@ -128,6 +136,7 @@ nav {
     font-size: 15px;
     font-weight: 400;
     color: #BB945F;
+    text-transform: uppercase;
 }
 
 #logotype img {
@@ -135,11 +144,12 @@ nav {
     z-index: 200;
     right: 105px;
     top: 0px;
-    transition: 1s ease;
+    transition: .6s;
 }
 
 #logotype img:hover {
     transform: scale(1.15);
+    translate: .6s;
 }
 
 .navbar {

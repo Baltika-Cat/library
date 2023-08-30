@@ -117,10 +117,11 @@ nav {
     background: white;
     border-radius: 50%;
     display: flex;
-    width: 43px;
+    width: 28px;
     height: 28px;
     align-items: center;
     justify-content: center;
+    padding: 0px;
 }
 
 #logotype.authorized p {
@@ -130,6 +131,7 @@ nav {
     font-size: 15px;
     font-weight: 400;
     color: #BB945F;
+    width: 28px;
 }
 
 .popup {
@@ -226,6 +228,10 @@ section.about, section.favorites, section.coffeeShop, section.contacts, section.
     display: flex;
     opacity: 1;
     transition: 1.5s ease;
+}
+
+.profileNonActive {
+    display: none;
 }
 
 .profileTitle {
