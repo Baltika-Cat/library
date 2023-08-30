@@ -532,19 +532,19 @@
                 <form action="index.html" method="get">
                     <div>
                         <p class="logInAndRegisterText">First name</p>
-                        <input type="text" name="firstName" class="logInAndRegisterInput" id="registerFirstNameInput">
+                        <input type="text" name="firstName" class="logInAndRegisterInput" id="registerFirstNameInput" required>
                     </div>
                     <div>
                         <p class="logInAndRegisterText">Last name</p>
-                        <input type="text" name="lastName" class="logInAndRegisterInput" id="registerLastNameInput">
+                        <input type="text" name="lastName" class="logInAndRegisterInput" id="registerLastNameInput" required>
                     </div>
                     <div>
                         <p class="logInAndRegisterText">E-mail</p>
-                        <input type="text" name="email" class="logInAndRegisterInput" id="registerEmailInput">
+                        <input type="email" name="email" class="logInAndRegisterInput" id="registerEmailInput" required>
                     </div>
                     <div>
                         <p class="logInAndRegisterText">Password</p>
-                        <input type="text" name="password" class="logInAndRegisterInput" id="registerPasswordInput">
+                        <input type="text" name="password" minlength="8" class="logInAndRegisterInput" id="registerPasswordInput" required>
                     </div>
                     <button name="registerWindowSignUp" id="registerWindowSignUp">Sign up</button>
                 </form>
