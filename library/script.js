@@ -40,13 +40,22 @@ const logInWindowLogIn = document.querySelector("#logInWindowLogIn");
 const user = document.querySelector("#user");
 const firstName = document.querySelector("#registerFirstNameInput");
 const lastName = document.querySelector("#registerLastNameInput");
+const profileCardNumber = document.querySelector("#profileCardNumber");
+
+let values = [];
 
 function register() {
-    let values = [];
+
     values[0] = registerPasswordInput.value;
     values[1] = firstName.value;
     values[2] = lastName.value;
+    let cardNumber = "";
+    for(let i = 0; i < 9; i++) {
+        cardNumber += (Math.floor(Math.random() * 16)).toString(16);
+    }
+    values[3] = cardNumber;
     localStorage.setItem(registerEmailInput.value, JSON.stringify(values));
+    localStorage.values = JSON.stringify(values);
 }
 
 registerWindowSignUp.addEventListener("click", register);
@@ -56,16 +65,18 @@ function logIn() {
     if(values[0] === null) {
         console.log("E-mail is not register!");
     } else {
-        if(values[0] === logInPasswordInput.value) {
+        if(values[0] === logInPasswordInput.value || localStorage.getItem(values[3]) === logInPasswordInput.value) {
             localStorage.setItem("user", "authorized");
             let text = (values[1])[0] + (values[2])[0];
             localStorage.setItem("logo", text);
+            profileCardNumber.textContent = values[3].toUpperCase();
         } else {
             console.log("Password is wrong!");
         }
     }
 }
-
+//ИДЕЯ: ОБЪЯВИТЬ ПЕРЕМЕННУЮ , КОТОРАЯ БУДЕТ УВЕЛИЧИВАТЬСЯ С КАЖДОЙ РЕГИСТРАЦИЕЙ, ЗАТЕМ ПРИСВАИВАТЬ ИМЯ КЛЮЧУ В LOCALsTORAGE в стиле 
+//"key" + i  И ЗНАЧЕНИЕ CARDNUMBER
 logInWindowLogIn.addEventListener("click", logIn);
 profileLogOutButton.addEventListener("click", function() {
     localStorage.removeItem("user");
@@ -78,9 +89,9 @@ window.addEventListener("load", function() {
         logotypeIcon.classList.add("authorized");
         profileWindowNotLogIn.classList.add("profileNonActive");
         console.log("authorized");
-        console.log(localStorage.getItem("1"));
-        console.log(localStorage.getItem("2"));
         logoText.textContent = (localStorage.getItem("logo")).toUpperCase();
+        console.log(values[3]);
+        profileCardNumber.textContent = values[3].toUpperCase();
     } else {
         console.log("non-authorized");
         console.log(localStorage.getItem("qwerty@mail.ru"));
