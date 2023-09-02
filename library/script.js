@@ -41,15 +41,17 @@ const user = document.querySelector("#user");
 const firstName = document.querySelector("#registerFirstNameInput");
 const lastName = document.querySelector("#registerLastNameInput");
 const profileCardNumber = document.querySelector("#profileCardNumber");
+const bookButtons = document.querySelectorAll(".buy");
 
 let values = [];
 
 function register() {
-
     values[0] = registerPasswordInput.value;
     values[1] = firstName.value;
     values[2] = lastName.value;
     values[4] = 0;
+    values[5] = [];
+    values[6] = [];
     let cardNumber = "";
     for(let i = 0; i < 9; i++) {
         cardNumber += (Math.floor(Math.random() * 16)).toString(16);
@@ -61,8 +63,16 @@ function register() {
 
 registerWindowSignUp.addEventListener("click", register);
 
+function capitalize(str) {
+    let capArr = str.split(" ").map(word => {
+       return word[0].toUpperCase() + word.slice(1);
+    })
+    return capArr.join(" ");
+}
+
 function logIn() {
     let values = JSON.parse(localStorage.getItem((logInLogInInput.value).toLowerCase()));
+
     if(values[0] === null) {
         console.log("E-mail is not register!");
     } else {
@@ -77,11 +87,36 @@ function logIn() {
             localStorage.setItem("card", cardNumber);
             localStorage.setItem("count", values[4]);
             profileCardNumber.textContent = values[3].toUpperCase();
-        } else {
-            console.log("Password is wrong!");
-        }
+            localStorage.setItem("books", JSON.stringify(values[5]));
+            localStorage.setItem("buttons", JSON.stringify(values[6]));
+        }    
     }
 }
+
+bookButtons.forEach((bookButton) => {
+    bookButton.addEventListener("click", function() {
+       buttonName = this.name;
+       let book = bookButton.closest(".bookBorder");
+       let bookName = (book.getElementsByClassName("bookName")[0]).textContent.toLowerCase();
+       let author = (book.getElementsByClassName("author"))[0].textContent.toLowerCase();
+       let bookNameInfo = capitalize(bookName);
+       let authorInfo = capitalize(author);
+       let bookInfo = `${bookNameInfo}, ${authorInfo}`;
+       bookButton.classList.remove("buy");
+       bookButton.classList.add("own");
+       bookButton.textContent = "Own";
+       values[5] = JSON.parse(localStorage.getItem("books"));
+       values[6] = JSON.parse(localStorage.getItem("buttons"));
+       console.log(localStorage.getItem("books"));
+       console.log(localStorage.getItem("buttons"));
+       values[5].push(bookInfo);
+       values[6].push(buttonName);
+       localStorage.setItem("books", JSON.stringify(values[5]));
+       localStorage.setItem("buttons", JSON.stringify(values[6]));
+       console.log(localStorage.getItem("books"));
+       console.log(localStorage.getItem("buttons"));
+    })
+})
 
 logInWindowLogIn.addEventListener("click", logIn);
 
@@ -91,6 +126,7 @@ profileLogOutButton.addEventListener("click", function() {
 })
 
 window.addEventListener("load", function() {
+    localStorage.clear();
     if(localStorage.getItem("user") === "authorized") {
         user.classList.add("authorized");
         logotypeIcon.classList.add("authorized");
@@ -98,11 +134,20 @@ window.addEventListener("load", function() {
         console.log("authorized");
         logoText.textContent = (localStorage.getItem("logo")).toUpperCase();
         profileCardNumber.textContent = localStorage.getItem("card");
-        console.log(localStorage.getItem("card"));
-        console.log(localStorage.getItem("count"));
+        let booksArray = JSON.parse(localStorage.getItem("books"));
+        let booksCount = booksArray.length;
+        let buttons = JSON.parse(localStorage.getItem("buttons"));
+        bookButtons.forEach((bookButton) => {
+            buttons.forEach((button) => {
+                if((bookButton === (document.getElementsByName(button)[0]))) {
+                    bookButton.classList.remove("buy");
+                    bookButton.classList.add("own");
+                    bookButton.textContent = "Own";
+                }
+            })
+        })
     } else {
         console.log("non-authorized");
-        console.log(localStorage.getItem("qwerty@mail.ru"));
     }
 })
 /*const text = function() {
