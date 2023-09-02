@@ -49,28 +49,33 @@ function register() {
     values[0] = registerPasswordInput.value;
     values[1] = firstName.value;
     values[2] = lastName.value;
+    values[4] = 0;
     let cardNumber = "";
     for(let i = 0; i < 9; i++) {
         cardNumber += (Math.floor(Math.random() * 16)).toString(16);
     }
     values[3] = cardNumber;
-    localStorage.setItem(registerEmailInput.value, JSON.stringify(values));//ПРОПИСАТЬ SETITEM, ГДЕ В КАЧЕСТВЕ КЛЮЧА БУДЕТ НОМЕР КАРТЫ, А В КАЧЕСТВЕ ЗНАЧЕНИЙ - ТАКОЙ ЖЕ МАССИВ VALUES
-    localStorage.values = JSON.stringify(values);
+    localStorage.setItem((registerEmailInput.value).toLowerCase(), JSON.stringify(values));
+    localStorage.setItem(values[3], JSON.stringify(values));
 }
 
 registerWindowSignUp.addEventListener("click", register);
 
 function logIn() {
-    let values = JSON.parse(localStorage.getItem(logInLogInInput.value));
+    let values = JSON.parse(localStorage.getItem((logInLogInInput.value).toLowerCase()));
     if(values[0] === null) {
         console.log("E-mail is not register!");
     } else {
-        if(values[0] === logInPasswordInput.value || (values[3] === logInPasswordInput.value)) {
+        if(values[0] === logInPasswordInput.value) {
             localStorage.setItem("user", "authorized");
             let text = (values[1])[0] + (values[2])[0];
             let cardNumber = values[3].toUpperCase();
+            values[4]++;
+            localStorage.setItem(logInLogInInput.value, JSON.stringify(values));
+            localStorage.setItem(values[3], JSON.stringify(values));
             localStorage.setItem("logo", text);
             localStorage.setItem("card", cardNumber);
+            localStorage.setItem("count", values[4]);
             profileCardNumber.textContent = values[3].toUpperCase();
         } else {
             console.log("Password is wrong!");
@@ -79,6 +84,7 @@ function logIn() {
 }
 
 logInWindowLogIn.addEventListener("click", logIn);
+
 profileLogOutButton.addEventListener("click", function() {
     localStorage.removeItem("user");
     location.reload();
@@ -93,6 +99,7 @@ window.addEventListener("load", function() {
         logoText.textContent = (localStorage.getItem("logo")).toUpperCase();
         profileCardNumber.textContent = localStorage.getItem("card");
         console.log(localStorage.getItem("card"));
+        console.log(localStorage.getItem("count"));
     } else {
         console.log("non-authorized");
         console.log(localStorage.getItem("qwerty@mail.ru"));
