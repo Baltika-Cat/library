@@ -110,40 +110,45 @@ function logIn() {
 
 bookButtons.forEach((bookButton) => {
     bookButton.addEventListener("click", function() {
-        buttonName = this.name;
-        let book = bookButton.closest(".bookBorder");
-        let bookName = (book.getElementsByClassName("bookName")[0]).textContent.toLowerCase();
-        let author = (book.getElementsByClassName("author"))[0].textContent.toLowerCase();
-        let bookNameInfo = capitalize(bookName);
-        let authorInfo = capitalize(author);
-        let bookInfo = `${bookNameInfo}, ${authorInfo}`;
-        bookButton.classList.remove("buy");
-        bookButton.classList.add("own");
-        bookButton.textContent = "Own";
-        bookButton.disabled = true;
-        //values[5] = JSON.parse(localStorage.getItem("books"));
-        //values[6] = JSON.parse(localStorage.getItem("buttons"));
-        let values = [];
-        if((localStorage.getItem("name")).toLowerCase() != null) {
-            values = JSON.parse(localStorage.getItem((localStorage.getItem("name")).toLowerCase()));//
+        if(localStorage.getItem("user") === "authorized") {    
+            buttonName = this.name;
+            let book = bookButton.closest(".bookBorder");
+            let bookName = (book.getElementsByClassName("bookName")[0]).textContent.toLowerCase();
+            let author = (book.getElementsByClassName("author"))[0].textContent.toLowerCase();
+            let bookNameInfo = capitalize(bookName);
+            let authorInfo = capitalize(author);
+            let bookInfo = `${bookNameInfo}, ${authorInfo}`;
+            bookButton.classList.remove("buy");
+            bookButton.classList.add("own");
+            bookButton.textContent = "Own";
+            bookButton.disabled = true;
+            //values[5] = JSON.parse(localStorage.getItem("books"));
+            //values[6] = JSON.parse(localStorage.getItem("buttons"));
+            let values = [];
+            if((localStorage.getItem("name")).toLowerCase() != null) {
+                values = JSON.parse(localStorage.getItem((localStorage.getItem("name")).toLowerCase()));//
+            } else {
+                values = JSON.parse(localStorage.getItem((localStorage.getItem("card")).toLowerCase()));
+            }
+            console.log(localStorage.getItem("books"));
+            console.log(localStorage.getItem("buttons"));
+            values[5].push(bookInfo);
+            values[6].push(buttonName);
+            booksCount.textContent = values[5].length;
+            let li = document.createElement("li");
+            li.appendChild(document.createTextNode(bookInfo));
+            console.log(li);
+            booksList.appendChild(li);
+            //localStorage.setItem("books", JSON.stringify(values[5]));
+            //localStorage.setItem("buttons", JSON.stringify(values[6]));
+            localStorage.setItem((localStorage.getItem("name")).toLowerCase(), JSON.stringify(values));//
+            localStorage.setItem((localStorage.getItem("card")).toLowerCase(), JSON.stringify(values));//
+            console.log(localStorage.getItem("books"));
+            console.log(localStorage.getItem("buttons"));
         } else {
-            values = JSON.parse(localStorage.getItem((localStorage.getItem("card")).toLowerCase()));
+            logInWindow.classList.add("open");
+            background.classList.add("open");
         }
-        console.log(localStorage.getItem("books"));
-        console.log(localStorage.getItem("buttons"));
-        values[5].push(bookInfo);
-        values[6].push(buttonName);
-        booksCount.textContent = values[5].length;
-        let li = document.createElement("li");
-        li.appendChild(document.createTextNode(bookInfo));
-        console.log(li);
-        booksList.appendChild(li);
-        //localStorage.setItem("books", JSON.stringify(values[5]));
-        //localStorage.setItem("buttons", JSON.stringify(values[6]));
-        localStorage.setItem((localStorage.getItem("name")).toLowerCase(), JSON.stringify(values));//
-        localStorage.setItem((localStorage.getItem("card")).toLowerCase(), JSON.stringify(values));//
-        console.log(localStorage.getItem("books"));
-        console.log(localStorage.getItem("buttons"));
     })
 })
 
