@@ -68,6 +68,14 @@ function register() {
     values[3] = cardNumber;
     localStorage.setItem((registerEmailInput.value).toLowerCase(), JSON.stringify(values));
     localStorage.setItem(values[3], JSON.stringify(values));
+    logIn();
+    /*console.log(localStorage.getItem(registerEmailInput.value));
+    console.log(logInLogInInput);
+    console.log(registerEmailInput.value);
+    console.log(registerPasswordInput.value);
+    console.log(logInPasswordInput);
+    console.log(localStorage.getItem("user"));    
+    console.log(localStorage.getItem(logInLogInInput.value));*/
 }
 
 registerWindowSignUp.addEventListener("click", register);
@@ -80,23 +88,33 @@ function capitalize(str) {
 }
 
 function logIn() {
-    let values = JSON.parse(localStorage.getItem((logInLogInInput.value).toLowerCase()));
-    if(values[0] === null) {
-        console.log("E-mail is not register!");
+    let values = [];
+    if(logInLogInInput.value != "") {
+        values = JSON.parse(localStorage.getItem((logInLogInInput.value).toLowerCase()));
     } else {
-        if(values[0] === logInPasswordInput.value) {
+        values = JSON.parse(localStorage.getItem((registerEmailInput.value).toLowerCase()));
+    }
+    if(values[0] === null) {
+        console.log("E-mail is not register");
+    } else {
+        if((values[0] === logInPasswordInput.value) || values[0] === registerPasswordInput.value) {
             localStorage.setItem("user", "authorized");
             let text = (values[1])[0] + (values[2])[0];
             let name = `${values[1]} ${values[2]}`;
             let cardNumber = values[3].toUpperCase();
             values[4]++;
+            localStorage.setItem(registerEmailInput.value, JSON.stringify(values));//
             localStorage.setItem(logInLogInInput.value, JSON.stringify(values));
             localStorage.setItem(values[3], JSON.stringify(values));
-            if(logInLogInInput.value != values[3]) {
-                localStorage.setItem("name", logInLogInInput.value);//
+            if(logInLogInInput.value != "") {
+                if(logInLogInInput.value != values[3]) {
+                    localStorage.setItem("name", logInLogInInput.value);//
+                } else {
+                    localStorage.remove("name");
+                }    
             } else {
-                localStorage.remove("name");
-            }    
+                localStorage.setItem("name", registerEmailInput.value);
+            }
             localStorage.setItem("logo", text);
             localStorage.setItem("fullName", name);
             localStorage.setItem("card", cardNumber);
@@ -160,6 +178,7 @@ profileLogOutButton.addEventListener("click", function() {
 })
 
 window.addEventListener("load", function() {
+    //localStorage.clear();
     if(localStorage.getItem("user") === "authorized") {
         user.classList.add("authorized");
         logotypeIcon.classList.add("authorized");
