@@ -621,7 +621,11 @@ section.about, section.favorites, section.coffeeShop, section.contacts, section.
     z-index: 200;
     margin-top: -270px;
     margin-left: -320px;
-    /*display: none;*/
+    display: none;
+}
+
+.buyCardWindow.open {
+    display: flex;
 }
 
 .buyCardTop div {

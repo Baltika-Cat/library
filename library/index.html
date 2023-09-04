@@ -127,14 +127,14 @@
                     <div class="buyCardFormContainer">
                         <form action="index.html" method="get" id="buyCardForm">
                             <p class="buyCardInputName">Bank card number</p>
-                            <input type="number" name="bankCard" minlength="16" maxlength="16" class="buyCardInput" id="bankCard" required>
+                            <input type="number" name="bankCard" min="0000000000000000" max="9999999999999999" class="buyCardInput" id="bankCard" required>
                             <p class="buyCardInputName">Expiration code</p>
                             <div id="expirationCode">
-                                <input type="number" name="expirationCodeLeft" minlength="2" maxlength="2" class="buyCardInput" id="expirationCodeLeft" required>
-                                <input type="number" name="expirationCodeRight" minlength="2" maxlength="2" class="buyCardInput" id="expirationCodeRight" required>
+                                <input minLength="2" maxLength="2" type="number" name="expirationCodeLeft" class="buyCardInput" id="expirationCodeLeft" required>
+                                <input minLength="2" maxLength="2" type="number" name="expirationCodeRight" class="buyCardInput" id="expirationCodeRight" required>
                             </div>
                             <p class="buyCardInputName">CVC</p>
-                            <input type="number" name="CVC" minlength="3" maxlength="3" class="buyCardInput" id="CVC" required>
+                            <input type="number" name="CVC" min="000" max="999" class="buyCardInput" id="CVC" required>
                             <p class="buyCardInputName">Cardholder name</p>
                             <input type="text" name="cardholderName" class="buyCardInput" id="cardholderName" required>
                             <p class="buyCardInputName">Postal code</p>
@@ -142,7 +142,7 @@
                             <p class="buyCardInputName">City / Town</p>
                             <input type="text" name="city" class="buyCardInput" id="city" required>
                             <div class="buttonAndPrice">
-                                <button name="buyCardBuy" id="buyCardBuy">Buy</button>
+                                <button name="buyCardBuy" id="buyCardBuy" disabled>Buy</button>
                                 <p>$ 25.00</p>
                             </div>
                         </form>

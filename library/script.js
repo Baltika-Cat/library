@@ -51,6 +51,10 @@ const visitsCount = document.querySelector("#visitsCount");
 const cardNumberNumber = document.querySelector(".cardNumberNumber");
 const cardCopy = document.querySelector(".cardNumberCopy");
 const booksList = document.querySelector(".rentedBooks ul");
+const buyCardWindow = document.querySelector(".buyCardWindow");
+const whiteCross = document.querySelector("#whiteCross");
+const buyCardForm = document.querySelector("#buyCardForm");
+const buyCardButton = document.querySelector("#buyCardBuy");
 
 let values = [];
 
@@ -61,6 +65,7 @@ function register() {
     values[4] = 0;
     values[5] = [];
     values[6] = [];
+    values[7] = "false";
     let cardNumber = "";
     for(let i = 0; i < 9; i++) {
         cardNumber += (Math.floor(Math.random() * 16)).toString(16);
@@ -86,6 +91,29 @@ function capitalize(str) {
     })
     return capArr.join(" ");
 }
+
+function checkValid(e) {
+    const target = e.target.form;
+    const isValid = target.checkValidity();
+    if(isValid) {
+        target.querySelector("button").disabled = false;
+    }
+}
+
+buyCardButton.addEventListener("click", function() {
+    let values = [];
+    if((localStorage.getItem("name")).toLowerCase() != null) {
+        values = JSON.parse(localStorage.getItem((localStorage.getItem("name")).toLowerCase()));//
+    } else {
+        values = JSON.parse(localStorage.getItem((localStorage.getItem("card")).toLowerCase()));
+    }
+    values[7] = "true";
+    localStorage.setItem((localStorage.getItem("name")).toLowerCase(), JSON.stringify(values));//
+    localStorage.setItem((localStorage.getItem("card")).toLowerCase(), JSON.stringify(values));//
+    console.log(values[7]);
+})
+
+buyCardForm.addEventListener("input", checkValid);
 
 function logIn() {
     let values = [];
@@ -122,6 +150,7 @@ function logIn() {
             profileCardNumber.textContent = values[3].toUpperCase();
             localStorage.setItem("books", JSON.stringify(values[5]));
             localStorage.setItem("buttons", JSON.stringify(values[6]));
+            localStorage.setItem("hasCard", values[7]);
         }    
     }
 }
@@ -136,10 +165,10 @@ bookButtons.forEach((bookButton) => {
             let bookNameInfo = capitalize(bookName);
             let authorInfo = capitalize(author);
             let bookInfo = `${bookNameInfo}, ${authorInfo}`;
-            bookButton.classList.remove("buy");
+            /*bookButton.classList.remove("buy");
             bookButton.classList.add("own");
             bookButton.textContent = "Own";
-            bookButton.disabled = true;
+            bookButton.disabled = true;*/
             //values[5] = JSON.parse(localStorage.getItem("books"));
             //values[6] = JSON.parse(localStorage.getItem("buttons"));
             let values = [];
@@ -148,15 +177,24 @@ bookButtons.forEach((bookButton) => {
             } else {
                 values = JSON.parse(localStorage.getItem((localStorage.getItem("card")).toLowerCase()));
             }
+            if(values[7] === "true") {
+                bookButton.classList.remove("buy");
+                bookButton.classList.add("own");
+                bookButton.textContent = "Own";
+                bookButton.disabled = true;
+                values[5].push(bookInfo);
+                values[6].push(buttonName);
+                booksCount.textContent = values[5].length;
+                let li = document.createElement("li");
+                li.appendChild(document.createTextNode(bookInfo));
+                console.log(li);
+                booksList.appendChild(li);
+            } else {
+                buyCardWindow.classList.add("open");
+                background.classList.add("open");
+            }
             console.log(localStorage.getItem("books"));
             console.log(localStorage.getItem("buttons"));
-            values[5].push(bookInfo);
-            values[6].push(buttonName);
-            booksCount.textContent = values[5].length;
-            let li = document.createElement("li");
-            li.appendChild(document.createTextNode(bookInfo));
-            console.log(li);
-            booksList.appendChild(li);
             //localStorage.setItem("books", JSON.stringify(values[5]));
             //localStorage.setItem("buttons", JSON.stringify(values[6]));
             localStorage.setItem((localStorage.getItem("name")).toLowerCase(), JSON.stringify(values));//
@@ -244,7 +282,8 @@ const closeWindow = function() {
     logInWindow.classList.remove("open");
     registerWindow.classList.remove("open");
     background.classList.remove("open");
-    myProfileWindow.classList.remove("open");    
+    myProfileWindow.classList.remove("open");   
+    buyCardWindow.classList.remove("open"); 
 }
 
 hamburgerIcon.addEventListener("click", closeWindowNotLogIn);
@@ -296,6 +335,8 @@ crossIcons.forEach((crossIcon) => {
 });
 
 crossProfile.addEventListener("click", closeWindow);
+
+whiteCross.addEventListener("click", closeWindow);
 
 document.addEventListener("click", function (e) {
     const target = e.target;
