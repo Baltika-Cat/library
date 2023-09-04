@@ -472,6 +472,138 @@ section.about, section.favorites, section.coffeeShop, section.contacts, section.
     transition: .6s;
 }
 
+.buyCardWindow {
+    display: flex;
+    flex-direction: column;
+    width: 640px;
+    height: 540px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    z-index: 200;
+    margin-top: -270px;
+    margin-left: -320px;
+    /*display: none;*/
+}
+
+.buyCardTop div {
+    height: 60px;
+    display: flex;
+    background-color: #0C0C0E;
+    justify-content: center;
+    align-items: center;
+}
+
+.buyCardTopTitle p {
+    font-family: Forum;
+    font-size: 40px;
+    text-align: center;
+    color: white;
+    line-height: 20px;
+    letter-spacing: 0.8px;
+    font-weight: 400;
+    margin: 0px;
+    text-transform: uppercase;
+}
+
+.buyCardBottom {
+    display: flex;
+    height: 480px;
+    flex-direction: row;
+    background-color: white;
+}
+
+.buyCardFormContainer {
+    display: flex;
+    width: 200px;
+    height: 410px;
+    margin: 30px auto 40px 35px;
+}
+
+.buyCardInputName {
+    font-family: Inter;
+    font-size: 15px;
+    line-height: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    letter-spacing: 0.3px;
+    font-weight: 400;
+}
+
+.buyCardInputName:first-child {
+    margin-top: 0px;
+}
+
+.buyCardInput {
+    border: 1px solid #BB945F;
+    height: 20px;
+    width: 198px;
+    padding: 0px;
+}
+
+#expirationCode {
+    display: flex;
+    gap: 10px;
+}
+
+#expirationCode input, #CVC {
+    width: 43px;
+}
+
+.buttonAndPrice {
+    display: flex;
+    margin-bottom: auto;
+    margin-top: 20px;
+}
+
+.buttonAndPrice button {
+    width: 75px;
+    height: 30px;
+    border: 1px solid #0C0C0E;
+    border-radius: 2px;
+    font-family: Inter;
+    font-size: 10px;
+    letter-spacing: 1px;
+    font-weight: 700;
+    margin-bottom: 0px;
+    margin-top: auto;
+}
+
+.buttonAndPrice p {
+    margin: auto auto 0px 25px;
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: 2px;
+}
+
+.buyCardText {
+    font-family: Inter;
+    font-size: 15px;
+    color: #8E8E8E;
+    font-weight: 400;
+    letter-spacing: 2px;
+    margin: 30px 35px auto auto;
+    width: 330px;
+    height: 160px;
+}
+
+#whiteCross {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    right: 20px;
+    top: 25px;
+    transition: .6s;
+}
+
+#whiteCross:hover {
+    cursor: pointer;
+    transform: scale(1.15);
+    transition: .6s;
+}
+
 section.about {
     width: 100%;
 }

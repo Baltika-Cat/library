@@ -117,34 +117,36 @@
                     <img src="images/cross.svg" alt="Close button">
                 </div>
             </div>
-            <div class="buyCard">
+            <div class="buyCardWindow">
                 <div class="buyCardTop">
                     <div class="buyCardTopTitle">
-                        <span>by a library card</span>
+                        <p>buy a library card</p>
                     </div>
                 </div>
                 <div class="buyCardBottom">
-                    <form action="index.html" method="get" id="buyCardForm">
-                        <p class="buyCardInputName">Bank card number</p>
-                        <input type="number" name="bankCard" minlength="16" maxlength="16" class="buyCardInput" id="bankCard" required>
-                        <p class="buyCardInputName">Expiration code</p>
-                        <div id="expirationCode">
-                            <input type="number" name="expirationCodeLeft" minlength="2" maxlength="2" class="buyCardInput" id="expirationCodeLeft" required>
-                            <input type="number" name="expirationCodeRight" minlength="2" maxlength="2" class="buyCardInput" id="expirationCodeRight" required>
-                        </div>
-                        <p class="buyCardInputName">CVC</p>
-                        <input type="number" name="CVC" minlength="3" maxlength="3" class="buyCardInput" id="CVC" required>
-                        <p class="buyCardInputName">Cardholder name</p>
-                        <input type="text" name="cardholderName" class="buyCardInput" id="cardholderName" required>
-                        <p class="buyCardInputName">Postal code</p>
-                        <input type="number" name="postalCode" minlength="1" maxlength="12" class="buyCardInput" id="postalCode" required>
-                        <p class="buyCardInputName">City / Town</p>
-                        <input type="text" name="city" class="buyCardInput" id="city" required>
-                        <div class="buttonAndPrice">
-                            <button name="buyCardBuy" id="buyCardBuy">Buy</button>
-                            <p>$ 25.00</p>
-                        </div>
-                    </form>
+                    <div class="buyCardFormContainer">
+                        <form action="index.html" method="get" id="buyCardForm">
+                            <p class="buyCardInputName">Bank card number</p>
+                            <input type="number" name="bankCard" minlength="16" maxlength="16" class="buyCardInput" id="bankCard" required>
+                            <p class="buyCardInputName">Expiration code</p>
+                            <div id="expirationCode">
+                                <input type="number" name="expirationCodeLeft" minlength="2" maxlength="2" class="buyCardInput" id="expirationCodeLeft" required>
+                                <input type="number" name="expirationCodeRight" minlength="2" maxlength="2" class="buyCardInput" id="expirationCodeRight" required>
+                            </div>
+                            <p class="buyCardInputName">CVC</p>
+                            <input type="number" name="CVC" minlength="3" maxlength="3" class="buyCardInput" id="CVC" required>
+                            <p class="buyCardInputName">Cardholder name</p>
+                            <input type="text" name="cardholderName" class="buyCardInput" id="cardholderName" required>
+                            <p class="buyCardInputName">Postal code</p>
+                            <input type="number" name="postalCode" minlength="1" maxlength="12" class="buyCardInput" id="postalCode" required>
+                            <p class="buyCardInputName">City / Town</p>
+                            <input type="text" name="city" class="buyCardInput" id="city" required>
+                            <div class="buttonAndPrice">
+                                <button name="buyCardBuy" id="buyCardBuy">Buy</button>
+                                <p>$ 25.00</p>
+                            </div>
+                        </form>
+                    </div>
                     <div class="buyCardText">
                         <p>
                             If you are live, work, attend school, or pay property taxes in New York State, you can get 
@@ -153,6 +155,7 @@
                         </p>
                     </div>
                 </div>
+                <img src="images/cross_white.svg" alt="Close" id="whiteCross">
             </div>
         </section>
         <section class="about">
