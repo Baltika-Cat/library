@@ -42,6 +42,15 @@ const firstName = document.querySelector("#registerFirstNameInput");
 const lastName = document.querySelector("#registerLastNameInput");
 const profileCardNumber = document.querySelector("#profileCardNumber");
 const bookButtons = document.querySelectorAll(".buy");
+const myProfileWindow = document.querySelector("div.myProfileWindow");
+const crossProfile = document.querySelector(".crossProfile");
+const firstLetters = document.querySelector(".firstLetters");
+const fullName = document.querySelector(".fullName");
+const booksCount = document.querySelector("#booksCount");
+const visitsCount = document.querySelector("#visitsCount");
+const cardNumberNumber = document.querySelector(".cardNumberNumber");
+const cardCopy = document.querySelector(".cardNumberCopy");
+const booksList = document.querySelector(".rentedBooks ul");
 
 let values = [];
 
@@ -72,18 +81,24 @@ function capitalize(str) {
 
 function logIn() {
     let values = JSON.parse(localStorage.getItem((logInLogInInput.value).toLowerCase()));
-
     if(values[0] === null) {
         console.log("E-mail is not register!");
     } else {
         if(values[0] === logInPasswordInput.value) {
             localStorage.setItem("user", "authorized");
             let text = (values[1])[0] + (values[2])[0];
+            let name = `${values[1]} ${values[2]}`;
             let cardNumber = values[3].toUpperCase();
             values[4]++;
             localStorage.setItem(logInLogInInput.value, JSON.stringify(values));
             localStorage.setItem(values[3], JSON.stringify(values));
+            if(logInLogInInput.value != values[3]) {
+                localStorage.setItem("name", logInLogInInput.value);//
+            } else {
+                localStorage.remove("name");
+            }    
             localStorage.setItem("logo", text);
+            localStorage.setItem("fullName", name);
             localStorage.setItem("card", cardNumber);
             localStorage.setItem("count", values[4]);
             profileCardNumber.textContent = values[3].toUpperCase();
@@ -95,26 +110,40 @@ function logIn() {
 
 bookButtons.forEach((bookButton) => {
     bookButton.addEventListener("click", function() {
-       buttonName = this.name;
-       let book = bookButton.closest(".bookBorder");
-       let bookName = (book.getElementsByClassName("bookName")[0]).textContent.toLowerCase();
-       let author = (book.getElementsByClassName("author"))[0].textContent.toLowerCase();
-       let bookNameInfo = capitalize(bookName);
-       let authorInfo = capitalize(author);
-       let bookInfo = `${bookNameInfo}, ${authorInfo}`;
-       bookButton.classList.remove("buy");
-       bookButton.classList.add("own");
-       bookButton.textContent = "Own";
-       values[5] = JSON.parse(localStorage.getItem("books"));
-       values[6] = JSON.parse(localStorage.getItem("buttons"));
-       console.log(localStorage.getItem("books"));
-       console.log(localStorage.getItem("buttons"));
-       values[5].push(bookInfo);
-       values[6].push(buttonName);
-       localStorage.setItem("books", JSON.stringify(values[5]));
-       localStorage.setItem("buttons", JSON.stringify(values[6]));
-       console.log(localStorage.getItem("books"));
-       console.log(localStorage.getItem("buttons"));
+        buttonName = this.name;
+        let book = bookButton.closest(".bookBorder");
+        let bookName = (book.getElementsByClassName("bookName")[0]).textContent.toLowerCase();
+        let author = (book.getElementsByClassName("author"))[0].textContent.toLowerCase();
+        let bookNameInfo = capitalize(bookName);
+        let authorInfo = capitalize(author);
+        let bookInfo = `${bookNameInfo}, ${authorInfo}`;
+        bookButton.classList.remove("buy");
+        bookButton.classList.add("own");
+        bookButton.textContent = "Own";
+        bookButton.disabled = true;
+        //values[5] = JSON.parse(localStorage.getItem("books"));
+        //values[6] = JSON.parse(localStorage.getItem("buttons"));
+        let values = [];
+        if((localStorage.getItem("name")).toLowerCase() != null) {
+            values = JSON.parse(localStorage.getItem((localStorage.getItem("name")).toLowerCase()));//
+        } else {
+            values = JSON.parse(localStorage.getItem((localStorage.getItem("card")).toLowerCase()));
+        }
+        console.log(localStorage.getItem("books"));
+        console.log(localStorage.getItem("buttons"));
+        values[5].push(bookInfo);
+        values[6].push(buttonName);
+        booksCount.textContent = values[5].length;
+        let li = document.createElement("li");
+        li.appendChild(document.createTextNode(bookInfo));
+        console.log(li);
+        booksList.appendChild(li);
+        //localStorage.setItem("books", JSON.stringify(values[5]));
+        //localStorage.setItem("buttons", JSON.stringify(values[6]));
+        localStorage.setItem((localStorage.getItem("name")).toLowerCase(), JSON.stringify(values));//
+        localStorage.setItem((localStorage.getItem("card")).toLowerCase(), JSON.stringify(values));//
+        console.log(localStorage.getItem("books"));
+        console.log(localStorage.getItem("buttons"));
     })
 })
 
@@ -126,29 +155,48 @@ profileLogOutButton.addEventListener("click", function() {
 })
 
 window.addEventListener("load", function() {
-    localStorage.clear();
     if(localStorage.getItem("user") === "authorized") {
         user.classList.add("authorized");
         logotypeIcon.classList.add("authorized");
         profileWindowNotLogIn.classList.add("profileNonActive");
         console.log("authorized");
         logoText.textContent = (localStorage.getItem("logo")).toUpperCase();
+        firstLetters.textContent = (localStorage.getItem("logo")).toUpperCase();
+        fullName.textContent = (localStorage.getItem("fullName"));
         profileCardNumber.textContent = localStorage.getItem("card");
-        let booksArray = JSON.parse(localStorage.getItem("books"));
-        let booksCount = booksArray.length;
-        let buttons = JSON.parse(localStorage.getItem("buttons"));
+        let values = [];
+        if((localStorage.getItem("name")).toLowerCase() != null) {
+            values = JSON.parse(localStorage.getItem((localStorage.getItem("name")).toLowerCase()));//
+        } else {
+            values = JSON.parse(localStorage.getItem((localStorage.getItem("card")).toLowerCase()));
+        }
+        let booksArray = values[5];//JSON.parse(localStorage.getItem("books"));
+        booksCount.textContent = booksArray.length;
+        visitsCount.textContent = localStorage.getItem("count");
+        cardNumberNumber.textContent = localStorage.getItem("card");
+        let buttons = values[6];//JSON.parse(localStorage.getItem("buttons"));
         bookButtons.forEach((bookButton) => {
             buttons.forEach((button) => {
                 if((bookButton === (document.getElementsByName(button)[0]))) {
                     bookButton.classList.remove("buy");
                     bookButton.classList.add("own");
                     bookButton.textContent = "Own";
+                    bookButton.disabled = true;
                 }
             })
+        })
+        booksArray.forEach((book) => {
+            let li = document.createElement("li");
+            li.appendChild(document.createTextNode(book));
+            booksList.appendChild(li);
         })
     } else {
         console.log("non-authorized");
     }
+})
+
+cardCopy.addEventListener("click", function() {
+    navigator.clipboard.writeText(localStorage.getItem("card"));
 })
 /*const text = function() {
     logoText.textContent = "JD";
@@ -172,6 +220,7 @@ const closeWindow = function() {
     logInWindow.classList.remove("open");
     registerWindow.classList.remove("open");
     background.classList.remove("open");
+    myProfileWindow.classList.remove("open");    
 }
 
 hamburgerIcon.addEventListener("click", closeWindowNotLogIn);
@@ -210,11 +259,19 @@ profileLogInButton.addEventListener("click", function() {
     background.classList.add("open");
 });
 
+profileMyProfileButton.addEventListener("click", function() {
+    closeWindow();
+    myProfileWindow.classList.add("open");
+    background.classList.add("open");
+})
+
 background.addEventListener("click", closeWindow);
 
 crossIcons.forEach((crossIcon) => {
     crossIcon.addEventListener("click", closeWindow)
 });
+
+crossProfile.addEventListener("click", closeWindow);
 
 document.addEventListener("click", function (e) {
     const target = e.target;

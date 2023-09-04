@@ -57,6 +57,66 @@
                 <p class="profileText" id="profileMyProfile">My profile</p>
                 <p class="profileText" id="profileLogOut">Log out</p>
             </div>
+            <div class="myProfileWindow">
+                <div class="leftSide">
+                    <div class="firstLettersBlock">
+                        <p class="firstLetters">
+
+                        </p>
+                    </div>
+                    <div class="fullNameBlock">
+                        <p class="fullName">
+
+                        </p>
+                    </div>
+                </div>
+                <div class="rightSide">
+                    <div class="myProfileTitleBlock">
+                        <p class="myProfileTitleText">
+                            my profile
+                        </p>
+                    </div>
+                    <div class="informationBlock">
+                        <div class="visitsBlock">
+                            <p class="informationBlockText">Visits</p>
+                            <img src="images/icon_visits.svg" alt="Visits">
+                            <p class="informationBlockCount" id="visitsCount"></p>
+                        </div>
+                        <div class="bonusesBlock">
+                            <p class="informationBlockText">Bonuses</p>
+                            <img src="images/icon_bonuses.svg" alt="Bonuses">
+                            <p class="informationBlockCount" id="bonusesCount">1240</p>
+                        </div>
+                        <div class="booksBlock">
+                            <p class="informationBlockText">Books</p>
+                            <img src="images/icon_book.svg" alt="Books">
+                            <p class="informationBlockCount" id="booksCount"></p>
+                        </div>
+                    </div>
+                    <div class="rentedBooksBlock">
+                        <div class="rentedBooksTitle">
+                            <p class=rentedBooksTitleText>
+                                Rented books
+                            </p>
+                        </div>
+                        <div class="rentedBooks">
+                            <ul>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="cardNumberProfile">
+                        <span class="cardNumberText">Card number</span>
+                        <span class="cardNumberNumber"></span>
+                        <span class="cardNumberCopy">
+                            <img src="images/icon_copy.svg" id="cardNumberCopy" alt="Copy">
+                        </span>
+                    </div>
+                </div>
+                <div class="crossProfile">
+                    <img src="images/cross.svg" alt="Close button">
+                </div>
+            </div>
         </section>
         <section class="about">
             <h2 id="about">About</h2>
@@ -173,7 +233,7 @@
                                     Changed Around Them.
                                 </p>
                                 <span class="bookButton">
-                                    <button name="queen" class="own" disabled>Own</button>
+                                    <button name="queen" class="buy">Buy</button>
                                 </span>
                             </div>
                             <img src="images/queen.png" alt="The Last Queen">
@@ -237,7 +297,7 @@
                                     Julia Alvarez.
                                 </p>
                                 <span class="bookButton">
-                                    <button name="dominicana" class="own" disabled>Own</button>
+                                    <button name="dominicana" class="buy">Buy</button>
                                 </span>
                             </div>
                             <img src="images/dominicana.png" alt="Dominicana">
