@@ -105,9 +105,7 @@ function capitalize(str) {
 function checkValid(e) {
     const target = e.target.form;
     const isValid = target.checkValidity();
-    if(isValid) {
-        target.querySelector("button").disabled = false;
-    }
+    target.querySelector("button").disabled = !isValid;
 }
 
 buyCardButton.addEventListener("click", function() {
