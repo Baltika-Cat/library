@@ -55,6 +55,16 @@ const buyCardWindow = document.querySelector(".buyCardWindow");
 const whiteCross = document.querySelector("#whiteCross");
 const buyCardForm = document.querySelector("#buyCardForm");
 const buyCardButton = document.querySelector("#buyCardBuy");
+const checkCardButton = document.querySelector(".checkCard");
+const signUp = document.querySelector("#signUp");
+const logInInCard = document.querySelector("#logIn");
+const checkLibraryCard = document.querySelector("#passwordInput");
+const readerName = document.querySelector("#nameInput");
+const checkLibraryCardButton = document.querySelector("#findCardForm button");
+const informationBlockInDigitalCard = document.querySelector(".informationBlockDigitalCard");
+const visitsCountDigitalCard = document.querySelector("#visitsCountDigitalCard");
+const bonusesCountDigitalCard = document.querySelector("#bonusesCountDigitalCard");
+const booksCountDigitalCard = document.querySelector("#booksCountDigitalCard");
 
 let values = [];
 
@@ -185,6 +195,7 @@ bookButtons.forEach((bookButton) => {
                 values[5].push(bookInfo);
                 values[6].push(buttonName);
                 booksCount.textContent = values[5].length;
+                booksCountDigitalCard.textContent = values[5].length;
                 let li = document.createElement("li");
                 li.appendChild(document.createTextNode(bookInfo));
                 console.log(li);
@@ -235,6 +246,7 @@ window.addEventListener("load", function() {
         let booksArray = values[5];//JSON.parse(localStorage.getItem("books"));
         booksCount.textContent = booksArray.length;
         visitsCount.textContent = localStorage.getItem("count");
+        visitsCountDigitalCard.textContent = localStorage.getItem("count");
         cardNumberNumber.textContent = localStorage.getItem("card");
         let buttons = values[6];//JSON.parse(localStorage.getItem("buttons"));
         bookButtons.forEach((bookButton) => {
@@ -252,6 +264,8 @@ window.addEventListener("load", function() {
             li.appendChild(document.createTextNode(book));
             booksList.appendChild(li);
         })
+        informationBlockInDigitalCard.classList.add("open");
+        checkLibraryCardButton.classList.add("close");
     } else {
         console.log("non-authorized");
     }
@@ -337,6 +351,36 @@ crossIcons.forEach((crossIcon) => {
 crossProfile.addEventListener("click", closeWindow);
 
 whiteCross.addEventListener("click", closeWindow);
+
+checkLibraryCardButton.addEventListener("click", function() {
+    let values = JSON.parse(localStorage.getItem((checkLibraryCard.value).toLowerCase()));
+    booksCountDigitalCard.textContent = values[5].length;
+    visitsCountDigitalCard.textContent = values[4];
+    if((readerName.value).toLowerCase() === (`${values[1]} ${values[2]}`).toLowerCase()) {
+        informationBlockInDigitalCard.classList.add("open");
+        checkLibraryCardButton.classList.add("close");
+        setTimeout(() => {
+            informationBlockInDigitalCard.classList.remove("open");
+            checkLibraryCardButton.classList.remove("close");
+            checkLibraryCard.value = "";
+            readerName.value = "";
+        }, 10000)
+    }
+})
+
+logInInCard.addEventListener("click", function() {
+    if((localStorage.getItem("user")) != "authorized") {
+        logInWindow.classList.add("open");
+        background.classList.add("open");
+    }
+})
+
+signUp.addEventListener("click", function() {
+    if((localStorage.getItem("user")) != "authorized") {
+        registerWindow.classList.add("open");
+        background.classList.add("open");
+    }
+})
 
 document.addEventListener("click", function (e) {
     const target = e.target;

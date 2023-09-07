@@ -55,6 +55,7 @@ nav {
     justify-items: flex-end;
     align-items: center;
     text-align: center;
+    z-index: 2;
 }
 
 .navbar {
@@ -74,6 +75,7 @@ nav {
     line-height: 50px;
     gap: 30px;
     padding-left: 0px;
+    z-index: 2;
 }
 
 #navigation li:last-child {
@@ -89,11 +91,23 @@ nav {
     text-decoration: underline;
 }
 
+#panel {
+    display: flex;
+    width: 80px;
+    height: 59px;
+    background-color: #0C0C0E;
+    position: absolute;
+    right: 20px;
+    top: 0px;
+    z-index: 1;
+}
+
 #logotype {
     margin-right: 20px;
     width: 28px;
     height: 28px;
     transition: .6s;
+    z-index: 2;
 }
 
 #logotype p {
@@ -122,6 +136,7 @@ nav {
     align-items: center;
     justify-content: center;
     padding: 0px;
+    z-index: 2;
 }
 
 #logotype.authorized p {
@@ -215,16 +230,16 @@ section.about, section.favorites, section.coffeeShop, section.contacts, section.
     height: 115px;
     background: white;
     position: absolute;
-    z-index: 5;
-    right: 0px;
+    z-index: 0;
+    right: 20px;
     top: -200px;
     transition: 1.5s ease;
 }
 
 .profileOpen {
     position: absolute;
-    top: 0px;
-    right: 0px;
+    top: 59px;
+    right: 20px;
     display: flex;
     opacity: 1;
     transition: 1.5s ease;
@@ -1281,6 +1296,28 @@ div.goldBackground {
     letter-spacing: 0.6px;
 }
 
+.informationBlockDigitalCard {
+    display: flex;
+    gap: 35px;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.informationBlockDigitalCard.open {
+    display: flex;
+}
+
+#visitsCountDigitalCard, #bonusesCountDigitalCard, #booksCountDigitalCard {
+    margin-top: 0px;
+}
+
+.informationBlockDigitalCard .informationBlockText {
+    font-size: 10px;
+    line-height: 20px;
+    margin-bottom: 0px;
+}
+
 #findCardForm button {
     padding: 10px auto;
     background: white;
@@ -1303,9 +1340,14 @@ div.goldBackground {
     line-height: normal;
 }
 
+#findCardForm button.close {
+    display: none;
+}
+
 #findCardForm button:hover {
     background: #BB945F;
     transition: 1.5s;
+    cursor: pointer;
 }
 
 #getCardText {
@@ -1341,6 +1383,7 @@ div.goldBackground {
 #getCardButtons button:hover {
     background: #BB945F;
     transition: 1.5s;
+    cursor: pointer;
 }
 
 button[name=signUp] {

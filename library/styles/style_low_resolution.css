@@ -88,6 +88,18 @@ nav {
     text-decoration: underline;
 }
 
+#panel {
+    display: flex;
+    width: 80px;
+    height: 59px;
+    background-color: #0C0C0E;
+    position: absolute;
+    right: 105px;
+    top: 0px;
+    z-index: 1;
+}
+
+
 #logotype {
     width: 28px;
     height: 28px;
@@ -355,16 +367,16 @@ section.about, section.favorites, section.coffeeShop, section.contacts, section.
     height: 115px;
     background: white;
     position: absolute;
-    z-index: 5;
-    right: 0px;
+    z-index: 0;
+    right: 105px;
     top: -200px;
     transition: 1.5s ease;
 }
 
 .profileOpen {
     position: absolute;
-    top: 0px;
-    right: 0px;
+    top: 59px;
+    right: 105px;
     display: flex;
     opacity: 1;
     transition: 1.5s ease;
@@ -1466,6 +1478,28 @@ div.goldBackground {
     letter-spacing: 0.6px;
 }
 
+.informationBlockDigitalCard {
+    display: flex;
+    gap: 35px;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.informationBlockDigitalCard.open {
+    display: flex;
+}
+
+#visitsCountDigitalCard, #bonusesCountDigitalCard, #booksCountDigitalCard {
+    margin-top: 0px;
+}
+
+.informationBlockDigitalCard .informationBlockText {
+    font-size: 10px;
+    line-height: 20px;
+    margin-bottom: 0px;
+}
+
 #findCardForm button {
     padding: 10px auto;
     background: white;
@@ -1486,6 +1520,10 @@ div.goldBackground {
     margin-right: auto;
     flex-wrap: nowrap;
     line-height: normal;
+}
+
+#findCardForm button.close {
+    display: none;
 }
 
 #findCardForm button:hover {

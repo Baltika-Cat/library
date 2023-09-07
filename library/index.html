@@ -30,6 +30,19 @@
             <div id="user">
 
             </div>
+            <div id="panel"></div>
+            <div class="profileWindowNotLogIn">
+                <p class="profileTitle">Profile</p>
+                <hr class="profileLine">
+                <p class="profileText" id="profileLogIn">Log in</p>
+                <p class="profileText" id="profileRegister">Register</p>
+            </div>
+            <div class="profileWindowLogIn">
+                <p class="profileTitle" id="profileCardNumber"></p>  
+                <hr class="profileLine">
+                <p class="profileText" id="profileMyProfile">My profile</p>
+                <p class="profileText" id="profileLogOut">Log out</p>
+            </div>
             <div class="popup" id="popup">
                 
             </div>
@@ -44,18 +57,6 @@
         <section class="welcome">
             <div class="centerWelcome">
                 <h3 id="welcome">WELCOME<br>TO THE BROOKLYN<br>LIBRARY</h3>
-            </div>
-            <div class="profileWindowNotLogIn">
-                <p class="profileTitle">Profile</p>
-                <hr class="profileLine">
-                <p class="profileText" id="profileLogIn">Log in</p>
-                <p class="profileText" id="profileRegister">Register</p>
-            </div>
-            <div class="profileWindowLogIn">
-                <p class="profileTitle" id="profileCardNumber"></p>  
-                <hr class="profileLine">
-                <p class="profileText" id="profileMyProfile">My profile</p>
-                <p class="profileText" id="profileLogOut">Log out</p>
             </div>
             <div class="myProfileWindow">
                 <div class="leftSide">
@@ -127,7 +128,7 @@
                     <div class="buyCardFormContainer">
                         <form action="index.html" method="get" id="buyCardForm">
                             <p class="buyCardInputName">Bank card number</p>
-                            <input type="number" name="bankCard" min="0000000000000000" max="9999999999999999" class="buyCardInput" id="bankCard" required>
+                            <input type="number" name="bankCard" class="buyCardInput" id="bankCard" required>
                             <p class="buyCardInputName">Expiration code</p>
                             <div id="expirationCode">
                                 <input minLength="2" maxLength="2" type="number" name="expirationCodeLeft" class="buyCardInput" id="expirationCodeLeft" required>
@@ -585,9 +586,26 @@
                             <div class="goldBackground">
                                 <p id="findCardFormTitle">Brooklyn Public Library</p>
                                 <input type="text" name="name" placeholder="Reader's name" id="nameInput">
-                                <input type="number" name="number" placeholder="Card number" id="passwordInput">
+                                <input type="text" name="number" placeholder="Card number" id="passwordInput">
                             </div>
-                            <button name="checkCard" class="checkCard" disabled>Check the card</button>
+                            <div class="informationBlockDigitalCard">
+                                <div class="visitsBlock">
+                                    <p class="informationBlockText">Visits</p>
+                                    <img src="images/icon_visits.svg" alt="Visits">
+                                    <p class="informationBlockCount" id="visitsCountDigitalCard"></p>
+                                </div>
+                                <div class="bonusesBlock">
+                                    <p class="informationBlockText">Bonuses</p>
+                                    <img src="images/icon_bonuses.svg" alt="Bonuses">
+                                    <p class="informationBlockCount" id="bonusesCountDigitalCard">1240</p>
+                                </div>
+                                <div class="booksBlock">
+                                    <p class="informationBlockText">Books</p>
+                                    <img src="images/icon_book.svg" alt="Books">
+                                    <p class="informationBlockCount" id="booksCountDigitalCard"></p>
+                                </div>
+                            </div>
+                            <button type="button" name="checkCard" class="checkCard">Check the card</button>
                         </form>    
                     </div>
                 </div>
@@ -613,11 +631,11 @@
                 <form action="" method="">
                     <div>
                         <p class="logInAndRegisterText">E-mail or readers card</p>
-                        <input type="text" name="logIn" class="logInAndRegisterInput" id="logInLogInInput">
+                        <input type="text" name="logIn" class="logInAndRegisterInput" id="logInLogInInput" required>
                     </div>
                     <div>
                         <p class="logInAndRegisterText">Password</p>
-                        <input type="text" name="logInPassword" class="logInAndRegisterInput" id="logInPasswordInput">
+                        <input type="text" minlength="8" name="logInPassword" class="logInAndRegisterInput" id="logInPasswordInput" required>
                     </div>
                     <button name="logInWindowLogIn" id="logInWindowLogIn">Log in</button>
                 </form>
