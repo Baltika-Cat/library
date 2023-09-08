@@ -65,6 +65,7 @@ const informationBlockInDigitalCard = document.querySelector(".informationBlockD
 const visitsCountDigitalCard = document.querySelector("#visitsCountDigitalCard");
 const bonusesCountDigitalCard = document.querySelector("#bonusesCountDigitalCard");
 const booksCountDigitalCard = document.querySelector("#booksCountDigitalCard");
+const copyTitle = document.querySelector(".copyTitle");
 
 let values = [];
 
@@ -229,6 +230,8 @@ window.addEventListener("load", function() {
     if(localStorage.getItem("user") === "authorized") {
         user.classList.add("authorized");
         logotypeIcon.classList.add("authorized");
+        logotypeIcon.title = capitalize(localStorage.getItem("fullName"));
+        console.log(logotypeIcon.title);
         profileWindowNotLogIn.classList.add("profileNonActive");
         console.log("authorized");
         logoText.textContent = (localStorage.getItem("logo")).toUpperCase();
@@ -271,6 +274,14 @@ window.addEventListener("load", function() {
 
 cardCopy.addEventListener("click", function() {
     navigator.clipboard.writeText(localStorage.getItem("card"));
+    copyTitle.classList.add("open");
+    copyTitle.classList.add("openVisible");
+    setTimeout(() => {
+        copyTitle.classList.remove("openVisible");
+    }, 300)
+    setTimeout(() => {
+        copyTitle.classList.remove("open");
+    }, 1300);
 })
 /*const text = function() {
     logoText.textContent = "JD";

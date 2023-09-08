@@ -606,6 +606,38 @@ section.about, section.favorites, section.coffeeShop, section.contacts, section.
     font-size: 20px;
     line-height: 20px;
     font-weight: 400;
+    position: relative;
+}
+
+.copyTitle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 113px;
+    height: 20px;
+    font-family: Inter;
+    font-size: 15px;
+    letter-spacing: 1.2px;
+    background-color: #eee;
+    border-radius: 4px;
+    position: absolute;
+    left: 217px;
+    bottom: 25px;
+    opacity: 0;
+    display: none;
+}
+
+.copyTitle p {
+    margin: 0px;
+}
+
+.copyTitle.open {
+    display: flex;
+    transition: 1s;
+}
+
+.copyTitle.openVisible {
+    opacity: 1;
 }
 
 .cardNumberNumber {
