@@ -131,14 +131,14 @@
                     <div class="buyCardFormContainer">
                         <form action="index.html" method="get" id="buyCardForm">
                             <p class="buyCardInputName">Bank card number</p>
-                            <input type="number" name="bankCard" class="buyCardInput" id="bankCard" required>
+                            <input type="tel" name="bankCard" class="buyCardInput" id="bankCard" minlength="16" maxlength="16" required>
                             <p class="buyCardInputName">Expiration code</p>
                             <div id="expirationCode">
-                                <input minLength="2" maxLength="2" type="number" name="expirationCodeLeft" class="buyCardInput" id="expirationCodeLeft" required>
-                                <input minLength="2" maxLength="2" type="number" name="expirationCodeRight" class="buyCardInput" id="expirationCodeRight" required>
+                                <input type="tel" minlength="2" maxlength="2" name="expirationCodeLeft" class="buyCardInput" id="expirationCodeLeft" required>
+                                <input type="tel" minlength="2" maxlength="2" class="buyCardInput" id="expirationCodeRight" required>
                             </div>
                             <p class="buyCardInputName">CVC</p>
-                            <input type="number" name="CVC" min="000" max="999" class="buyCardInput" id="CVC" required>
+                            <input type="tel" name="CVC" minlength="3" maxlength="3" class="buyCardInput" id="CVC" required>
                             <p class="buyCardInputName">Cardholder name</p>
                             <input type="text" name="cardholderName" class="buyCardInput" id="cardholderName" required>
                             <p class="buyCardInputName">Postal code</p>
@@ -625,11 +625,11 @@
                 <div class="getCardAuthorized">
                     <h3 id="getCardTitleAuthorized">Visit your profile</h3>
                     <p id="getCardTextAuthorized">
-                        With a digital library card you get free access to the Librarty's wide array of digital resources
+                        With a digital library card you get free access to the Library's wide array of digital resources
                         including e-books, databases, educational resources, and more.
                     </p>
                     <div id="getCardButtonAuthorized">
-                        <button name="ProfileAuthorized" id="ProfileAuthorizedButton">Profile</button>
+                        <button name="ProfileAuthorized" id="profileAuthorizedButton">Profile</button>
                     </div>
                 </div>
             </div>

@@ -66,6 +66,9 @@ const visitsCountDigitalCard = document.querySelector("#visitsCountDigitalCard")
 const bonusesCountDigitalCard = document.querySelector("#bonusesCountDigitalCard");
 const booksCountDigitalCard = document.querySelector("#booksCountDigitalCard");
 const copyTitle = document.querySelector(".copyTitle");
+const profileButton = document.querySelector("#ProfileAuthorizedButton");
+const getCard = document.querySelector(".getCard");
+const getCardAuthorized = document.querySelector(".getCardAuthorized");
 
 let values = [];
 
@@ -248,6 +251,7 @@ window.addEventListener("load", function() {
         booksCount.textContent = booksArray.length;
         visitsCount.textContent = localStorage.getItem("count");
         visitsCountDigitalCard.textContent = localStorage.getItem("count");
+        booksCountDigitalCard.textContent = values[5].length;
         cardNumberNumber.textContent = localStorage.getItem("card");
         let buttons = values[6];//JSON.parse(localStorage.getItem("buttons"));
         bookButtons.forEach((bookButton) => {
@@ -267,6 +271,8 @@ window.addEventListener("load", function() {
         })
         informationBlockInDigitalCard.classList.add("open");
         checkLibraryCardButton.classList.add("close");
+        getCard.classList.add("close");
+        getCardAuthorized.classList.add("open");
     } else {
         console.log("non-authorized");
     }

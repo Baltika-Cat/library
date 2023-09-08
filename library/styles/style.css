@@ -619,6 +619,20 @@ section.about, section.favorites, section.coffeeShop, section.contacts, section.
     font-weight: 700;
     margin-bottom: 0px;
     margin-top: auto;
+    transition: 1.5s;
+}
+
+.buttonAndPrice button:hover {
+    cursor: pointer;
+    background-color: #BB945F;
+    border-color: #BB945F;
+    transition: 1.5s;
+}
+
+.buttonAndPrice button:disabled {
+    cursor: default;
+    background-color: white;
+    border-color: black
 }
 
 .buttonAndPrice p {
@@ -1237,6 +1251,67 @@ div.libraryCardsContent {
     width: 456px;
     height: 253px;
     margin: 8px 20px auto auto;
+}
+
+.getCard.close {
+    display: none;
+}
+
+.getCardAuthorized {
+    display: flex;
+    flex-direction: column;
+    width: 456px;
+    height: 253px;
+    margin: 8px 20px auto auto;
+    display: none;
+}
+
+.getCardAuthorized.open {
+    display: flex;
+}
+
+#getCardTitleAuthorized {
+    font-family: Forum;
+    margin-top: 0px;
+    margin-right: 0px;
+    text-align: right;
+}
+
+#getCardTextAuthorized {
+    color: black;
+    text-align: right;
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 40px;
+    letter-spacing: 0.4px;
+    margin-top: 5px;
+}
+
+#getCardButtonAuthorized {
+    display: inline-flex;
+    justify-content: flex-end;
+    margin-top: 15px;
+}
+
+#getCardButtonAuthorized button {
+    display: flex;
+    width: 75px;
+    height: 30px;
+    padding:auto;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 2px;
+    border: 1px solid #0C0C0E;
+    transition: 1.5s;
+}
+
+#getCardButtonAuthorized button:hover {
+    background: #BB945F;
+    cursor: pointer;
+    border-color: #BB945F;
+    transition: 1.5s;
 }
 
 .libraryCards h3 {
