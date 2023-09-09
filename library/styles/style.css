@@ -332,7 +332,6 @@ section.about, section.favorites, section.coffeeShop, section.contacts, section.
     min-height: 30px;
     justify-content: center;
     align-items: center;
-    padding: 5px 10px;
 }
 
 .fullName {
@@ -412,8 +411,10 @@ section.about, section.favorites, section.coffeeShop, section.contacts, section.
 .informationBlockText {
     font-family: Inter;
     font-size: 20px;
+    line-height: 20px;
     margin-top: 0px;
     margin-bottom: 10px;
+    letter-spacing: 0.4px;
 }
 
 .informationBlockCount {
@@ -460,6 +461,7 @@ section.about, section.favorites, section.coffeeShop, section.contacts, section.
     line-height: 20px;
     padding-top: 0px;
     padding-bottom: 10px;
+    white-space: nowrap;
 }
 
 .cardNumberProfile {
@@ -588,9 +590,13 @@ section.about, section.favorites, section.coffeeShop, section.contacts, section.
 
 .buyCardInput {
     border: 1px solid #BB945F;
-    height: 20px;
+    height: 18px;
     width: 198px;
     padding: 0px;
+}
+
+#cardHolderNameInput {
+    margin-top: 20px;
 }
 
 #expirationCode {
@@ -650,9 +656,14 @@ section.about, section.favorites, section.coffeeShop, section.contacts, section.
     color: #8E8E8E;
     font-weight: 400;
     letter-spacing: 2px;
+    line-height: 20px;
     margin: 30px 35px auto auto;
     width: 330px;
     height: 160px;
+}
+
+.buyCardText p {
+    margin: 0px;
 }
 
 #whiteCross {
@@ -1454,6 +1465,7 @@ div.goldBackground {
 
 #findCardForm button:hover {
     background: #BB945F;
+    border: 1px solid #BB945F;
     transition: 1.5s;
     cursor: pointer;
 }
@@ -1575,7 +1587,9 @@ div.logInWindow.open {
 
 .logInAndRegisterInput {
     width: 200px;
-    height: 20px;
+    height: 18px;
+    padding: 0px;
+    margin: 0px;
     border: 1px solid #BB945F;
     margin-left: 25px;
 }

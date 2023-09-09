@@ -70,6 +70,8 @@ const profileButton = document.querySelector("#profileAuthorizedButton");
 const getCard = document.querySelector(".getCard");
 const getCardAuthorized = document.querySelector(".getCardAuthorized");
 const cardTitle = document.querySelector("#findCard");
+const logInForm = document.querySelector("#logInForm");
+const registerForm = document.querySelector("#registerForm");
 
 let values = [];
 
@@ -98,7 +100,11 @@ function register() {
     console.log(localStorage.getItem(logInLogInInput.value));*/
 }
 
-registerWindowSignUp.addEventListener("click", register);
+registerWindowSignUp.addEventListener("click", function() {
+    if(registerForm.checkValidity() === true) {
+        register();
+    }
+});
 
 function capitalize(str) {
     let capArr = str.split(" ").map(word => {
@@ -123,7 +129,6 @@ buyCardButton.addEventListener("click", function() {
     values[7] = "true";
     localStorage.setItem((localStorage.getItem("name")).toLowerCase(), JSON.stringify(values));//
     localStorage.setItem((localStorage.getItem("card")).toLowerCase(), JSON.stringify(values));//
-    console.log(values[7]);
 })
 
 buyCardForm.addEventListener("input", checkValid);
@@ -207,14 +212,10 @@ bookButtons.forEach((bookButton) => {
                 buyCardWindow.classList.add("open");
                 background.classList.add("open");
             }
-            console.log(localStorage.getItem("books"));
-            console.log(localStorage.getItem("buttons"));
             //localStorage.setItem("books", JSON.stringify(values[5]));
             //localStorage.setItem("buttons", JSON.stringify(values[6]));
             localStorage.setItem((localStorage.getItem("name")).toLowerCase(), JSON.stringify(values));//
             localStorage.setItem((localStorage.getItem("card")).toLowerCase(), JSON.stringify(values));//
-            console.log(localStorage.getItem("books"));
-            console.log(localStorage.getItem("buttons"));
         } else {
             logInWindow.classList.add("open");
             background.classList.add("open");
@@ -222,7 +223,11 @@ bookButtons.forEach((bookButton) => {
     })
 })
 
-logInWindowLogIn.addEventListener("click", logIn);
+logInWindowLogIn.addEventListener("click", function() {
+    if(logInForm.checkValidity() === true) {
+        logIn();
+    }
+});
 
 profileLogOutButton.addEventListener("click", function() {
     localStorage.removeItem("user");
@@ -235,9 +240,7 @@ window.addEventListener("load", function() {
         user.classList.add("authorized");
         logotypeIcon.classList.add("authorized");
         logotypeIcon.title = capitalize(localStorage.getItem("fullName"));
-        console.log(logotypeIcon.title);
         profileWindowNotLogIn.classList.add("profileNonActive");
-        console.log("authorized");
         logoText.textContent = (localStorage.getItem("logo")).toUpperCase();
         firstLetters.textContent = (localStorage.getItem("logo")).toUpperCase();
         fullName.textContent = (localStorage.getItem("fullName"));
@@ -534,12 +537,10 @@ function showSlide() {
         sliderWidth = document.querySelector(".slider").offsetWidth;
         slider.style.width = sliderWidth * imagesAbout.length + "px";
         imagesAbout.forEach(item => item.style.width = sliderWidth + "px");
-        console.log(window.outerWidth);
     } else {
         sliderWidth = document.querySelector(".slider").offsetWidth;
         slider.style.width = sliderWidth * imagesAbout.length + "px";
         imagesAbout.forEach(item => item.style.width = (sliderWidth - 50) / 3 + "px");
-        console.log(window.innerWidth);
     }
     rollSlider();
 }
@@ -566,7 +567,6 @@ pagination.forEach((point, index) => {
         sliderCount = index;
         rollSlider();
         thisSlide(sliderCount);
-        console.log(sliderCount);
         if(sliderCount === 0) {
             rightArrow.classList.remove("arrowDisabled");
             leftArrow.classList.add("arrowDisabled");
