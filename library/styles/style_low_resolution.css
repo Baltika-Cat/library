@@ -1594,6 +1594,7 @@ div.goldBackground {
 
 .informationBlockDigitalCard {
     display: flex;
+    margin-top: 15px;
     gap: 35px;
     justify-content: center;
     align-items: center;

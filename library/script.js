@@ -66,9 +66,10 @@ const visitsCountDigitalCard = document.querySelector("#visitsCountDigitalCard")
 const bonusesCountDigitalCard = document.querySelector("#bonusesCountDigitalCard");
 const booksCountDigitalCard = document.querySelector("#booksCountDigitalCard");
 const copyTitle = document.querySelector(".copyTitle");
-const profileButton = document.querySelector("#ProfileAuthorizedButton");
+const profileButton = document.querySelector("#profileAuthorizedButton");
 const getCard = document.querySelector(".getCard");
 const getCardAuthorized = document.querySelector(".getCardAuthorized");
+const cardTitle = document.querySelector("#findCard");
 
 let values = [];
 
@@ -273,6 +274,11 @@ window.addEventListener("load", function() {
         checkLibraryCardButton.classList.add("close");
         getCard.classList.add("close");
         getCardAuthorized.classList.add("open");
+        cardTitle.textContent = "Your Library card";
+        checkLibraryCard.value = (localStorage.getItem("card")).toUpperCase();
+        checkLibraryCard.setAttribute("readonly", true);
+        readerName.value = capitalize(localStorage.getItem("fullName"));
+        readerName.setAttribute("readonly", true);
     } else {
         console.log("non-authorized");
     }
@@ -352,6 +358,12 @@ profileLogInButton.addEventListener("click", function() {
 });
 
 profileMyProfileButton.addEventListener("click", function() {
+    closeWindow();
+    myProfileWindow.classList.add("open");
+    background.classList.add("open");
+})
+
+profileButton.addEventListener("click", function() {
     closeWindow();
     myProfileWindow.classList.add("open");
     background.classList.add("open");
