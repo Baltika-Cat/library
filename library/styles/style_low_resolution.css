@@ -88,6 +88,18 @@ nav {
     text-decoration: underline;
 }
 
+#panel {
+    display: flex;
+    width: 80px;
+    height: 59px;
+    background-color: #0C0C0E;
+    position: absolute;
+    right: 105px;
+    top: 0px;
+    z-index: 1;
+}
+
+
 #logotype {
     width: 28px;
     height: 28px;
@@ -355,16 +367,16 @@ section.about, section.favorites, section.coffeeShop, section.contacts, section.
     height: 115px;
     background: white;
     position: absolute;
-    z-index: 5;
-    right: 0px;
+    z-index: 0;
+    right: 105px;
     top: -200px;
     transition: 1.5s ease;
 }
 
 .profileOpen {
     position: absolute;
-    top: 0px;
-    right: 0px;
+    top: 59px;
+    right: 105px;
     display: flex;
     opacity: 1;
     transition: 1.5s ease;
@@ -378,6 +390,11 @@ section.about, section.favorites, section.coffeeShop, section.contacts, section.
     margin-top: 5px;
     margin-bottom: 0px;
 }
+
+#profileCardNumber {
+    font-size: 12px;
+}
+
 
 .profileLine {
     height: 1px;
@@ -398,6 +415,404 @@ section.about, section.favorites, section.coffeeShop, section.contacts, section.
 .profileText:hover {
     text-decoration: underline;
     cursor: pointer;
+}
+
+.myProfileWindow {
+    display: flex;
+    width: 600px;
+    height: 400px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    z-index: 200;
+    margin-top: -200px;
+    margin-left: -300px;
+    display: none;
+}
+
+.myProfileWindow.open {
+    display: flex;
+}
+
+.leftSide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #0C0C0E;
+    width: 170px;
+}
+
+.firstLettersBlock {
+    display: flex;
+    background-color: white;
+    width: 80px;
+    height: 80px;
+    margin-top: 139px;
+    margin-bottom: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+.firstLetters {
+    color: #BB945F;
+    font-family: Inter;
+    font-size: 20px;
+}
+
+.fullNameBlock {
+    display: flex;
+    background-color: white;
+    width: 120px;
+    min-height: 30px;
+    justify-content: center;
+    align-items: center;
+}
+
+.fullName {
+    word-break: break-word;
+    margin: 0px;
+    font-family: Inter;
+    font-size: 20px;
+    line-height: 20px;
+    text-transform: capitalize;
+    text-align: center;
+}
+
+.rightSide {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 430px;
+}
+
+.myProfileTitleBlock {
+    margin: 40px auto 40px 20px;
+}
+
+.myProfileTitleText {
+    margin: 0px;
+    font-family: Forum;
+    font-size: 40px;
+    line-height: 20px;
+    letter-spacing: 0.8px;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.crossProfile img {
+    position: absolute;
+    right: 25px;
+    top: 25px;
+    transition: .6s;
+}
+
+.crossProfile img:hover {
+    cursor: pointer;
+    transform: scale(1.15);
+    transition: .6s;
+}
+
+.informationBlock {
+    display: flex;
+    gap: 20px;
+    margin: 0px auto 0px 20px;
+}
+
+.visitsBlock {
+    display: flex;
+    flex-direction: column;
+    padding-left: 0px;
+    padding-right: 0px;
+    align-items: center;
+}
+
+.bonusesBlock {
+    display: flex;
+    flex-direction: column;
+    padding-left: 0px;
+    padding-right: 0px;
+    align-items: center;
+}
+
+.booksBlock {
+    display: flex;
+    flex-direction: column;
+    padding-left: 0px;
+    padding-right: 0px;
+    align-items: center;
+}
+
+.informationBlockText {
+    font-family: Inter;
+    font-size: 20px;
+    line-height: 20px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    letter-spacing: 0.4px;
+}
+
+.informationBlockCount {
+    margin-top: 10px;
+    margin-bottom: 0px;
+    font-family: Inter;
+    font-size: 10px;
+    line-height: 20px;
+    letter-spacing: 0.4px;    
+}
+
+.rentedBooksBlock {
+    margin-left: 20px;
+    margin-top: 20px;
+    font-family: Inter;
+}
+
+.rentedBooksBlock p {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 25px;
+    line-height: 20px;
+    font-weight: 400;
+}
+
+.rentedBooks {
+    display: flex;
+    overflow: auto;
+    height: 80px;
+    margin-right: 20px;
+    margin-top: 30px;
+}
+
+.rentedBooks ul {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.rentedBooks li {
+    font-family: Inter;
+    font-size: 20px;
+    line-height: 20px;
+    padding-top: 0px;
+    padding-bottom: 10px;
+    white-space: nowrap;
+}
+
+.cardNumberProfile {
+    display: flex;
+    gap: 15px;
+    margin-left: 20px;
+    margin-bottom: 39px;
+    margin-top: auto;
+    font-family: Inter;
+    font-size: 20px;
+    line-height: 20px;
+    font-weight: 400;
+    position: relative;
+}
+
+.copyTitle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 113px;
+    height: 20px;
+    font-family: Inter;
+    font-size: 15px;
+    letter-spacing: 1.2px;
+    background-color: #eee;
+    border-radius: 4px;
+    position: absolute;
+    left: 217px;
+    bottom: 25px;
+    opacity: 0;
+    display: none;
+}
+
+.copyTitle p {
+    margin: 0px;
+}
+
+.copyTitle.open {
+    display: flex;
+    transition: 1s;
+}
+
+.copyTitle.openVisible {
+    opacity: 1;
+}
+
+.cardNumberNumber {
+    color: #BB945F;
+}
+
+.cardNumberCopy {
+    cursor: pointer;
+    transition: .6s;
+}
+
+.cardNumberCopy:hover {
+    transform: scale(1.15);
+    transition: .6s;
+}
+
+.buyCardWindow {
+    display: flex;
+    flex-direction: column;
+    width: 640px;
+    height: 540px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    z-index: 200;
+    margin-top: -270px;
+    margin-left: -320px;
+    display: none;
+}
+
+.buyCardWindow.open {
+    display: flex;
+}
+
+.buyCardTop div {
+    height: 60px;
+    display: flex;
+    background-color: #0C0C0E;
+    justify-content: center;
+    align-items: center;
+}
+
+.buyCardTopTitle p {
+    font-family: Forum;
+    font-size: 40px;
+    text-align: center;
+    color: white;
+    line-height: 20px;
+    letter-spacing: 0.8px;
+    font-weight: 400;
+    margin: 0px;
+    text-transform: uppercase;
+}
+
+.buyCardBottom {
+    display: flex;
+    height: 480px;
+    flex-direction: row;
+    background-color: white;
+}
+
+.buyCardFormContainer {
+    display: flex;
+    width: 200px;
+    height: 410px;
+    margin: 30px auto 40px 35px;
+}
+
+.buyCardInputName {
+    font-family: Inter;
+    font-size: 15px;
+    line-height: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    letter-spacing: 0.3px;
+    font-weight: 400;
+}
+
+.buyCardInputName:first-child {
+    margin-top: 0px;
+}
+
+.buyCardInput {
+    border: 1px solid #BB945F;
+    height: 18px;
+    width: 198px;
+    padding: 0px;
+}
+
+#cardHolderNameInput {
+    margin-top: 20px;
+}
+
+#expirationCode {
+    display: flex;
+    gap: 10px;
+}
+
+#expirationCode input, #CVC {
+    width: 43px;
+}
+
+.buttonAndPrice {
+    display: flex;
+    margin-bottom: auto;
+    margin-top: 20px;
+}
+
+.buttonAndPrice button {
+    width: 75px;
+    height: 30px;
+    border: 1px solid #0C0C0E;
+    border-radius: 2px;
+    font-family: Inter;
+    font-size: 10px;
+    letter-spacing: 1px;
+    font-weight: 700;
+    margin-bottom: 0px;
+    margin-top: auto;
+    transition: 1.5s;
+}
+
+.buttonAndPrice button:hover {
+    cursor: pointer;
+    background-color: #BB945F;
+    border-color: #BB945F;
+    transition: 1.5s;
+}
+
+.buttonAndPrice button:disabled {
+    cursor: default;
+    background-color: white;
+    border-color: black
+}
+
+.buttonAndPrice p {
+    margin: auto auto 0px 25px;
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: 2px;
+}
+
+.buyCardText {
+    font-family: Inter;
+    font-size: 15px;
+    color: #8E8E8E;
+    font-weight: 400;
+    letter-spacing: 2px;
+    line-height: 20px;
+    margin: 30px 35px auto auto;
+    width: 330px;
+    height: 160px;
+}
+
+.buyCardText p {
+    margin: 0px;
+}
+
+#whiteCross {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    right: 20px;
+    top: 25px;
+    transition: .6s;
+}
+
+#whiteCross:hover {
+    cursor: pointer;
+    transform: scale(1.15);
+    transition: .6s;
 }
 
 section.about {
@@ -645,6 +1060,7 @@ section.favorites {
     position: absolute;
     left: 0px;
     top: 0px;
+    z-index: -10;
 }
 
 .winterBooks {
@@ -654,6 +1070,7 @@ section.favorites {
 .activeSeason {
     opacity: 1;
     transition: 2s;
+    z-index: 10;
 }
 
 .books {
@@ -1028,6 +1445,74 @@ div.libraryCardsContent {
     margin-top: 22px;
 }
 
+.getCard.close {
+    display: none;
+}
+
+.getCardAuthorized {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    margin: auto;
+    margin-top: 22px;
+    display: none;
+}
+
+.getCardAuthorized.open {
+    display: flex;
+}
+
+#getCardTitleAuthorized {
+    font-family: Forum;
+    margin-top: 0px;
+    margin-right: 0px;
+    text-align: center;
+}
+
+#getCardTextAuthorized {
+    color: black;
+    text-align: center;
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 40px;
+    letter-spacing: 0.4px;
+    margin-top: 10px;
+    width: 600px;
+}
+
+#getCardButtonAuthorized {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#getCardButtonAuthorized button {
+    display: flex;
+    width: 75px;
+    height: 30px;
+    padding: auto;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 2px;
+    border: 1px solid #0C0C0E;
+    transition: 1.5s;
+    font-family: Inter;
+    color: #0C0C0E;
+    background: white;
+    font-weight: 700;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+#getCardButtonAuthorized button:hover {
+    background: #BB945F;
+    cursor: pointer;
+    border-color: #BB945F;
+    transition: 1.5s;
+}
+
 .libraryCards h3 {
     font-size: 30px;
     color: black;
@@ -1118,6 +1603,29 @@ div.goldBackground {
     letter-spacing: 0.6px;
 }
 
+.informationBlockDigitalCard {
+    display: flex;
+    margin-top: 15px;
+    gap: 35px;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.informationBlockDigitalCard.open {
+    display: flex;
+}
+
+#visitsCountDigitalCard, #bonusesCountDigitalCard, #booksCountDigitalCard {
+    margin-top: 0px;
+}
+
+.informationBlockDigitalCard .informationBlockText {
+    font-size: 10px;
+    line-height: 20px;
+    margin-bottom: 0px;
+}
+
 #findCardForm button {
     padding: 10px auto;
     background: white;
@@ -1140,10 +1648,15 @@ div.goldBackground {
     line-height: normal;
 }
 
+#findCardForm button.close {
+    display: none;
+}
+
 #findCardForm button:hover {
     background: #BB945F;
     border: 1px solid #BB945F;
     transition: 1.5s;
+    cursor: pointer;
 }
 
 #getCardText {
@@ -1202,6 +1715,7 @@ div.background {
     background-color: black;
     position: fixed;
     top: 0px;
+    left: 0px;
     width: 100%;
     height: 100%;
     z-index: 199;
@@ -1273,7 +1787,9 @@ div.logInWindow.open {
 
 .logInAndRegisterInput {
     width: 200px;
-    height: 20px;
+    height: 18px;
+    padding: 0px;
+    margin: 0px;
     border: 1px solid #BB945F;
     margin-left: 25px;
 }

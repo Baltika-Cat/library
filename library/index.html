@@ -30,21 +30,7 @@
             <div id="user">
 
             </div>
-            <div class="popup" id="popup">
-                
-            </div>
-            <div id="logotype">
-                <p id="logoText">
-                    <img src="images/logo.svg" alt="logotype" id="logoIcon">
-                </p>
-            </div>
-        </div>
-    </header>
-    <main>
-        <section class="welcome">
-            <div class="centerWelcome">
-                <h3 id="welcome">WELCOME<br>TO THE BROOKLYN<br>LIBRARY</h3>
-            </div>
+            <div id="panel"></div>
             <div class="profileWindowNotLogIn">
                 <p class="profileTitle">Profile</p>
                 <hr class="profileLine">
@@ -56,6 +42,124 @@
                 <hr class="profileLine">
                 <p class="profileText" id="profileMyProfile">My profile</p>
                 <p class="profileText" id="profileLogOut">Log out</p>
+            </div>
+            <div class="popup" id="popup">
+                
+            </div>
+            <div id="logotype" title="">
+                <p id="logoText">
+                    <img src="images/logo.svg" alt="logotype" id="logoIcon">
+                </p>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="welcome">
+            <div class="centerWelcome">
+                <h3 id="welcome">WELCOME<br>TO THE BROOKLYN<br>LIBRARY</h3>
+            </div>
+            <div class="myProfileWindow">
+                <div class="leftSide">
+                    <div class="firstLettersBlock">
+                        <p class="firstLetters">
+
+                        </p>
+                    </div>
+                    <div class="fullNameBlock">
+                        <p class="fullName">
+
+                        </p>
+                    </div>
+                </div>
+                <div class="rightSide">
+                    <div class="myProfileTitleBlock">
+                        <p class="myProfileTitleText">
+                            my profile
+                        </p>
+                    </div>
+                    <div class="informationBlock">
+                        <div class="visitsBlock">
+                            <p class="informationBlockText">Visits</p>
+                            <img src="images/icon_visits.svg" alt="Visits">
+                            <p class="informationBlockCount" id="visitsCount"></p>
+                        </div>
+                        <div class="bonusesBlock">
+                            <p class="informationBlockText">Bonuses</p>
+                            <img src="images/icon_bonuses.svg" alt="Bonuses">
+                            <p class="informationBlockCount" id="bonusesCount">1240</p>
+                        </div>
+                        <div class="booksBlock">
+                            <p class="informationBlockText">Books</p>
+                            <img src="images/icon_book.svg" alt="Books">
+                            <p class="informationBlockCount" id="booksCount"></p>
+                        </div>
+                    </div>
+                    <div class="rentedBooksBlock">
+                        <div class="rentedBooksTitle">
+                            <p class=rentedBooksTitleText>
+                                Rented books
+                            </p>
+                        </div>
+                        <div class="rentedBooks">
+                            <ul>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="cardNumberProfile">
+                        <span class="cardNumberText">Card number</span>
+                        <span class="cardNumberNumber"></span>
+                        <span class="cardNumberCopy">
+                            <img src="images/icon_copy.svg" id="cardNumberCopy" alt="Copy">
+                        </span>
+                        <div class="copyTitle">
+                            <p>Copied</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="crossProfile">
+                    <img src="images/cross.svg" alt="Close button">
+                </div>
+            </div>
+            <div class="buyCardWindow">
+                <div class="buyCardTop">
+                    <div class="buyCardTopTitle">
+                        <p>buy a library card</p>
+                    </div>
+                </div>
+                <div class="buyCardBottom">
+                    <div class="buyCardFormContainer">
+                        <form action="index.html" method="get" id="buyCardForm">
+                            <p class="buyCardInputName">Bank card number</p>
+                            <input type="tel" name="bankCard" class="buyCardInput" id="bankCard" minlength="16" maxlength="16" required>
+                            <p class="buyCardInputName">Expiration code</p>
+                            <div id="expirationCode">
+                                <input type="tel" minlength="2" maxlength="2" name="expirationCodeLeft" class="buyCardInput" id="expirationCodeLeft" required>
+                                <input type="tel" minlength="2" maxlength="2" class="buyCardInput" id="expirationCodeRight" required>
+                            </div>
+                            <p class="buyCardInputName">CVC</p>
+                            <input type="tel" name="CVC" minlength="3" maxlength="3" class="buyCardInput" id="CVC" required>
+                            <p class="buyCardInputName" id="cardHolderNameInput">Cardholder name</p>
+                            <input type="text" name="cardholderName" class="buyCardInput" id="cardholderName" required>
+                            <p class="buyCardInputName">Postal code</p>
+                            <input type="number" name="postalCode" minlength="1" maxlength="12" class="buyCardInput" id="postalCode" required>
+                            <p class="buyCardInputName">City / Town</p>
+                            <input type="text" name="city" class="buyCardInput" id="city" required>
+                            <div class="buttonAndPrice">
+                                <button name="buyCardBuy" id="buyCardBuy" disabled>Buy</button>
+                                <p>$ 25.00</p>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="buyCardText">
+                        <p>
+                            If you are live, work, attend school, or pay property taxes in New York State, you can get 
+                            a $25 digital library card right now using this online form. Visitors to New York State can 
+                            also use this form to apply for a temporary card.
+                        </p>
+                    </div>
+                </div>
+                <img src="images/cross_white.svg" alt="Close" id="whiteCross">
             </div>
         </section>
         <section class="about">
@@ -119,7 +223,7 @@
                         <div class="firstBook">
                             <div class="bookBorder">
                                 <h3>Staff Picks</h3>
-                                <h4>THE BOOK EATERS<br>By Sunyi Dean</h4>
+                                <h4><span class="bookName">THE BOOK EATERS</span><br>By <span class="author">Sunyi Dean</span></h4>
                                 <p>
                                     An unusual Sci-Fi Story About A Book Eater Woman Who Tries Desperately 
                                     To Save Her Dangerous Mind-Eater Son From Tradition And Certain Death. 
@@ -135,7 +239,7 @@
                         <div class="secondBook">
                             <div class="bookBorder">
                                 <h3>Staff Picks</h3>
-                                <h4>CACKLE<br>By Rachel Harrison</h4>
+                                <h4><span class="bookName">CACKLE</span><br>By <span class="author">Rachel Harrison</span></h4>
                                 <p>
                                     Are Your Halloween Movies Of Choice The Witches Of Eastwick And Practical
                                     Magic? Look No Further Than Here - Where A Woman Recovering From A Breakup
@@ -150,7 +254,7 @@
                         <div class="thirdBook">
                             <div class="bookBorder">
                                 <h3>Staff Picks</h3>
-                                <h4>DANTE: POET OF THE SECULAR WORLD<br>By Erich Auerbach</h4>
+                                <h4><span class="bookName">DANTE: POET OF THE SECULAR WORLD</span><br>By <span class="author">Erich Auerbach</span></h4>
                                 <p>
                                     Auerbach's Engaging Book Places The 'Comedy' Within The Tradition Of Epic,
                                     Tragedy, And Philosophy In General, Arguing For Dante's Uniqueness As One
@@ -166,14 +270,14 @@
                         <div class="fourthBook">
                             <div class=bookBorder>
                                 <h3>Staff Picks</h3>
-                                <h4>THE LAST QUEEN<br>By Clive Irving</h4>
+                                <h4><span class="bookName">THE LAST QUEEN</span><br>By <span class="author">Clive Irving</span></h4>
                                 <p>
                                     A Timely And Revelatory New Biography Of Queen Elizabeth (And Her Family) 
                                     Exploring How The Windsors Have Evolved And Thrived As The Modern World Has 
                                     Changed Around Them.
                                 </p>
                                 <span class="bookButton">
-                                    <button name="queen" class="own" disabled>Own</button>
+                                    <button name="queen" class="buy">Buy</button>
                                 </span>
                             </div>
                             <img src="images/queen.png" alt="The Last Queen">
@@ -185,7 +289,7 @@
                         <div class="firstBook">
                             <div class="bookBorder">
                                 <h3>Staff Picks</h3>
-                                <h4>THE BODY<br>By Stephen King</h4>
+                                <h4><span class="bookName">THE BODY</span><br>By <span class="author">Stephen King</span></h4>
                                 <p>
                                     Powerful novel that takes you back to a nostalgic time, exploring 
                                     both the beauty and danger and loss of innocence that is youth.
@@ -199,7 +303,7 @@
                         <div class="secondBook">
                             <div class="bookBorder">
                                 <h3>Staff Picks</h3>
-                                <h4>CARRY: A MEMOIR OF SURVIVAL ON STOLEN LAND<br>By Toni Jenson</h4>
+                                <h4><span class="bookName">CARRY: A MEMOIR OF SURVIVAL ON STOLEN LAND</span><br>By <span class="author">Toni Jenson</span></h4>
                                 <p>
                                     This memoir about the author's relationship with gun violence feels 
                                     both expansive and intimate, resulting in a lyrical indictment of the 
@@ -214,7 +318,7 @@
                         <div class="thirdBook">
                             <div class="bookBorder">
                                 <h3>Staff Picks</h3>
-                                <h4>DAYS OF DISTRACTION<br>By Alexandra Chang</h4>
+                                <h4><span class="bookName">DAYS OF DISTRACTION</span><br>By <span class="author">Alexandra Chang</span></h4>
                                 <p>
                                     A sardonic view of Silicon Valley culture, a meditation on race, and 
                                     a journal of displacement and belonging, all in one form-defying package 
@@ -229,7 +333,7 @@
                         <div class="fourthBook">
                             <div class=bookBorder>
                                 <h3>Staff Picks</h3>
-                                <h4>DOMINICANA<br>By Angie Cruz</h4>
+                                <h4><span class="bookName">DOMINICANA</span><br>By <span class="author">Angie Cruz</span></h4>
                                 <p>
                                     A fascinating story of a teenage girl who marries a man twice her age 
                                     with the promise to bring her to America. Her marriage is an opportunity 
@@ -237,7 +341,7 @@
                                     Julia Alvarez.
                                 </p>
                                 <span class="bookButton">
-                                    <button name="dominicana" class="own" disabled>Own</button>
+                                    <button name="dominicana" class="buy">Buy</button>
                                 </span>
                             </div>
                             <img src="images/dominicana.png" alt="Dominicana">
@@ -249,7 +353,7 @@
                         <div class="firstBook">
                             <div class="bookBorder">
                                 <h3>Staff Picks</h3>
-                                <h4>CRUDE: A MEMOIR<br>By Pablo Fajardo &amp; Sophie Tardy-Joubert</h4>
+                                <h4><span class="bookName">CRUDE: A MEMOIR</span><br>By <span class="author">Pablo Fajardo &amp; Sophie Tardy-Joubert</span></h4>
                                 <p>
                                     Drawing and color by Damien Roudeau | This book illustrates the struggles 
                                     of a group of indigenous Ecuadoreans as they try to sue the ChevronTexaco 
@@ -264,7 +368,7 @@
                         <div class="secondBook">
                             <div class="bookBorder">
                                 <h3>Staff Picks</h3>
-                                <h4>LET MY PEOPLE GO SURFING<br>By Yvon Chouinard</h4>
+                                <h4><span class="bookName">LET MY PEOPLE GO SURFING</span><br>By <span class="author">Yvon Chouinard</span></h4>
                                 <p>
                                     Chouinard—climber, businessman, environmentalist—shares tales of courage and 
                                     persistence from his experience of founding and leading Patagonia, Inc. Full 
@@ -280,7 +384,7 @@
                         <div class="thirdBook">
                             <div class="bookBorder">
                                 <h3>Staff Picks</h3>
-                                <h4>THE OCTOPUS MUSEUM: POEMS<br>By Brenda Shaughnessy</h4>
+                                <h4><span class="bookName">THE OCTOPUS MUSEUM: POEMS</span><br>By <span class="author">Brenda Shaughnessy</span></h4>
                                 <p>
                                     This collection of bold and scathingly beautiful feminist poems imagines what 
                                     comes after our current age of environmental destruction, racism, sexism, and 
@@ -295,15 +399,14 @@
                         <div class="fourthBook">
                             <div class=bookBorder>
                                 <h3>Staff Picks</h3>
-                                <h4>SHARK DIALOGUES: A NOVEL<br>By Kiana Davenport
-                                    </h4>
+                                <h4><span class="bookName">SHARK DIALOGUES: A NOVEL</span><br>By <span class="author">Kiana Davenport</span></h4>
                                 <p>
                                     An epic saga of seven generations of one family encompasses the tumultuous history 
                                     of Hawaii as a Hawaiian woman gathers her four granddaughters together in an erotic 
                                     tale of villains and dreamers, queens and revolutionaries, lepers and healers.
                                 </p>
                                 <span class="bookButton">
-                                    <button name="shark" class="buy" disabled>Buy</button>
+                                    <button name="shark" class="buy">Buy</button>
                                 </span>
                             </div>
                             <img src="images/shark.png" alt="Shark Dialogues: A Novel">
@@ -315,7 +418,7 @@
                         <div class="firstBook">
                             <div class="bookBorder">
                                 <h3>Staff Picks</h3>
-                                <h4>CASUAL CONVERSATION<br>By Renia White</h4>
+                                <h4><span class="bookName">CASUAL CONVERSATION</span><br>By <span class="author">Renia White</span></h4>
                                 <p>
                                     White's impressive debut collection takes readers through and beyond the concepts of 
                                     conversation and the casual - both what we say to each other and what we don't, examining 
@@ -330,7 +433,7 @@
                         <div class="secondBook">
                             <div class="bookBorder">
                                 <h3>Staff Picks</h3>
-                                <h4>THE GREAT FIRE<br>By Lou Ureneck</h4>
+                                <h4><span class="bookName">THE GREAT FIRE</span><br>By <span class="author">Lou Ureneck</span></h4>
                                 <p>
                                     The harrowing story of an ordinary American and a principled Naval officer who, horrified 
                                     by the burning of Smyrna, led an extraordinary rescue effort that saved a quarter of a million 
@@ -345,7 +448,7 @@
                         <div class="thirdBook">
                             <div class="bookBorder">
                                 <h3>Staff Picks</h3>
-                                <h4>RICKEY: THE LIFE AND LEGEND<br>By Howard Bryant</h4>
+                                <h4><span class="bookName">RICKEY: THE LIFE AND LEGEND</span><br>By <span class="author">Howard Bryant</span></h4>
                                 <p>
                                     With the fall rolling around, one can't help but think of baseball's postseason coming up! 
                                     And what better way to prepare for it than reading the biography of one of the game's all-time 
@@ -360,13 +463,13 @@
                         <div class="fourthBook">
                             <div class=bookBorder>
                                 <h3>Staff Picks</h3>
-                                <h4>SLUG: AND OTHER STORIES<br>By Megan Milks</h4>
+                                <h4><span class="bookName">SLUG: AND OTHER STORIES</span><br>By <span class="author">Megan Milks</span></h4>
                                 <p>
                                     Exes Tegan and Sara find themselves chained together by hairballs of codependency. A father and 
                                     child experience the shared trauma of giving birth to gods from their wounds.
                                 </p>
                                 <span class="bookButton">
-                                    <button name="slug" class="buy" disabled>Buy</button>
+                                    <button name="slug" class="buy">Buy</button>
                                 </span>
                             </div>
                             <img src="images/slug.png" alt="Slug: And Other Stories">
@@ -486,9 +589,26 @@
                             <div class="goldBackground">
                                 <p id="findCardFormTitle">Brooklyn Public Library</p>
                                 <input type="text" name="name" placeholder="Reader's name" id="nameInput">
-                                <input type="number" name="number" placeholder="Card number" id="passwordInput">
+                                <input type="text" name="number" placeholder="Card number" id="passwordInput">
                             </div>
-                            <button name="checkCard" class="checkCard" disabled>Check the card</button>
+                            <div class="informationBlockDigitalCard">
+                                <div class="visitsBlock">
+                                    <p class="informationBlockText">Visits</p>
+                                    <img src="images/icon_visits.svg" alt="Visits">
+                                    <p class="informationBlockCount" id="visitsCountDigitalCard"></p>
+                                </div>
+                                <div class="bonusesBlock">
+                                    <p class="informationBlockText">Bonuses</p>
+                                    <img src="images/icon_bonuses.svg" alt="Bonuses">
+                                    <p class="informationBlockCount" id="bonusesCountDigitalCard">1240</p>
+                                </div>
+                                <div class="booksBlock">
+                                    <p class="informationBlockText">Books</p>
+                                    <img src="images/icon_book.svg" alt="Books">
+                                    <p class="informationBlockCount" id="booksCountDigitalCard"></p>
+                                </div>
+                            </div>
+                            <button type="button" name="checkCard" class="checkCard">Check the card</button>
                         </form>    
                     </div>
                 </div>
@@ -502,34 +622,44 @@
                         <button name="logIn" id="logIn">Log In</button>
                     </div>
                 </div>
+                <div class="getCardAuthorized">
+                    <h3 id="getCardTitleAuthorized">Visit your profile</h3>
+                    <p id="getCardTextAuthorized">
+                        With a digital library card you get free access to the Library's wide array of digital resources
+                        including e-books, databases, educational resources, and more.
+                    </p>
+                    <div id="getCardButtonAuthorized">
+                        <button name="ProfileAuthorized" id="profileAuthorizedButton">Profile</button>
+                    </div>
+                </div>
             </div>
             <div class="background">
 
             </div>
             <div class="logInWindow">
-                <h3 class="logInAndRegisterTitle">login</h3>
+                <h4 class="logInAndRegisterTitle">login</h4>
                 <div class="cross">
                     <img src="images/cross.svg" alt="Close button">
                 </div>
-                <form action="" method="">
+                <form action="" method="" id="logInForm">
                     <div>
                         <p class="logInAndRegisterText">E-mail or readers card</p>
-                        <input type="text" name="logIn" class="logInAndRegisterInput" id="logInLogInInput">
+                        <input type="text" name="logIn" class="logInAndRegisterInput" id="logInLogInInput" required>
                     </div>
                     <div>
                         <p class="logInAndRegisterText">Password</p>
-                        <input type="text" name="logInPassword" class="logInAndRegisterInput" id="logInPasswordInput">
+                        <input type="text" minlength="8" name="logInPassword" class="logInAndRegisterInput" id="logInPasswordInput" required>
                     </div>
                     <button name="logInWindowLogIn" id="logInWindowLogIn">Log in</button>
                 </form>
                 <p class="logInAndRegisterBottom">Don't have an account?<span id="registerLink">Register</span></p>
             </div>
             <div class="registerWindow">
-                <h3 class="logInAndRegisterTitle">register</h3>
+                <h4 class="logInAndRegisterTitle">register</h4>
                 <div class="cross">
                     <img src="images/cross.svg" alt="Close button">
                 </div>
-                <form action="index.html" method="get">
+                <form action="index.html" method="get" id="registerForm">
                     <div>
                         <p class="logInAndRegisterText">First name</p>
                         <input type="text" name="firstName" class="logInAndRegisterInput" id="registerFirstNameInput" required>

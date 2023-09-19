@@ -41,61 +41,262 @@ const user = document.querySelector("#user");
 const firstName = document.querySelector("#registerFirstNameInput");
 const lastName = document.querySelector("#registerLastNameInput");
 const profileCardNumber = document.querySelector("#profileCardNumber");
+const bookButtons = document.querySelectorAll(".buy");
+const myProfileWindow = document.querySelector("div.myProfileWindow");
+const crossProfile = document.querySelector(".crossProfile");
+const firstLetters = document.querySelector(".firstLetters");
+const fullName = document.querySelector(".fullName");
+const booksCount = document.querySelector("#booksCount");
+const visitsCount = document.querySelector("#visitsCount");
+const cardNumberNumber = document.querySelector(".cardNumberNumber");
+const cardCopy = document.querySelector(".cardNumberCopy");
+const booksList = document.querySelector(".rentedBooks ul");
+const buyCardWindow = document.querySelector(".buyCardWindow");
+const whiteCross = document.querySelector("#whiteCross");
+const buyCardForm = document.querySelector("#buyCardForm");
+const buyCardButton = document.querySelector("#buyCardBuy");
+const checkCardButton = document.querySelector(".checkCard");
+const signUp = document.querySelector("#signUp");
+const logInInCard = document.querySelector("#logIn");
+const checkLibraryCard = document.querySelector("#passwordInput");
+const readerName = document.querySelector("#nameInput");
+const checkLibraryCardButton = document.querySelector("#findCardForm button");
+const informationBlockInDigitalCard = document.querySelector(".informationBlockDigitalCard");
+const visitsCountDigitalCard = document.querySelector("#visitsCountDigitalCard");
+const bonusesCountDigitalCard = document.querySelector("#bonusesCountDigitalCard");
+const booksCountDigitalCard = document.querySelector("#booksCountDigitalCard");
+const copyTitle = document.querySelector(".copyTitle");
+const profileButton = document.querySelector("#profileAuthorizedButton");
+const getCard = document.querySelector(".getCard");
+const getCardAuthorized = document.querySelector(".getCardAuthorized");
+const cardTitle = document.querySelector("#findCard");
+const logInForm = document.querySelector("#logInForm");
+const registerForm = document.querySelector("#registerForm");
 
 let values = [];
 
 function register() {
-
     values[0] = registerPasswordInput.value;
     values[1] = firstName.value;
     values[2] = lastName.value;
+    values[4] = 0;
+    values[5] = [];
+    values[6] = [];
+    values[7] = "false";
     let cardNumber = "";
     for(let i = 0; i < 9; i++) {
         cardNumber += (Math.floor(Math.random() * 16)).toString(16);
     }
     values[3] = cardNumber;
-    localStorage.setItem(registerEmailInput.value, JSON.stringify(values));
-    localStorage.values = JSON.stringify(values);
+    localStorage.setItem((registerEmailInput.value).toLowerCase(), JSON.stringify(values));
+    localStorage.setItem(values[3], JSON.stringify(values));
+    logIn();
+    /*console.log(localStorage.getItem(registerEmailInput.value));
+    console.log(logInLogInInput);
+    console.log(registerEmailInput.value);
+    console.log(registerPasswordInput.value);
+    console.log(logInPasswordInput);
+    console.log(localStorage.getItem("user"));    
+    console.log(localStorage.getItem(logInLogInInput.value));*/
 }
 
-registerWindowSignUp.addEventListener("click", register);
+registerWindowSignUp.addEventListener("click", function() {
+    if(registerForm.checkValidity() === true) {
+        register();
+    }
+});
+
+function capitalize(str) {
+    let capArr = str.split(" ").map(word => {
+       return word[0].toUpperCase() + word.slice(1);
+    })
+    return capArr.join(" ");
+}
+
+function checkValid(e) {
+    const target = e.target.form;
+    const isValid = target.checkValidity();
+    target.querySelector("button").disabled = !isValid;
+}
+
+buyCardButton.addEventListener("click", function() {
+    let values = [];
+    if((localStorage.getItem("name")).toLowerCase() != null) {
+        values = JSON.parse(localStorage.getItem((localStorage.getItem("name")).toLowerCase()));//
+    } else {
+        values = JSON.parse(localStorage.getItem((localStorage.getItem("card")).toLowerCase()));
+    }
+    values[7] = "true";
+    localStorage.setItem((localStorage.getItem("name")).toLowerCase(), JSON.stringify(values));//
+    localStorage.setItem((localStorage.getItem("card")).toLowerCase(), JSON.stringify(values));//
+})
+
+buyCardForm.addEventListener("input", checkValid);
 
 function logIn() {
-    let values = JSON.parse(localStorage.getItem(logInLogInInput.value));
-    if(values[0] === null) {
-        console.log("E-mail is not register!");
+    let values = [];
+    if(logInLogInInput.value != "") {
+        values = JSON.parse(localStorage.getItem((logInLogInInput.value).toLowerCase()));
     } else {
-        if(values[0] === logInPasswordInput.value || localStorage.getItem(values[3]) === logInPasswordInput.value) {
+        values = JSON.parse(localStorage.getItem((registerEmailInput.value).toLowerCase()));
+    }
+    if(values[0] === null) {
+        console.log("E-mail is not register");
+    } else {
+        if((values[0] === logInPasswordInput.value) || values[0] === registerPasswordInput.value) {
             localStorage.setItem("user", "authorized");
             let text = (values[1])[0] + (values[2])[0];
+            let name = `${values[1]} ${values[2]}`;
+            let cardNumber = values[3].toUpperCase();
+            values[4]++;
+            localStorage.setItem(registerEmailInput.value, JSON.stringify(values));//
+            localStorage.setItem(logInLogInInput.value, JSON.stringify(values));
+            localStorage.setItem(values[3], JSON.stringify(values));
+            if(logInLogInInput.value != "") {
+                if(logInLogInInput.value != values[3]) {
+                    localStorage.setItem("name", logInLogInInput.value);//
+                } else {
+                    localStorage.remove("name");
+                }    
+            } else {
+                localStorage.setItem("name", registerEmailInput.value);
+            }
             localStorage.setItem("logo", text);
+            localStorage.setItem("fullName", name);
+            localStorage.setItem("card", cardNumber);
+            localStorage.setItem("count", values[4]);
             profileCardNumber.textContent = values[3].toUpperCase();
-        } else {
-            console.log("Password is wrong!");
-        }
+            localStorage.setItem("books", JSON.stringify(values[5]));
+            localStorage.setItem("buttons", JSON.stringify(values[6]));
+            localStorage.setItem("hasCard", values[7]);
+        }    
     }
 }
-//ИДЕЯ: ОБЪЯВИТЬ ПЕРЕМЕННУЮ , КОТОРАЯ БУДЕТ УВЕЛИЧИВАТЬСЯ С КАЖДОЙ РЕГИСТРАЦИЕЙ, ЗАТЕМ ПРИСВАИВАТЬ ИМЯ КЛЮЧУ В LOCALsTORAGE в стиле 
-//"key" + i  И ЗНАЧЕНИЕ CARDNUMBER
-logInWindowLogIn.addEventListener("click", logIn);
+
+bookButtons.forEach((bookButton) => {
+    bookButton.addEventListener("click", function() {
+        if(localStorage.getItem("user") === "authorized") {    
+            buttonName = this.name;
+            let book = bookButton.closest(".bookBorder");
+            let bookName = (book.getElementsByClassName("bookName")[0]).textContent.toLowerCase();
+            let author = (book.getElementsByClassName("author"))[0].textContent.toLowerCase();
+            let bookNameInfo = capitalize(bookName);
+            let authorInfo = capitalize(author);
+            let bookInfo = `${bookNameInfo}, ${authorInfo}`;
+            /*bookButton.classList.remove("buy");
+            bookButton.classList.add("own");
+            bookButton.textContent = "Own";
+            bookButton.disabled = true;*/
+            //values[5] = JSON.parse(localStorage.getItem("books"));
+            //values[6] = JSON.parse(localStorage.getItem("buttons"));
+            let values = [];
+            if((localStorage.getItem("name")).toLowerCase() != null) {
+                values = JSON.parse(localStorage.getItem((localStorage.getItem("name")).toLowerCase()));//
+            } else {
+                values = JSON.parse(localStorage.getItem((localStorage.getItem("card")).toLowerCase()));
+            }
+            if(values[7] === "true") {
+                bookButton.classList.remove("buy");
+                bookButton.classList.add("own");
+                bookButton.textContent = "Own";
+                bookButton.disabled = true;
+                values[5].push(bookInfo);
+                values[6].push(buttonName);
+                booksCount.textContent = values[5].length;
+                booksCountDigitalCard.textContent = values[5].length;
+                let li = document.createElement("li");
+                li.appendChild(document.createTextNode(bookInfo));
+                console.log(li);
+                booksList.appendChild(li);
+            } else {
+                buyCardWindow.classList.add("open");
+                background.classList.add("open");
+            }
+            //localStorage.setItem("books", JSON.stringify(values[5]));
+            //localStorage.setItem("buttons", JSON.stringify(values[6]));
+            localStorage.setItem((localStorage.getItem("name")).toLowerCase(), JSON.stringify(values));//
+            localStorage.setItem((localStorage.getItem("card")).toLowerCase(), JSON.stringify(values));//
+        } else {
+            logInWindow.classList.add("open");
+            background.classList.add("open");
+        }
+    })
+})
+
+logInWindowLogIn.addEventListener("click", function() {
+    if(logInForm.checkValidity() === true) {
+        logIn();
+    }
+});
+
 profileLogOutButton.addEventListener("click", function() {
     localStorage.removeItem("user");
     location.reload();
 })
 
 window.addEventListener("load", function() {
+    //localStorage.clear();
     if(localStorage.getItem("user") === "authorized") {
         user.classList.add("authorized");
         logotypeIcon.classList.add("authorized");
+        logotypeIcon.title = capitalize(localStorage.getItem("fullName"));
         profileWindowNotLogIn.classList.add("profileNonActive");
-        console.log("authorized");
         logoText.textContent = (localStorage.getItem("logo")).toUpperCase();
-        console.log(values[3]);
-        profileCardNumber.textContent = values[3].toUpperCase();
+        firstLetters.textContent = (localStorage.getItem("logo")).toUpperCase();
+        fullName.textContent = (localStorage.getItem("fullName"));
+        profileCardNumber.textContent = localStorage.getItem("card");
+        let values = [];
+        if((localStorage.getItem("name")).toLowerCase() != null) {
+            values = JSON.parse(localStorage.getItem((localStorage.getItem("name")).toLowerCase()));//
+        } else {
+            values = JSON.parse(localStorage.getItem((localStorage.getItem("card")).toLowerCase()));
+        }
+        let booksArray = values[5];//JSON.parse(localStorage.getItem("books"));
+        booksCount.textContent = booksArray.length;
+        visitsCount.textContent = localStorage.getItem("count");
+        visitsCountDigitalCard.textContent = localStorage.getItem("count");
+        booksCountDigitalCard.textContent = values[5].length;
+        cardNumberNumber.textContent = localStorage.getItem("card");
+        let buttons = values[6];//JSON.parse(localStorage.getItem("buttons"));
+        bookButtons.forEach((bookButton) => {
+            buttons.forEach((button) => {
+                if((bookButton === (document.getElementsByName(button)[0]))) {
+                    bookButton.classList.remove("buy");
+                    bookButton.classList.add("own");
+                    bookButton.textContent = "Own";
+                    bookButton.disabled = true;
+                }
+            })
+        })
+        booksArray.forEach((book) => {
+            let li = document.createElement("li");
+            li.appendChild(document.createTextNode(book));
+            booksList.appendChild(li);
+        })
+        informationBlockInDigitalCard.classList.add("open");
+        checkLibraryCardButton.classList.add("close");
+        getCard.classList.add("close");
+        getCardAuthorized.classList.add("open");
+        cardTitle.textContent = "Your Library card";
+        checkLibraryCard.value = (localStorage.getItem("card")).toUpperCase();
+        checkLibraryCard.setAttribute("readonly", true);
+        readerName.value = capitalize(localStorage.getItem("fullName"));
+        readerName.setAttribute("readonly", true);
     } else {
         console.log("non-authorized");
-        console.log(localStorage.getItem("qwerty@mail.ru"));
     }
+})
+
+cardCopy.addEventListener("click", function() {
+    navigator.clipboard.writeText(localStorage.getItem("card"));
+    copyTitle.classList.add("open");
+    copyTitle.classList.add("openVisible");
+    setTimeout(() => {
+        copyTitle.classList.remove("openVisible");
+    }, 300)
+    setTimeout(() => {
+        copyTitle.classList.remove("open");
+    }, 1300);
 })
 /*const text = function() {
     logoText.textContent = "JD";
@@ -119,6 +320,8 @@ const closeWindow = function() {
     logInWindow.classList.remove("open");
     registerWindow.classList.remove("open");
     background.classList.remove("open");
+    myProfileWindow.classList.remove("open");   
+    buyCardWindow.classList.remove("open"); 
 }
 
 hamburgerIcon.addEventListener("click", closeWindowNotLogIn);
@@ -157,11 +360,57 @@ profileLogInButton.addEventListener("click", function() {
     background.classList.add("open");
 });
 
+profileMyProfileButton.addEventListener("click", function() {
+    closeWindow();
+    myProfileWindow.classList.add("open");
+    background.classList.add("open");
+})
+
+profileButton.addEventListener("click", function() {
+    closeWindow();
+    myProfileWindow.classList.add("open");
+    background.classList.add("open");
+})
+
 background.addEventListener("click", closeWindow);
 
 crossIcons.forEach((crossIcon) => {
     crossIcon.addEventListener("click", closeWindow)
 });
+
+crossProfile.addEventListener("click", closeWindow);
+
+whiteCross.addEventListener("click", closeWindow);
+
+checkLibraryCardButton.addEventListener("click", function() {
+    let values = JSON.parse(localStorage.getItem((checkLibraryCard.value).toLowerCase()));
+    booksCountDigitalCard.textContent = values[5].length;
+    visitsCountDigitalCard.textContent = values[4];
+    if((readerName.value).toLowerCase() === (`${values[1]} ${values[2]}`).toLowerCase()) {
+        informationBlockInDigitalCard.classList.add("open");
+        checkLibraryCardButton.classList.add("close");
+        setTimeout(() => {
+            informationBlockInDigitalCard.classList.remove("open");
+            checkLibraryCardButton.classList.remove("close");
+            checkLibraryCard.value = "";
+            readerName.value = "";
+        }, 10000)
+    }
+})
+
+logInInCard.addEventListener("click", function() {
+    if((localStorage.getItem("user")) != "authorized") {
+        logInWindow.classList.add("open");
+        background.classList.add("open");
+    }
+})
+
+signUp.addEventListener("click", function() {
+    if((localStorage.getItem("user")) != "authorized") {
+        registerWindow.classList.add("open");
+        background.classList.add("open");
+    }
+})
 
 document.addEventListener("click", function (e) {
     const target = e.target;
@@ -288,12 +537,10 @@ function showSlide() {
         sliderWidth = document.querySelector(".slider").offsetWidth;
         slider.style.width = sliderWidth * imagesAbout.length + "px";
         imagesAbout.forEach(item => item.style.width = sliderWidth + "px");
-        console.log(window.outerWidth);
     } else {
         sliderWidth = document.querySelector(".slider").offsetWidth;
         slider.style.width = sliderWidth * imagesAbout.length + "px";
         imagesAbout.forEach(item => item.style.width = (sliderWidth - 50) / 3 + "px");
-        console.log(window.innerWidth);
     }
     rollSlider();
 }
@@ -320,7 +567,6 @@ pagination.forEach((point, index) => {
         sliderCount = index;
         rollSlider();
         thisSlide(sliderCount);
-        console.log(sliderCount);
         if(sliderCount === 0) {
             rightArrow.classList.remove("arrowDisabled");
             leftArrow.classList.add("arrowDisabled");
